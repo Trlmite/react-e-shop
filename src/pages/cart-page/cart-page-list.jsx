@@ -14,7 +14,16 @@ const CartPageList = () => (
         <Divider orientation="vertical" flexItem />
         <Box>Price</Box>
         <Divider orientation="vertical" flexItem />
-        <Box>Stock</Box>
+        <Box>Count</Box>
+        <Divider orientation="vertical" flexItem />
+        <Box>Delete btn</Box>
+      </ListItemStyled>
+      <ListItemStyled>
+        <Box>ZOTAC GAMING GeForce RTX 2060 6GB GDDR6</Box>
+        <Divider orientation="vertical" flexItem />
+        <Box>795.55 €</Box>
+        <Divider orientation="vertical" flexItem />
+        <Box>1</Box>
         <Divider orientation="vertical" flexItem />
         <Box>Delete btn</Box>
       </ListItemStyled>
