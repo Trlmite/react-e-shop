@@ -24,7 +24,10 @@ const NavBar = () => (
             <Typography variant="h6" sx={{ mx: 1 }}>Home</Typography>
           </Link>
           <Link to="/items">
-            <Typography variant="h6">Items</Typography>
+            <Typography variant="h6" sx={{ mx: 1 }}>Items</Typography>
+          </Link>
+          <Link to="/cart">
+            <Typography variant="h6">Cart</Typography>
           </Link>
         </Box>
         <Box>

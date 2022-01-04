@@ -1,7 +1,7 @@
 import { styled, Box } from '@mui/material';
 
 const FilterPageBox = styled(Box)(({ theme }) => ({
-  width: '80%',
+  width: '100%',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
