@@ -10,7 +10,8 @@ const ListItemStyled = styled(ListItem)(({ theme }) => ({
   gridColumnGap: 0,
   gridRowGap: 0,
   color: theme.palette.common.black,
-  padding: theme.spacing(2),
+  padding: theme.spacing(1),
+  textAlign: 'center',
 }));
 
 export default ListItemStyled;
