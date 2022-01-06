@@ -4,7 +4,6 @@ import {
   Box,
   Toolbar,
   Typography,
-  Button,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 
@@ -26,9 +25,13 @@ const NavBar = () => (
             <Typography variant="h6">Cart</Typography>
           </Link>
         </Box>
-        <Box>
-          <Button color="inherit">Login</Button>
-          <Button color="inherit">Register</Button>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Link to="/login">
+            <Typography variant="h6" sx={{ mx: 1 }}>Login</Typography>
+          </Link>
+          <Link to="/register">
+            <Typography variant="h6" sx={{ mx: 1 }}>Register</Typography>
+          </Link>
         </Box>
       </Toolbar>
     </AppBar>
