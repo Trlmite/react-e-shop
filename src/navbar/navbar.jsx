@@ -5,11 +5,7 @@ import {
   Toolbar,
   Typography,
   Button,
-  TextField,
-  InputAdornment,
-  Input,
 } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom';
 
 const NavBar = () => (
@@ -31,28 +27,8 @@ const NavBar = () => (
           </Link>
         </Box>
         <Box>
-          <Input
-            id="search"
-            label="Search for..."
-            startAdornment={(
-              <InputAdornment position="end">
-                <SearchIcon />
-              </InputAdornment>
-            )}
-          />
-        </Box>
-        <Box>
-          <TextField
-            label="Email"
-            id="userEmail"
-            size="small"
-          />
-          <TextField
-            label="Password"
-            id="userPassword"
-            size="small"
-          />
           <Button color="inherit">Login</Button>
+          <Button color="inherit">Register</Button>
         </Box>
       </Toolbar>
     </AppBar>
