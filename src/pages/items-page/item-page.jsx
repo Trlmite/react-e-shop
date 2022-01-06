@@ -14,7 +14,7 @@ const ItemPage = () => (
         <ItemPageFilter />
       </Grid>
       <Grid item xs={10}>
-        <ItemPageGrid sx={{ mx: 1 }} />
+        <ItemPageGrid />
       </Grid>
     </Grid>
   </Box>

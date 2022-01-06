@@ -16,7 +16,7 @@ const ItemPageGrid = () => {
   }, []);
 
   return (
-    <Box sx={{ mx: 1 }}>
+    <Box sx={{ mx: 2 }}>
       <ItemsGridGrid>
         {items.map((item) => (
           <ItemPageGridCard

@@ -14,8 +14,9 @@ const ItemPageGridCard = ({
   title, imageURL, description, price,
 }) => (
   <Box>
-    <Card sx={{ maxWidth: 300 }}>
+    <Card sx={{ maxWidth: 300, height: 400 }}>
       <CardMedia
+        sx={{ p: 2 }}
         component="img"
         height="150"
         image={imageURL}
@@ -35,7 +36,7 @@ const ItemPageGridCard = ({
       </CardContent>
       <CardActions>
         <Box sx={{
-          display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%', alignContent: 'center',
+          display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%',
         }}
         >
           <Button color="success" variant="contained" endIcon={<AddShoppingCartIcon />}>
