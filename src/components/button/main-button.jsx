@@ -13,8 +13,6 @@ const MainButton = styled(ButtonUnstyled)(({ theme }) => ({
   cursor: 'pointer',
   ':hover': {
     color: theme.palette.common.black,
-  },
-  '&.active': {
     background: theme.palette.primary.light,
   },
 }));
