@@ -6,7 +6,7 @@ import {
   Typography,
   useTheme,
 } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import MainButton from '../components/button/main-button';
 
 const NavBar = () => {
@@ -17,32 +17,32 @@ const NavBar = () => {
       <AppBar position="sticky">
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', bgcolor: theme.palette.primary.main }}>
           <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Link to="/" style={{ textDecoration: 'none' }}>
-              <MainButton sx={{ bgcolor: theme.palette.primary.light }}>
-                <Typography variant="h6" sx={{ mx: 1 }}>Home</Typography>
-              </MainButton>
-            </Link>
             <MainButton>
-              <Link to="/items" underline="none">
-                <Typography variant="h6" sx={{ mx: 1 }}>Items</Typography>
-              </Link>
+              <NavLink to="/" style={{ textDecoration: 'none' }}>
+                <Typography variant="h6" sx={{ mx: 1 }}>Home</Typography>
+              </NavLink>
             </MainButton>
             <MainButton>
-              <Link to="/cart" underline="none">
+              <NavLink to="/items" style={{ textDecoration: 'none' }}>
+                <Typography variant="h6" sx={{ mx: 1 }}>Items</Typography>
+              </NavLink>
+            </MainButton>
+            <MainButton>
+              <NavLink to="/cart" style={{ textDecoration: 'none' }}>
                 <Typography variant="h6">Cart</Typography>
-              </Link>
+              </NavLink>
             </MainButton>
           </Box>
           <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
             <MainButton>
-              <Link to="/login">
+              <NavLink to="/login">
                 <Typography variant="h6" sx={{ mx: 1 }}>Login</Typography>
-              </Link>
+              </NavLink>
             </MainButton>
             <MainButton>
-              <Link to="/register">
+              <NavLink to="/register">
                 <Typography variant="h6" sx={{ mx: 1 }}>Register</Typography>
-              </Link>
+              </NavLink>
             </MainButton>
           </Box>
         </Toolbar>
