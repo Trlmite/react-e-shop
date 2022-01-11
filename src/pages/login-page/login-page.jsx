@@ -1,9 +1,23 @@
-import { Box, Typography } from '@mui/material';
+import { Box, TextField, Typography } from '@mui/material';
 import React from 'react';
+import MainButton from '../../components/button/main-button';
 
 const LoginPage = () => (
-  <Box sx={{ mx: 2, my: 2 }}>
+  <Box
+    component="form"
+    sx={{
+      mb: 3,
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      pt: '5vh',
+    }}
+    onSubmit={() => { console.log('veikia'); }}
+  >
     <Typography>LOGIN PAGE</Typography>
+    <TextField />
+    <TextField />
+    <MainButton type="submit"> Log In !</MainButton>
   </Box>
 );
 
