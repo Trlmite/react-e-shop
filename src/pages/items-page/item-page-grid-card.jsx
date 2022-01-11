@@ -9,17 +9,23 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import MainButton from '../../components/button/main-button';
+import stringLenghtClip from '../../helpers/string-lenght-clip';
 
 const ItemPageGridCard = ({
   title, imageURL, description, price,
-}) => (
-  <Box>
-    <Card sx={{ maxWidth: 300, height: 400 }}>
-      <Typography gutterBottom variant="h5" component="div">
-        {title}
+}) => {
+  const clippedDescription = stringLenghtClip(description, 75);
+  const clippedTitle = stringLenghtClip(title, 50);
+  return (
+    <Card sx={{
+      width: 300, height: 450, display: 'flex', justifyContent: 'center', flexDirection: 'column', alignContent: 'flex-end',
+    }}
+    >
+      <Typography gutterBottom variant="h5" component="div" sx={{ textAlign: 'center' }}>
+        {clippedTitle}
       </Typography>
       <CardMedia
-        sx={{ p: 2 }}
+        sx={{ p: 2, objectFit: 'cover' }}
         component="img"
         height="150"
         image={imageURL}
@@ -29,14 +35,17 @@ const ItemPageGridCard = ({
         <Typography
           variant="body2"
           color="text.secondary"
-          sx={{ textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}
+          sx={{ mb: 1 }}
         >
-          {description}
+          { clippedDescription }
+        </Typography>
+        <Typography variant="h5" color="text.main" sx={{ textAlign: 'center' }}>
+          {price}
         </Typography>
       </CardContent>
       <CardActions>
         <Box sx={{
-          display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%',
+          display: 'flex', justifyContent: 'center', width: '100%', alignItems: 'end',
         }}
         >
           <MainButton>
@@ -45,13 +54,10 @@ const ItemPageGridCard = ({
             </Typography>
             <AddShoppingCartIcon />
           </MainButton>
-          <Typography variant="h5" color="text.secondary">
-            {price}
-          </Typography>
         </Box>
       </CardActions>
     </Card>
-  </Box>
-);
+  );
+};
 
 export default ItemPageGridCard;

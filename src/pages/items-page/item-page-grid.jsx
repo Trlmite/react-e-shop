@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import APIService from '../../services/api-service';
 
 import ItemPageGridCard from './item-page-grid-card';
-import ItemsGridGrid from './items-page-grid-layout';
+import ItemsGridGridCopy from './items-page-grid-layout';
 
 const ItemPageGrid = () => {
   const [items, setItems] = useState([]);
@@ -17,14 +17,14 @@ const ItemPageGrid = () => {
 
   return (
     <Box sx={{ mx: 2 }}>
-      <ItemsGridGrid>
+      <ItemsGridGridCopy>
         {items.map((item) => (
           <ItemPageGridCard
             key={item.id}
             {...item}
           />
         ))}
-      </ItemsGridGrid>
+      </ItemsGridGridCopy>
     </Box>
   );
 };

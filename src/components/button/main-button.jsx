@@ -4,7 +4,7 @@ import { ButtonUnstyled } from '@mui/base';
 const MainButton = styled(ButtonUnstyled)(({ theme }) => ({
   background: theme.palette.primary.main,
   color: theme.palette.common.white,
-  padding: theme.spacing(1, 1),
+  padding: theme.spacing(1, 2),
   borderRadius: (10, 15),
   border: 'none',
   display: 'flex',
@@ -12,8 +12,8 @@ const MainButton = styled(ButtonUnstyled)(({ theme }) => ({
   justifyContent: 'space-between',
   cursor: 'pointer',
   ':hover': {
-    color: theme.palette.common.black,
-    background: theme.palette.primary.light,
+    background: theme.palette.secondary.main,
+    color: theme.palette.primary.dark,
   },
 }));
 
