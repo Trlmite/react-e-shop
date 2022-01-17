@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import { Box } from '@mui/material';
 
-const SelectInput = ({ options, name, id }) => (
+const SelectSpecs = ({ options, name, id }) => (
   <Box sx={{ mx: 1 }}>
     <TextField
       id={id}
@@ -21,4 +21,4 @@ const SelectInput = ({ options, name, id }) => (
   </Box>
 );
 
-export default SelectInput;
+export default SelectSpecs;

@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import React from 'react';
 import FilterPageBox from '../../pages/items-page/item-page-filter-styled';
-import SelectInput from './item-create-select-specs';
+import SelectSpecs from './item-create-select-specs';
 
 const options = {
   0: '2GB',
@@ -25,12 +25,12 @@ const ItemCreationComponent = () => (
     <Box sx={{ textAlign: 'center', width: '100%' }}>
       <Typography align="center"> GPU specs</Typography>
       <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-        <SelectInput
+        <SelectSpecs
           id="memory-selector-id"
           options={memoryOptions}
           name="Memory"
         />
-        <SelectInput
+        <SelectSpecs
           id="manufacturer-selector-id"
           options={manufactorerOptions}
           name="Manufacturer"
