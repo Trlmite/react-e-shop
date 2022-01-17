@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import FilterPageBox from '../../pages/items-page/item-page-filter-styled';
 import SelectSpecs from './item-create-select-specs';
 
@@ -20,24 +20,40 @@ const manufactorer = {
 const memoryOptions = Object.values(options);
 const manufactorerOptions = Object.values(manufactorer);
 
-const ItemCreationComponent = () => (
-  <FilterPageBox>
-    <Box sx={{ textAlign: 'center', width: '100%' }}>
-      <Typography align="center"> GPU specs</Typography>
-      <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-        <SelectSpecs
-          id="memory-selector-id"
-          options={memoryOptions}
-          name="Memory"
-        />
-        <SelectSpecs
-          id="manufacturer-selector-id"
-          options={manufactorerOptions}
-          name="Manufacturer"
-        />
+const ItemCreationComponent = () => {
+  const [memory, setMemory] = useState(options[0]);
+  const [manufactorerSelect, setManufactorerSelect] = useState(manufactorer[0]);
+
+  const handleMemoryChange = (e) => {
+    setMemory(e.target.value);
+  };
+  const handleManufactorerSelect = (e) => {
+    setManufactorerSelect(e.target.value);
+  };
+
+  return (
+    <FilterPageBox>
+      <Box sx={{ textAlign: 'center', width: '100%' }}>
+        <Typography align="center"> GPU specs</Typography>
+        <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+          <SelectSpecs
+            id="memory-selector-id"
+            options={memoryOptions}
+            name="Memory"
+            onChange={handleMemoryChange}
+            value={memory}
+          />
+          <SelectSpecs
+            id="manufacturer-selector-id"
+            options={manufactorerOptions}
+            name="Manufacturer"
+            onChange={handleManufactorerSelect}
+            value={manufactorerSelect}
+          />
+        </Box>
       </Box>
-    </Box>
-  </FilterPageBox>
-);
+    </FilterPageBox>
+  );
+};
 
 export default ItemCreationComponent;
