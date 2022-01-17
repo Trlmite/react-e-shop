@@ -8,7 +8,7 @@ const SelectSpecs = ({
 }) => (
   <Box sx={{ mx: 1 }}>
     <TextField
-      key={name}
+      key={id}
       id={id}
       select
       label={name}
