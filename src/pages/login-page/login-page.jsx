@@ -9,44 +9,56 @@ const LoginPage = () => {
 
   const handleUserNameChange = (e) => {
     setUserName(e.target.value);
-    console.log({ username, password });
   };
   const handleUserPasswordChange = (e) => {
     setUserPassword(e.target.value);
-    console.log({ username, password });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('veikia');
+    console.log({ username, password });
   };
   return (
     <Box
       component="form"
       sx={{
-        mb: 3,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        pt: '6vh',
+        justifyItems: 'center',
+        pt: '20vh',
+        width: '25vw',
+        margin: (5, 'auto'),
       }}
       onSubmit={handleSubmit}
     >
-      <Typography>LOGIN PAGE</Typography>
-      <InputLabel htmlFor="username">Username</InputLabel>
+      <Typography variant="h5">Please log in!</Typography>
+      <InputLabel htmlFor="username-login" sx={{ fontWeight: 600, my: 1 }}>Username</InputLabel>
       <TextField
-        id="username"
+        sx={{ my: 1 }}
+        fullWidth
+        id="username-login"
         value={username}
         onChange={handleUserNameChange}
       />
-      <InputLabel htmlFor="password">Password</InputLabel>
+      <InputLabel htmlFor="password-login" sx={{ fontWeight: 600, my: 1 }}>Password</InputLabel>
       <TextField
-        id="password"
+        sx={{ my: 1 }}
+        fullWidth
+        id="password-login"
         type="password"
         value={password}
         onChange={handleUserPasswordChange}
       />
-      <MainButton type="submit"> Log In !</MainButton>
+      <MainButton
+        type="submit"
+        sx={{
+          my: 1, p: ('15px'), width: '10vw', fontWeight: 600, textAlign: 'center',
+        }}
+      >
+        {' '}
+        Log In !
+      </MainButton>
     </Box>
   );
 };

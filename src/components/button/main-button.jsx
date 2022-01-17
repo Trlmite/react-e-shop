@@ -11,6 +11,7 @@ const MainButton = styled(ButtonUnstyled)(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'space-between',
   cursor: 'pointer',
+  textAlign: 'center',
   ':hover': {
     background: theme.palette.secondary.main,
     color: theme.palette.primary.dark,

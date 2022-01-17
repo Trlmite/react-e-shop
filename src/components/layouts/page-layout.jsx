@@ -10,6 +10,9 @@ const PageLayout = () => (
       element="main"
       maxWidth="xl"
       disableGutters="true"
+      sx={{
+        margin: (5, 'auto'),
+      }}
     >
       <Outlet />
     </Container>

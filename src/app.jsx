@@ -12,6 +12,7 @@ import CartPage from './pages/cart-page/cart-page';
 import HomePage from './pages/homepage/home-page';
 import ItemPage from './pages/items-page/item-page';
 import LoginPage from './pages/login-page/login-page';
+import RegisterPage from './pages/register-page/register-page';
 
 const App = () => (
   <CssBaseline>
@@ -23,6 +24,7 @@ const App = () => (
             <Route path="items" element={<ItemPage />} />
             <Route path="cart" element={<CartPage />} />
             <Route path="login" element={<LoginPage />} />
+            <Route path="register" element={<RegisterPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
