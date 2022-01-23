@@ -9,7 +9,7 @@ const MainButton = styled(ButtonUnstyled)(({ theme }) => ({
   border: 'none',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-between',
+  justifyContent: 'center',
   cursor: 'pointer',
   textAlign: 'center',
   ':hover': {

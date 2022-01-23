@@ -1,23 +1,39 @@
 import { Box, TextField, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React from 'react';
 import InputLabel from '@mui/material/InputLabel';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
 import MainButton from '../../components/button/main-button';
 
+const initialValues = {
+  username: '',
+  password: '',
+};
+
+const validationSchema = yup.object({
+  username: yup
+    .string('Enter username')
+    .required('Must enter username'),
+  password: yup
+    .string()
+    .required('Must enter password'),
+});
+
 const LoginPage = () => {
-  const [username, setUserName] = useState('');
-  const [password, setUserPassword] = useState('');
+  const {
+    values, errors, touched, isValid, dirty,
+    handleChange, handleBlur,
+  } = useFormik({
+    initialValues,
+    validationSchema,
+  });
 
-  const handleUserNameChange = (e) => {
-    setUserName(e.target.value);
-  };
-  const handleUserPasswordChange = (e) => {
-    setUserPassword(e.target.value);
-  };
+  console.log(touched);
 
-  const handleSubmit = (e) => {
+  const handleLogIn = (e) => {
     e.preventDefault();
-    console.log({ username, password });
   };
+
   return (
     <Box
       component="form"
@@ -30,31 +46,42 @@ const LoginPage = () => {
         width: '25vw',
         margin: (5, 'auto'),
       }}
-      onSubmit={handleSubmit}
     >
       <Typography variant="h5">Please log in!</Typography>
-      <InputLabel htmlFor="username-login" sx={{ fontWeight: 600, my: 1 }}>Username</InputLabel>
+      <InputLabel htmlFor="username" sx={{ fontWeight: 600, my: 1 }}>Username</InputLabel>
       <TextField
         sx={{ my: 1 }}
         fullWidth
-        id="username-login"
-        value={username}
-        onChange={handleUserNameChange}
+        id="username"
+        /* props by formik */
+        error={touched.username && Boolean(errors.username)}
+        helperText={touched.username && errors.username}
+        name="username"
+        value={values.username}
+        onChange={handleChange}
+        onBlur={handleBlur}
       />
-      <InputLabel htmlFor="password-login" sx={{ fontWeight: 600, my: 1 }}>Password</InputLabel>
+      <InputLabel htmlFor="password" sx={{ fontWeight: 600, my: 1 }}>Password</InputLabel>
       <TextField
         sx={{ my: 1 }}
         fullWidth
-        id="password-login"
+        id="password"
         type="password"
-        value={password}
-        onChange={handleUserPasswordChange}
+        /* props by formik */
+        name="password"
+        value={values.password}
+        onChange={handleChange}
+        error={touched.password && Boolean(errors.password)}
+        helperText={touched.password && errors.password}
+        onBlur={handleBlur}
       />
       <MainButton
         type="submit"
         sx={{
           my: 1, p: ('15px'), width: '10vw', fontWeight: 600, textAlign: 'center',
         }}
+        onClick={handleLogIn}
+        disabled={!isValid && dirty}
       >
         {' '}
         Log In !

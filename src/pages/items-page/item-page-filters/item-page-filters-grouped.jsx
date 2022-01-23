@@ -1,9 +1,10 @@
+/* eslint-disable */
 import React, { useState, useEffect } from 'react';
 import FormGroup from '@mui/material/FormGroup';
 import Slider from '@mui/material/Slider';
 import { Divider, Typography } from '@mui/material';
 import FilterManufacturer from './item-page-filter-manufacturer';
-import FilterLust from './item-page-filter-lust';
+import FilterCheckBox from './item-page-filter-checkbox';
 import FilterMemory from './item-page-filter-memory';
 import APIService from '../../../services/api-service';
 import MainButton from '../../../components/button/main-button';
@@ -12,11 +13,19 @@ const value = [0, 1000];
 
 const FiltersGrouped = () => {
   const [filters, setFilters] = useState([]);
+  const [itemsFilters, setItemFilters] = useState([]);
+  const [filterOptions, setFilterOptions] = useState([]);
+  const [filterParams, setFilterParams] = useState([]);
 
   useEffect(() => {
     (async () => {
       const fetchedFilters = await APIService.fetchFilters();
+      const fetcheditemFilters = await APIService.fetchItems();
+      const fetchedFilterOptions = await APIService.fetchFilterOptions();
       setFilters(fetchedFilters);
+      setFilterOptions(fetchedFilterOptions);
+      setItemFilters(fetcheditemFilters);
+      setFilterParams({ filters, filterOptions });
     })();
   }, []);
 
@@ -25,8 +34,8 @@ const FiltersGrouped = () => {
       <Divider sx={{ my: 1 }} />
       <FilterManufacturer />
       <Divider sx={{ my: 1 }} />
-      <FilterLust />
-      <Divider sx={{ my: 1 }} />
+      <FilterCheckBox
+      />
       <FilterMemory />
       <Divider sx={{ my: 1 }} />
       <Typography variant="p" align="center">Kaina</Typography>
@@ -37,7 +46,9 @@ const FiltersGrouped = () => {
         valueLabelDisplay="auto"
       />
       <MainButton
-        onClick={() => console.log(filters)}
+        onClick={() => console.log({
+          filterParams, itemsFilters,
+        })}
       >
         ar atsiunte
 

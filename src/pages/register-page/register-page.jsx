@@ -1,47 +1,68 @@
 import { Box, TextField, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React from 'react';
 import InputLabel from '@mui/material/InputLabel';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
 import MainButton from '../../components/button/main-button';
 
+const initialValues = {
+  username: '123',
+  password: '',
+  passwordRepeat: '',
+  email: '',
+  name: '',
+  surname: '',
+  city: '',
+};
+
+const validationSchema = yup.object({
+  username: yup
+    .string()
+    .required('Must be filled')
+    .min(2, 'At least 2 letters'),
+  password: yup
+    .string()
+    .required('Must be filled')
+    .min(8, 'At least 8 letters')
+    .max(32, '32 letters maximum')
+    .matches(/^.*[A-ZĄČĘĖĮŠŲŪŽ]+.*$/, 'Should contain Capital letter')
+    .matches(/^.*[0-9]+.*$/, 'Should contain number'),
+  passwordRepeat: yup
+    .string()
+    .required('Must be filled')
+    .oneOf([yup.ref('password')], 'Passwords do not match'),
+  email: yup
+    .string()
+    .required('Must be filled')
+    .email('Is not valid email'),
+  name: yup
+    .string()
+    .required('Must be filled')
+    .min(2, 'At least 2 letters')
+    .matches(/^[a-zA-ZąčęėįšųūžĄČĘĖĮŠŲŪŽ]+$/, 'Should only contain letters'),
+  surname: yup
+    .string()
+    .required('Must be filled')
+    .min(2, 'At least 2 letters')
+    .matches(/^[a-zA-ZąčęėįšųūžĄČĘĖĮŠŲŪŽ]+$/, 'Should only contain letters'),
+  city: yup
+    .string()
+    .required('Must be filled'),
+});
+
 const RegisterPage = () => {
-  const [username, setUserName] = useState('');
-  const [password, setUserPassword] = useState('');
-  const [repeatedPassword, setRepeatedPassword] = useState('');
-  const [name, setName] = useState('');
-  const [surname, setSurname] = useState('');
-  const [email, setEmail] = useState('');
-  const [city, setCity] = useState('');
+  const {
+    values, errors, touched,
+    handleChange, handleBlur,
+  } = useFormik({
+    initialValues,
+    validationSchema,
+  });
 
-  const handleUserNameChange = (e) => {
-    setUserName(e.target.value);
-  };
-  const handlePasswordChange = (e) => {
-    setUserPassword(e.target.value);
-  };
-
-  const handleRepeatedPasswordChange = (e) => {
-    setRepeatedPassword(e.target.value);
-  };
-
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  };
-
-  const handleSurnameChange = (e) => {
-    setSurname(e.target.value);
-  };
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-  const handleCityChange = (e) => {
-    setCity(e.target.value);
-  };
+  console.log(errors);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({
-      username, password, repeatedPassword, name, surname, email, city,
-    });
   };
   return (
     <Box
@@ -63,35 +84,54 @@ const RegisterPage = () => {
       }}
       >
         <Box>
-          <InputLabel htmlFor="username-login" sx={{ fontWeight: 600, my: 0.5 }}>Username</InputLabel>
+          <InputLabel htmlFor="username" sx={{ fontWeight: 600, my: 0.5 }}>Username</InputLabel>
           <TextField
             sx={{ my: 1 }}
             fullWidth
-            id="username-login"
-            value={username}
-            onChange={handleUserNameChange}
+            id="username"
+            type="text"
+            name="username"
+            /* props by formik */
+            value={values.username}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched.username && Boolean(errors.username)}
+            helperText={touched.username && errors.username}
+
           />
         </Box>
         <Box sx={{ mx: 2 }}>
-          <InputLabel htmlFor="password-register" sx={{ fontWeight: 600, my: 0.5 }}>Password</InputLabel>
+          <InputLabel htmlFor="password" sx={{ fontWeight: 600, my: 0.5 }}>Password</InputLabel>
           <TextField
             sx={{ my: 1 }}
             fullWidth
-            id="password-register"
+            id="password"
             type="password"
-            value={password}
-            onChange={handlePasswordChange}
+            name="password"
+            /* props by formik */
+            value={values.password}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched.password && Boolean(errors.password)}
+            helperText={touched.password && errors.password}
+
           />
         </Box>
         <Box>
-          <InputLabel htmlFor="password-register-repeat" sx={{ fontWeight: 600, my: 0.5 }}>Repeat password</InputLabel>
+          <InputLabel htmlFor="passwordRepeat" sx={{ fontWeight: 600, my: 0.5 }}>Repeat password</InputLabel>
           <TextField
             sx={{ my: 1 }}
             fullWidth
-            id="password-register repeat"
+            id="passwordRepeat"
             type="password"
-            value={repeatedPassword}
-            onChange={handleRepeatedPasswordChange}
+            name="passwordRepeat"
+            /* props by formik */
+            value={values.passwordRepeat}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched.passwordRepeat && Boolean(errors.passwordRepeat)}
+            helperText={touched.passwordRepeat && errors.passwordRepeat}
+
           />
         </Box>
       </Box>
@@ -103,46 +143,70 @@ const RegisterPage = () => {
         }}
       >
         <Box>
-          <InputLabel htmlFor="email-register" sx={{ fontWeight: 600, my: 0.5 }}>Email</InputLabel>
+          <InputLabel htmlFor="email" sx={{ fontWeight: 600, my: 0.5 }}>Email</InputLabel>
           <TextField
             sx={{ my: 1 }}
             fullWidth
-            id="email-register"
+            id="email"
             type="email"
-            value={email}
-            onChange={handleEmailChange}
+            name="email"
+            /* props by formik */
+            value={values.email}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched.email && Boolean(errors.email)}
+            helperText={touched.email && errors.email}
+
           />
         </Box>
         <Box sx={{ mx: 2 }}>
-          <InputLabel htmlFor="name-register" sx={{ fontWeight: 600, my: 0.5 }}>Name</InputLabel>
+          <InputLabel htmlFor="name" sx={{ fontWeight: 600, my: 0.5 }}>Name</InputLabel>
           <TextField
             sx={{ my: 1 }}
             fullWidth
-            id="name-register"
+            id="name"
             type="text"
-            value={name}
-            onChange={handleNameChange}
+            name="name"
+            /* props by formik */
+            value={values.name}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched.name && Boolean(errors.name)}
+            helperText={touched.name && errors.name}
+
           />
         </Box>
         <Box>
-          <InputLabel htmlFor="surname-register" sx={{ fontWeight: 600, my: 0.5 }}>Surname</InputLabel>
+          <InputLabel htmlFor="surname" sx={{ fontWeight: 600, my: 0.5 }}>Surname</InputLabel>
           <TextField
             sx={{ my: 1 }}
             fullWidth
-            id="surname-register"
+            id="surname"
             type="text"
-            value={surname}
-            onChange={handleSurnameChange}
+            name="surname"
+            /* props by formik */
+            value={values.surname}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched.surname && Boolean(errors.surname)}
+            helperText={touched.surname && errors.surname}
+
           />
         </Box>
       </Box>
-      <InputLabel htmlFor="city-register" sx={{ fontWeight: 600, my: 0.5 }}>City</InputLabel>
+      <InputLabel htmlFor="city" sx={{ fontWeight: 600, my: 0.5 }}>City</InputLabel>
       <TextField
-        sx={{ my: 1 }}
-        id="city-register"
+        sx={{ my: 1.5 }}
+        id="city"
         type="text"
-        value={city}
-        onChange={handleCityChange}
+        name="city"
+        /* props by formik */
+        value={values.city}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        error={touched.city && Boolean(errors.city)}
+        helperText={touched.city && errors.city}
+
       />
       <MainButton
         type="submit"

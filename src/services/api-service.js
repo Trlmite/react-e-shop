@@ -40,6 +40,11 @@ const fetchFilters = async () => {
   return response.data;
 };
 
+const fetchFilterOptions = async () => {
+  const response = await annonymousInstance.get('/filterOptions');
+  return response.data;
+};
+
 const fetchedItems = async () => {
   const items = await fetchItems();
   const formatedItems = items.map(({
@@ -64,6 +69,7 @@ const APIService = {
   fetchOrders,
   fetchFilters,
   fetchedItems,
+  fetchFilterOptions,
 };
 
 export default APIService;
