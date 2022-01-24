@@ -28,7 +28,7 @@ const LoginPage = () => {
     validationSchema,
   });
 
-  console.log(touched);
+  console.log({ isValid, dirty });
 
   const handleLogIn = (e) => {
     e.preventDefault();
@@ -81,7 +81,7 @@ const LoginPage = () => {
           my: 1, p: ('15px'), width: '10vw', fontWeight: 600, textAlign: 'center',
         }}
         onClick={handleLogIn}
-        disabled={!isValid && dirty}
+        disabled={!isValid && !dirty}
       >
         {' '}
         Log In !

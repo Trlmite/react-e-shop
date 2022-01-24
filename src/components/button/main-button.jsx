@@ -1,3 +1,5 @@
+/* eslint-disable */
+import React from 'react';
 import { styled } from '@mui/material';
 import { ButtonUnstyled } from '@mui/base';
 
@@ -16,6 +18,17 @@ const MainButton = styled(ButtonUnstyled)(({ theme }) => ({
     background: theme.palette.secondary.main,
     color: theme.palette.primary.dark,
   },
+  '&.disabled': {
+    background: theme.palette.grey[600],
+    cursor: "not-allowed",
+    color: theme.palette.grey[500],
+  },
+  '&.disabled:hover':{
+    background: theme.palette.grey[900]
+  }
+
 }));
 
-export default MainButton;
+export default function ({ disabled, children, ...props }) {
+  return <MainButton className={disabled ? 'disabled' : undefined} {...props}>{children}</MainButton>;
+}

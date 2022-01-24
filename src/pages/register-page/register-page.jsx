@@ -52,7 +52,7 @@ const validationSchema = yup.object({
 
 const RegisterPage = () => {
   const {
-    values, errors, touched,
+    values, errors, touched, isValid, dirty,
     handleChange, handleBlur,
   } = useFormik({
     initialValues,
@@ -96,7 +96,9 @@ const RegisterPage = () => {
             onChange={handleChange}
             onBlur={handleBlur}
             error={touched.username && Boolean(errors.username)}
-            helperText={touched.username && errors.username}
+            helperText={touched.username && Boolean(errors.username)
+              ? errors.username
+              : ' '}
 
           />
         </Box>
@@ -113,7 +115,9 @@ const RegisterPage = () => {
             onChange={handleChange}
             onBlur={handleBlur}
             error={touched.password && Boolean(errors.password)}
-            helperText={touched.password && errors.password}
+            helperText={touched.password && Boolean(errors.password)
+              ? errors.password
+              : ' '}
 
           />
         </Box>
@@ -130,8 +134,9 @@ const RegisterPage = () => {
             onChange={handleChange}
             onBlur={handleBlur}
             error={touched.passwordRepeat && Boolean(errors.passwordRepeat)}
-            helperText={touched.passwordRepeat && errors.passwordRepeat}
-
+            helperText={touched.passwordRepeat && Boolean(errors.passwordRepeat)
+              ? errors.passwordRepeat
+              : ' '}
           />
         </Box>
       </Box>
@@ -155,7 +160,9 @@ const RegisterPage = () => {
             onChange={handleChange}
             onBlur={handleBlur}
             error={touched.email && Boolean(errors.email)}
-            helperText={touched.email && errors.email}
+            helperText={touched.email && Boolean(errors.email)
+              ? errors.email
+              : ' '}
 
           />
         </Box>
@@ -172,7 +179,9 @@ const RegisterPage = () => {
             onChange={handleChange}
             onBlur={handleBlur}
             error={touched.name && Boolean(errors.name)}
-            helperText={touched.name && errors.name}
+            helperText={touched.name && Boolean(errors.name)
+              ? errors.name
+              : ' '}
 
           />
         </Box>
@@ -189,7 +198,9 @@ const RegisterPage = () => {
             onChange={handleChange}
             onBlur={handleBlur}
             error={touched.surname && Boolean(errors.surname)}
-            helperText={touched.surname && errors.surname}
+            helperText={touched.surname && Boolean(errors.surname)
+              ? errors.surname
+              : ' '}
 
           />
         </Box>
@@ -205,7 +216,9 @@ const RegisterPage = () => {
         onChange={handleChange}
         onBlur={handleBlur}
         error={touched.city && Boolean(errors.city)}
-        helperText={touched.city && errors.city}
+        helperText={touched.city && Boolean(errors.city)
+          ? errors.city
+          : ' '}
 
       />
       <MainButton
@@ -213,6 +226,7 @@ const RegisterPage = () => {
         sx={{
           my: 1, p: ('15px'), width: '10vw', fontWeight: 600, textAlign: 'center',
         }}
+        disabled={!isValid && dirty}
       >
         Register
       </MainButton>
