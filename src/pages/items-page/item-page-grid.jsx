@@ -21,6 +21,7 @@ const ItemPageGrid = () => {
         {items.map((item) => (
           <ItemPageGridCard
             key={item.id}
+            id={item.id}
             {...item}
           />
         ))}

@@ -11,33 +11,41 @@ import MainButton from '../../../components/button/main-button';
 
 const value = [0, 1000];
 
-const FiltersGrouped = () => {
-  const [filters, setFilters] = useState([]);
-  const [itemsFilters, setItemFilters] = useState([]);
-  const [filterOptions, setFilterOptions] = useState([]);
-  const [filterParams, setFilterParams] = useState([]);
+const filters = [
+  {
+    id: '1',
+    label: 'Manufacturer',
+  },
+  {
+    id: '2',
+    label: 'Memory',
+  },
+  {
+    id: '3',
+    label: 'Lust',
+  },
+];
 
-  useEffect(() => {
-    (async () => {
-      const fetchedFilters = await APIService.fetchFilters();
-      const fetcheditemFilters = await APIService.fetchItems();
-      const fetchedFilterOptions = await APIService.fetchFilterOptions();
-      setFilters(fetchedFilters);
-      setFilterOptions(fetchedFilterOptions);
-      setItemFilters(fetcheditemFilters);
-      setFilterParams({ filters, filterOptions });
+const FiltersGrouped = () => {
+  
+  const [filtersA, setFiltersA] = useState([]);
+
+  useEffect(() =>{
+    (async () =>{
+      const fetchedFiltr = await APIService.fetchFilterOptions();
+      setFiltersA(fetchedFiltr)
     })();
-  }, []);
+  }, [])
+  
+  console.log(filtersA)
 
   return (
     <FormGroup>
       <Divider sx={{ my: 1 }} />
-      <FilterManufacturer />
-      <Divider sx={{ my: 1 }} />
       <FilterCheckBox
+        options={filtersA}
+        filters={filters}
       />
-      <FilterMemory />
-      <Divider sx={{ my: 1 }} />
       <Typography variant="p" align="center">Kaina</Typography>
       <Slider
         value={value}
@@ -45,14 +53,6 @@ const FiltersGrouped = () => {
         max="1500"
         valueLabelDisplay="auto"
       />
-      <MainButton
-        onClick={() => console.log({
-          filterParams, itemsFilters,
-        })}
-      >
-        ar atsiunte
-
-      </MainButton>
     </FormGroup>
   );
 };

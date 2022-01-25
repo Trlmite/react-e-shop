@@ -45,6 +45,29 @@ const fetchFilterOptions = async () => {
   return response.data;
 };
 
+// const fetchedFilterParams = async () => {
+//   const [filterOptions, filters] = await Promise.all([
+//     fetchFilterOptions(),
+//     fetchFilters(),
+//   ]);
+
+//   const filterParams = filterOptions.map(({ filterId, ...rest }) => {
+//     let filterParam = {
+//       ...rest,
+//       filterId,
+//     };
+//     if (filters.id === filterId) {
+//       filterParam = {
+//         ...filterParam,
+//         label: filters.label,
+//       };
+//     }
+//     return filterParam;
+//   });
+
+//   return filterParams;
+// };
+
 const fetchedItems = async () => {
   const items = await fetchItems();
   const formatedItems = items.map(({
