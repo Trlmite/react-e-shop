@@ -6,7 +6,7 @@ import * as yup from 'yup';
 import MainButton from '../../components/button/main-button';
 
 const initialValues = {
-  username: '123',
+  username: '',
   password: '',
   passwordRepeat: '',
   email: '',
@@ -58,8 +58,6 @@ const RegisterPage = () => {
     initialValues,
     validationSchema,
   });
-
-  console.log(errors);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -226,7 +224,8 @@ const RegisterPage = () => {
         sx={{
           my: 1, p: ('15px'), width: '10vw', fontWeight: 600, textAlign: 'center',
         }}
-        disabled={!isValid && dirty}
+        disabled={!isValid && !dirty}
+        onSubmit={handleSubmit}
       >
         Register
       </MainButton>

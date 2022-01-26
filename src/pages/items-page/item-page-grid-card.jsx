@@ -12,10 +12,15 @@ import MainButton from '../../components/button/main-button';
 import stringLenghtClip from '../../helpers/string-lenght-clip';
 
 const ItemPageGridCard = ({
-  title, imageURL, description, price,
+  title, imageURL, description, price, id,
 }) => {
   const clippedDescription = stringLenghtClip(description, 75);
   const clippedTitle = stringLenghtClip(title, 50);
+
+  const handleClick = () => {
+    console.log(id);
+  };
+
   return (
     <Card sx={{
       width: 300, height: 450, display: 'flex', justifyContent: 'center', flexDirection: 'column', alignContent: 'flex-end',
@@ -48,7 +53,9 @@ const ItemPageGridCard = ({
           display: 'flex', justifyContent: 'center', width: '100%', alignItems: 'end',
         }}
         >
-          <MainButton>
+          <MainButton
+            onClick={handleClick}
+          >
             <Typography>
               Buy
             </Typography>

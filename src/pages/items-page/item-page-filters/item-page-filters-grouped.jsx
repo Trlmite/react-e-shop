@@ -3,11 +3,11 @@ import React, { useState, useEffect } from 'react';
 import FormGroup from '@mui/material/FormGroup';
 import Slider from '@mui/material/Slider';
 import { Divider, Typography } from '@mui/material';
-import FilterManufacturer from './item-page-filter-manufacturer';
+
 import FilterCheckBox from './item-page-filter-checkbox';
-import FilterMemory from './item-page-filter-memory';
+
 import APIService from '../../../services/api-service';
-import MainButton from '../../../components/button/main-button';
+
 
 const value = [0, 1000];
 
