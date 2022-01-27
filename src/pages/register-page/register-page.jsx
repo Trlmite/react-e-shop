@@ -3,6 +3,7 @@ import React from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import Grid from '@mui/material/Grid';
 import MainButton from '../../components/button/main-button';
 
 const initialValues = {
@@ -74,161 +75,194 @@ const RegisterPage = () => {
       }}
       onSubmit={handleSubmit}
     >
-      <Typography variant="h5">Register</Typography>
-      <Box sx={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-      }}
-      >
-        <Box>
-          <InputLabel htmlFor="username" sx={{ fontWeight: 600, my: 0.5 }}>Username</InputLabel>
-          <TextField
-            sx={{ my: 1 }}
-            fullWidth
-            id="username"
-            type="text"
-            name="username"
-            /* props by formik */
-            value={values.username}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            error={touched.username && Boolean(errors.username)}
-            helperText={touched.username && Boolean(errors.username)
-              ? errors.username
-              : ' '}
-
-          />
-        </Box>
-        <Box sx={{ mx: 2 }}>
-          <InputLabel htmlFor="password" sx={{ fontWeight: 600, my: 0.5 }}>Password</InputLabel>
-          <TextField
-            sx={{ my: 1 }}
-            fullWidth
-            id="password"
-            type="password"
-            name="password"
-            /* props by formik */
-            value={values.password}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            error={touched.password && Boolean(errors.password)}
-            helperText={touched.password && Boolean(errors.password)
-              ? errors.password
-              : ' '}
-
-          />
-        </Box>
-        <Box>
-          <InputLabel htmlFor="passwordRepeat" sx={{ fontWeight: 600, my: 0.5 }}>Repeat password</InputLabel>
-          <TextField
-            sx={{ my: 1 }}
-            fullWidth
-            id="passwordRepeat"
-            type="password"
-            name="passwordRepeat"
-            /* props by formik */
-            value={values.passwordRepeat}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            error={touched.passwordRepeat && Boolean(errors.passwordRepeat)}
-            helperText={touched.passwordRepeat && Boolean(errors.passwordRepeat)
-              ? errors.passwordRepeat
-              : ' '}
-          />
-        </Box>
-      </Box>
-      <Box
+      <Grid
+        container
         sx={{
           display: 'flex',
-          justifyContent: 'space-between',
+          flexDirection: 'column',
           alignItems: 'center',
+          justifyItems: 'center',
         }}
       >
-        <Box>
-          <InputLabel htmlFor="email" sx={{ fontWeight: 600, my: 0.5 }}>Email</InputLabel>
-          <TextField
-            sx={{ my: 1 }}
-            fullWidth
-            id="email"
-            type="email"
-            name="email"
+        <Typography variant="h5" sx={{ mb: 1 }}>Register</Typography>
+
+        <Grid
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+          xs={12}
+          sm={10}
+          md={8}
+          lg={6}
+          direction={{ xs: 'column', sm: 'column', lg: 'row' }}
+        >
+          <Box>
+            <InputLabel htmlFor="username" sx={{ fontWeight: 600, my: 0.5, textAlign: 'center' }}>Username</InputLabel>
+            <TextField
+              sx={{ my: 1 }}
+              fullWidth
+              id="username"
+              type="text"
+              name="username"
+              /* props by formik */
+              value={values.username}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={touched.username && Boolean(errors.username)}
+              helperText={touched.username && Boolean(errors.username)
+                ? errors.username
+                : ' '}
+            />
+          </Box>
+          <Box sx={{ mx: 2 }}>
+            <InputLabel htmlFor="password" sx={{ fontWeight: 600, my: 0.5, textAlign: 'center' }}>Password</InputLabel>
+            <TextField
+              sx={{ my: 1 }}
+              fullWidth
+              id="password"
+              type="password"
+              name="password"
+              /* props by formik */
+              value={values.password}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={touched.password && Boolean(errors.password)}
+              helperText={touched.password && Boolean(errors.password)
+                ? errors.password
+                : ' '}
+            />
+          </Box>
+          <Box>
+            <InputLabel htmlFor="passwordRepeat" sx={{ fontWeight: 600, my: 0.5, textAlign: 'center' }}>Repeat password</InputLabel>
+            <TextField
+              sx={{ my: 1 }}
+              fullWidth
+              id="passwordRepeat"
+              type="password"
+              name="passwordRepeat"
+              /* props by formik */
+              value={values.passwordRepeat}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={touched.passwordRepeat && Boolean(errors.passwordRepeat)}
+              helperText={touched.passwordRepeat && Boolean(errors.passwordRepeat)
+                ? errors.passwordRepeat
+                : ' '}
+            />
+          </Box>
+        </Grid>
+
+        <Grid
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+          xs={12}
+          sm={10}
+          md={8}
+          lg={6}
+          direction={{ xs: 'column', sm: 'column', lg: 'row' }}
+        >
+
+          <Box>
+            <InputLabel htmlFor="email" sx={{ fontWeight: 600, my: 0.5, textAlign: 'center' }}>Email</InputLabel>
+            <TextField
+              sx={{ my: 1 }}
+              fullWidth
+              id="email"
+              type="email"
+              name="email"
+              /* props by formik */
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={touched.email && Boolean(errors.email)}
+              helperText={touched.email && Boolean(errors.email)
+                ? errors.email
+                : ' '}
+            />
+          </Box>
+          <Box sx={{ mx: 2 }}>
+            <InputLabel htmlFor="name" sx={{ fontWeight: 600, my: 0.5, textAlign: 'center' }}>Name</InputLabel>
+            <TextField
+              sx={{ my: 1 }}
+              fullWidth
+              id="name"
+              type="text"
+              name="name"
+              /* props by formik */
+              value={values.name}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={touched.name && Boolean(errors.name)}
+              helperText={touched.name && Boolean(errors.name)
+                ? errors.name
+                : ' '}
+            />
+          </Box>
+          <Box>
+            <InputLabel htmlFor="surname" sx={{ fontWeight: 600, my: 0.5, textAlign: 'center' }}>Surname</InputLabel>
+            <TextField
+              sx={{ my: 1 }}
+              fullWidth
+              id="surname"
+              type="text"
+              name="surname"
+              /* props by formik */
+              value={values.surname}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={touched.surname && Boolean(errors.surname)}
+              helperText={touched.surname && Boolean(errors.surname)
+                ? errors.surname
+                : ' '}
+            />
+          </Box>
+        </Grid>
+        <Grid
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+          xs={12}
+          sm={10}
+          md={8}
+          lg={6}
+          direction={{ xs: 'column', sm: 'column', lg: 'row' }}
+        >
+          <Box>
+            <InputLabel htmlFor="city" sx={{ fontWeight: 600, my: 0.5, textAlign: 'center' }}>City</InputLabel>
+            <TextField
+              sx={{ my: 1.5 }}
+              id="city"
+              type="text"
+              name="city"
             /* props by formik */
-            value={values.email}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            error={touched.email && Boolean(errors.email)}
-            helperText={touched.email && Boolean(errors.email)
-              ? errors.email
-              : ' '}
-
-          />
-        </Box>
-        <Box sx={{ mx: 2 }}>
-          <InputLabel htmlFor="name" sx={{ fontWeight: 600, my: 0.5 }}>Name</InputLabel>
-          <TextField
-            sx={{ my: 1 }}
-            fullWidth
-            id="name"
-            type="text"
-            name="name"
-            /* props by formik */
-            value={values.name}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            error={touched.name && Boolean(errors.name)}
-            helperText={touched.name && Boolean(errors.name)
-              ? errors.name
-              : ' '}
-
-          />
-        </Box>
-        <Box>
-          <InputLabel htmlFor="surname" sx={{ fontWeight: 600, my: 0.5 }}>Surname</InputLabel>
-          <TextField
-            sx={{ my: 1 }}
-            fullWidth
-            id="surname"
-            type="text"
-            name="surname"
-            /* props by formik */
-            value={values.surname}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            error={touched.surname && Boolean(errors.surname)}
-            helperText={touched.surname && Boolean(errors.surname)
-              ? errors.surname
-              : ' '}
-
-          />
-        </Box>
-      </Box>
-      <InputLabel htmlFor="city" sx={{ fontWeight: 600, my: 0.5 }}>City</InputLabel>
-      <TextField
-        sx={{ my: 1.5 }}
-        id="city"
-        type="text"
-        name="city"
-        /* props by formik */
-        value={values.city}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        error={touched.city && Boolean(errors.city)}
-        helperText={touched.city && Boolean(errors.city)
-          ? errors.city
-          : ' '}
-
-      />
-      <MainButton
-        type="submit"
-        sx={{
-          my: 1, p: ('15px'), width: '10vw', fontWeight: 600, textAlign: 'center',
-        }}
-        disabled={!isValid && !dirty}
-        onSubmit={handleSubmit}
-      >
-        Register
-      </MainButton>
+              value={values.city}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={touched.city && Boolean(errors.city)}
+              helperText={touched.city && Boolean(errors.city)
+                ? errors.city
+                : ' '}
+            />
+          </Box>
+        </Grid>
+        <MainButton
+          type="submit"
+          sx={{
+            my: 1, p: ('15px'), minWidth: '100px', fontWeight: 600, textAlign: 'center',
+          }}
+          disabled={!isValid && !dirty}
+          onSubmit={handleSubmit}
+        >
+          Register
+        </MainButton>
+      </Grid>
     </Box>
   );
 };

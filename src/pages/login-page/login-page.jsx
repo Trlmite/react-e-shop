@@ -3,6 +3,7 @@ import React from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import Grid from '@mui/material/Grid';
 import MainButton from '../../components/button/main-button';
 
 const initialValues = {
@@ -43,49 +44,72 @@ const LoginPage = () => {
         alignItems: 'center',
         justifyItems: 'center',
         pt: '20vh',
-        width: '25vw',
         margin: (5, 'auto'),
       }}
     >
-      <Typography variant="h5">Please log in!</Typography>
-      <InputLabel htmlFor="username" sx={{ fontWeight: 600, my: 1 }}>Username</InputLabel>
-      <TextField
-        sx={{ my: 1 }}
-        fullWidth
-        id="username"
-        /* props by formik */
-        error={touched.username && Boolean(errors.username)}
-        helperText={touched.username && errors.username}
-        name="username"
-        value={values.username}
-        onChange={handleChange}
-        onBlur={handleBlur}
-      />
-      <InputLabel htmlFor="password" sx={{ fontWeight: 600, my: 1 }}>Password</InputLabel>
-      <TextField
-        sx={{ my: 1 }}
-        fullWidth
-        id="password"
-        type="password"
-        /* props by formik */
-        name="password"
-        value={values.password}
-        onChange={handleChange}
-        error={touched.password && Boolean(errors.password)}
-        helperText={touched.password && errors.password}
-        onBlur={handleBlur}
-      />
-      <MainButton
-        type="submit"
+      <Grid
+        container
         sx={{
-          my: 1, p: ('15px'), width: '10vw', fontWeight: 600, textAlign: 'center',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyItems: 'center',
         }}
-        onClick={handleLogIn}
-        disabled={!isValid && !dirty}
+        xs={10}
+        sm={8}
+        md={6}
+        lg={4}
       >
-        {' '}
-        Log In !
-      </MainButton>
+        <Grid
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyItems: 'center',
+            width: '100%',
+          }}
+        >
+          <Typography variant="h5">Please log in!</Typography>
+          <InputLabel htmlFor="username" sx={{ fontWeight: 600, my: 1 }}>Username</InputLabel>
+          <TextField
+            sx={{ my: 1 }}
+            fullWidth
+            id="username"
+            /* props by formik */
+            error={touched.username && Boolean(errors.username)}
+            helperText={touched.username && errors.username}
+            name="username"
+            value={values.username}
+            onChange={handleChange}
+            onBlur={handleBlur}
+          />
+          <InputLabel htmlFor="password" sx={{ fontWeight: 600, my: 1 }}>Password</InputLabel>
+          <TextField
+            sx={{ my: 1 }}
+            fullWidth
+            id="password"
+            type="password"
+            /* props by formik */
+            name="password"
+            value={values.password}
+            onChange={handleChange}
+            error={touched.password && Boolean(errors.password)}
+            helperText={touched.password && errors.password}
+            onBlur={handleBlur}
+          />
+          <MainButton
+            type="submit"
+            sx={{
+              my: 1, p: ('15px'), width: '10vw', fontWeight: 600, textAlign: 'center',
+            }}
+            onClick={handleLogIn}
+            disabled={!isValid && !dirty}
+          >
+            {' '}
+            Log In !
+          </MainButton>
+        </Grid>
+      </Grid>
     </Box>
   );
 };

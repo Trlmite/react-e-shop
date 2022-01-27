@@ -1,7 +1,6 @@
 /* eslint-disable */
 import React, { useState, useEffect } from 'react';
 import FormGroup from '@mui/material/FormGroup';
-import Slider from '@mui/material/Slider';
 import { Divider, Typography } from '@mui/material';
 
 import FilterCheckBox from './item-page-filter-checkbox';
@@ -9,7 +8,7 @@ import FilterCheckBox from './item-page-filter-checkbox';
 import APIService from '../../../services/api-service';
 
 
-const value = [0, 1000];
+
 
 const filters = [
   {
@@ -37,21 +36,12 @@ const FiltersGrouped = () => {
     })();
   }, [])
   
-  console.log(filtersA)
-
   return (
     <FormGroup>
       <Divider sx={{ my: 1 }} />
       <FilterCheckBox
         options={filtersA}
         filters={filters}
-      />
-      <Typography variant="p" align="center">Kaina</Typography>
-      <Slider
-        value={value}
-        min="0"
-        max="1500"
-        valueLabelDisplay="auto"
       />
     </FormGroup>
   );
