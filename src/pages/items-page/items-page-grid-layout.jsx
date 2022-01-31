@@ -10,14 +10,14 @@ const ItemsGridCopy = styled(Box)(({ theme }) => ({
     gridTemplateColumns: 'repeat(2, 1fr)',
   },
   [theme.breakpoints.up('md')]: {
-    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridTemplateColumns: 'repeat(2, 1fr)',
 
   },
   [theme.breakpoints.up('lg')]: {
-    gridTemplateColumns: 'repeat(4, 1fr)',
+    gridTemplateColumns: 'repeat(3, 1fr)',
   },
   [theme.breakpoints.up('xl')]: {
-    gridTemplateColumns: 'repeat(5, 1fr)',
+    gridTemplateColumns: 'repeat(4, 1fr)',
   },
 }));
 

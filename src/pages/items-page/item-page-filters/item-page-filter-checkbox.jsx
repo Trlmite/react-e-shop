@@ -21,6 +21,7 @@ const FilterCheckBox = ({ options, filters }) => {
       checked: x.id === name ? checked : x.checked
     }));
     setSelection(newSelections);
+    console.log(selections.filter(x => x.checked === true))
   }
   return (
     <>

@@ -4,21 +4,22 @@ import MenuItem from '@mui/material/MenuItem';
 import { Box } from '@mui/material';
 
 const SelectSpecs = ({
-  options, name, id, value, onChange,
+  options, name, id, value, onChange, label,
 }) => (
   <Box sx={{ mx: 1 }}>
     <TextField
       key={id}
       id={id}
       select
-      label={name}
+      label={label}
+      name={name}
       value={value}
-      helperText={`Select GPU's ${name}`}
+      helperText={`Select GPU's ${label}`}
       onChange={onChange}
     >
       {options.map((option) => (
-        <MenuItem key={option} value={option}>
-          {option}
+        <MenuItem key={option.id} value={option}>
+          {option.title}
         </MenuItem>
       ))}
     </TextField>

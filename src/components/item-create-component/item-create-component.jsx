@@ -3,32 +3,52 @@ import React, { useState } from 'react';
 import FilterPageBox from '../../pages/items-page/item-page-filter-styled';
 import SelectSpecs from './item-create-select-specs';
 
-const options = {
-  0: '2GB',
-  1: '4GB',
-  2: '6GB',
-  3: '8GB',
-  4: '10GB',
-  5: '12GB',
-};
-const manufactorer = {
-  0: 'zotac',
-  1: 'gigabyte',
-  2: 'msi',
-};
-
-const memoryOptions = Object.values(options);
-const manufactorerOptions = Object.values(manufactorer);
+const filters = [
+  {
+    id: '1',
+    label: 'Manufacturer',
+    options: [
+      { id: '1', filterId: '1', title: 'Zotac' },
+      { id: '2', filterId: '1', title: 'Gigabyte' },
+      { id: '3', filterId: '1', title: 'MSI' },
+    ],
+  },
+  {
+    id: '2',
+    label: 'Memory',
+    options: [
+      { id: '6', filterId: '2', title: '2gb' },
+      { id: '7', filterId: '2', title: '4gb' },
+      { id: '8', filterId: '2', title: '6gb' },
+      { id: '9', filterId: '2', title: '8gb' },
+      { id: '10', filterId: '2', title: '10gb' },
+      { id: '11', filterId: '2', title: '12gb' },
+    ],
+  },
+  {
+    id: '3',
+    label: 'Lust',
+    options: [
+      { id: '4', filterId: '3', title: 'Nvidia RTX 2060' },
+      { id: '5', filterId: '3', title: 'Radeon RX 6700 XT' },
+      { id: '12', filterId: '3', title: 'AMD Radeon RX 6600' },
+      { id: '13', filterId: '3', title: 'GeForce® GTX 1660 Ti' },
+    ],
+  },
+];
 
 const ItemCreationComponent = () => {
-  const [memory, setMemory] = useState(options[0]);
-  const [manufactorerSelect, setManufactorerSelect] = useState(manufactorer[0]);
+  const [filterSelections, setFilterSelections] = useState(filters.reduce((result, filter) => ({
+    ...result,
+    [filter.id]: filter.options[0],
+  }), {}));
 
-  const handleMemoryChange = (e) => {
-    setMemory(e.target.value);
-  };
-  const handleManufactorerSelect = (e) => {
-    setManufactorerSelect(e.target.value);
+  const setFilterSelection = (event) => {
+    const { value: option, name: filterId } = event.target;
+    setFilterSelections({
+      ...filterSelections,
+      [filterId]: option,
+    });
   };
 
   return (
@@ -36,20 +56,21 @@ const ItemCreationComponent = () => {
       <Box sx={{ textAlign: 'center', width: '100%' }}>
         <Typography align="center"> GPU specs</Typography>
         <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-          <SelectSpecs
-            id="memory-selector-id"
-            options={memoryOptions}
-            name="Memory"
-            onChange={handleMemoryChange}
-            value={memory}
-          />
-          <SelectSpecs
-            id="manufacturer-selector-id"
-            options={manufactorerOptions}
-            name="Manufacturer"
-            onChange={handleManufactorerSelect}
-            value={manufactorerSelect}
-          />
+          {filters.map((filter) => {
+            const { label, options, id } = filter;
+            return (
+              <SelectSpecs
+                id={id}
+                key={id}
+                options={options}
+                label={label}
+                name={id}
+                onChange={setFilterSelection}
+                value={filterSelections[id]}
+              />
+            );
+          })}
+
         </Box>
       </Box>
     </FilterPageBox>
