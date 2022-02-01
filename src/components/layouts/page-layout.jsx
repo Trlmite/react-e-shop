@@ -9,7 +9,8 @@ const PageLayout = () => (
     <Container
       element="main"
       maxWidth="xl"
-      disableGutters="true"
+      minWidth="xs"
+      disableGutters
       sx={{
         margin: (5, 'auto'),
       }}

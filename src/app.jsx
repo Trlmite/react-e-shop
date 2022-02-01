@@ -13,7 +13,7 @@ import HomePage from './pages/homepage/home-page';
 import ItemPage from './pages/items-page/item-page';
 import LoginPage from './pages/login-page/login-page';
 import RegisterPage from './pages/register-page/register-page';
-import CreateListingPage from './pages/create-lsiting-page/create-listing-page';
+import CreateListingPage from './pages/create-listing-page/create-listing-page';
 
 const App = () => (
   <CssBaseline>

@@ -1,6 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import FilterPageBox from '../../pages/items-page/item-page-filter-styled';
+import MainButton from '../button/main-button';
 import SelectSpecs from './item-create-select-specs';
 
 const filters = [
@@ -54,7 +55,7 @@ const ItemCreationComponent = () => {
   return (
     <FilterPageBox>
       <Box sx={{ textAlign: 'center', width: '100%' }}>
-        <Typography align="center"> GPU specs</Typography>
+        <Typography align="center" variant="h5"> GPU specs</Typography>
         <Box sx={{ display: 'flex', flexDirection: 'row' }}>
           {filters.map((filter) => {
             const { label, options, id } = filter;
@@ -70,8 +71,13 @@ const ItemCreationComponent = () => {
               />
             );
           })}
-
         </Box>
+        <MainButton
+          onClick={() => console.log(filterSelections)}
+          sx={{ width: 100 }}
+        >
+          Search
+        </MainButton>
       </Box>
     </FilterPageBox>
   );

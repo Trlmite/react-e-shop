@@ -1,6 +1,7 @@
-import { Box, TextField, Typography } from '@mui/material';
+import {
+  Box, TextField, Typography, InputLabel,
+} from '@mui/material';
 import React from 'react';
-import InputLabel from '@mui/material/InputLabel';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Grid from '@mui/material/Grid';
@@ -61,6 +62,7 @@ const LoginPage = () => {
         lg={4}
       >
         <Grid
+          item
           sx={{
             display: 'flex',
             flexDirection: 'column',

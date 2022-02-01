@@ -6,6 +6,7 @@ import { Divider, Typography } from '@mui/material';
 import FilterCheckBox from './item-page-filter-checkbox';
 
 import APIService from '../../../services/api-service';
+import MainButton from '../../../components/button/main-button';
 
 
 
@@ -43,6 +44,11 @@ const FiltersGrouped = () => {
         options={filtersA}
         filters={filters}
       />
+      <MainButton
+      onClick={() => console.log("veikia")}
+      >
+        Search
+      </MainButton>
     </FormGroup>
   );
 };

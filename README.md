@@ -4,7 +4,4 @@
 # Run development
 - npm start
 
-# Run production
-- npm run build
-- npm install -g serve
-- serve -s build
+**work in progress**
