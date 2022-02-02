@@ -30,8 +30,6 @@ const LoginPage = () => {
     validationSchema,
   });
 
-  console.log({ isValid, dirty });
-
   const handleLogIn = (e) => {
     e.preventDefault();
   };
