@@ -116,7 +116,7 @@ const RegisterPage = () => {
                 : ' '}
             />
           </Box>
-          <Box sx={{ mx: 2 }}>
+          <Box sx={{ my: 2 }}>
             <InputLabel htmlFor="password" sx={{ fontWeight: 600, my: 0.5, textAlign: 'center' }}>Password</InputLabel>
             <TextField
               sx={{ my: 1 }}
@@ -185,7 +185,7 @@ const RegisterPage = () => {
                 : ' '}
             />
           </Box>
-          <Box sx={{ mx: 2 }}>
+          <Box sx={{ my: 2 }}>
             <InputLabel htmlFor="name" sx={{ fontWeight: 600, my: 0.5, textAlign: 'center' }}>Name</InputLabel>
             <TextField
               sx={{ my: 1 }}

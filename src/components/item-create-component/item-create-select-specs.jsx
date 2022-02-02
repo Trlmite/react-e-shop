@@ -6,7 +6,7 @@ import { Box } from '@mui/material';
 const SelectSpecs = ({
   options, name, id, value, onChange, label,
 }) => (
-  <Box sx={{ mx: 1 }}>
+  <Box sx={{ my: 1 }}>
     <TextField
       key={id}
       id={id}
