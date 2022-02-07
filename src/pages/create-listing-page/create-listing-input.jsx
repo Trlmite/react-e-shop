@@ -23,19 +23,15 @@ const currencies = [
     },
 ];
 const initialValues = {
-    title: 'test',
-    imageURL: 'test',
-    description: 'test',
-    price: {
-        value: '111',
-        currency: '',
-    },
+    title: '',
+    imageURL: '',
+    description: '',
+    value: '',
+    currency: '',
     condition: '',
-    filters: {
-        manufacturerId: '',
-        memoryId: '',
-        lustId: '',
-    },
+    manufacturer: '',
+    memory: '',
+    lust: '',
 };
 
 const validationSchema = yup.object({
@@ -52,10 +48,24 @@ const validationSchema = yup.object({
     description: yup
         .string()
         .required('Must enter description'),
-    // price.value: yup
-    //     .number()
-    //     .required('Must enter price')
-
+    price: yup
+        .number()
+        .required('Must enter price'),
+    currency: yup
+        .string()
+        .required('Must choose currency'),
+    condition: yup
+        .string()
+        .required("Must choose condition"),
+    manufacturer: yup 
+        .string()
+        .required("Must enter manufacturer"),
+    memory: yup 
+        .number()
+        .required("Must enter memory"),
+    lust: yup
+        .string()
+        .required("Must enter lust")
 });
 
 const CreateListingInput = () => {
@@ -134,7 +144,16 @@ const CreateListingInput = () => {
                         sx={{ my: 1 }}
                         type="number"
                         id="price"
-                    />
+                        name='price'
+                         /* props by formik */
+                        value={values.price}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        error={touched.price && Boolean(errors.price)}
+                        helperText={touched.price && Boolean(errors.price)
+                        ? errors.price
+                        : ' '}
+                     />
                 </Box>
                 <Box>
                     <InputLabel htmlFor="currency" sx={{ fontWeight: 600 }}>Currency</InputLabel>
@@ -143,6 +162,15 @@ const CreateListingInput = () => {
                         fullWidth
                         select
                         id="currency"
+                        name='currency'
+                         /* props by formik */
+                         value={values.currency}
+                         onChange={handleChange}
+                         onBlur={handleBlur}
+                         error={touched.currency && Boolean(errors.currency)}
+                         helperText={touched.currency && Boolean(errors.currency)
+                         ? errors.currency
+                         : ' '}
                     >
 
                         {currencies.map((option) => (
@@ -161,11 +189,28 @@ const CreateListingInput = () => {
                             sx={{ mx: 2 }}
                             label="New"
                             id="new"
+                            name='condition'
+                            value={values.condition}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            error={touched.condition && Boolean(errors.condition)}
+                            helperText={touched.condition && Boolean(errors.condition)
+                            ? errors.condition
+                            : ' '}
                         />
                         <FormControlLabel
                             control={<Checkbox />}
                             label="Used"
                             id="used"
+                            name='condition'
+                            value='used'
+                            value={values.condition}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            error={touched.condition && Boolean(errors.condition)}
+                            helperText={touched.condition && Boolean(errors.condition)
+                            ? errors.condition
+                            : ' '}
                         />
                     </Box>
                 </Box>
@@ -181,13 +226,32 @@ const CreateListingInput = () => {
                         <TextField
                             sx={{ my: 1 }}
                             id="manufacturer"
+                            name='manufacturer'
+                             /* props by formik */
+                            value={values.manufacturer}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            error={touched.manufacturer && Boolean(errors.manufacturer)}
+                            helperText={touched.manufacturer && Boolean(errors.manufacturer)
+                            ? errors.manufacturer
+                            : ' '}
                         />
                     </Box>
                     <Box>
                         <InputLabel htmlFor="memory" sx={{ fontWeight: 600, my: 1 }}>Memory</InputLabel>
                         <TextField
                             sx={{ my: 1 }}
+                            type="number"
                             id="memory"
+                            name='memory'
+                             /* props by formik */
+                             value={values.memory}
+                             onChange={handleChange}
+                             onBlur={handleBlur}
+                             error={touched.memory && Boolean(errors.memory)}
+                             helperText={touched.memory && Boolean(errors.memory)
+                             ? errors.memory
+                             : ' '}
                         />
                     </Box>
                     <Box>
@@ -195,6 +259,15 @@ const CreateListingInput = () => {
                         <TextField
                             sx={{ my: 1 }}
                             id="lust"
+                            name='lust'
+                             /* props by formik */
+                             value={values.lust}
+                             onChange={handleChange}
+                             onBlur={handleBlur}
+                             error={touched.lust && Boolean(errors.lust)}
+                             helperText={touched.lust && Boolean(errors.lust)
+                             ? errors.lust
+                             : ' '}
                         />
                     </Box>
                 </Box>
