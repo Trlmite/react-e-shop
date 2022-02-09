@@ -7,12 +7,12 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 
 const initialValues = {
-  title: 'title',
+  title: '',
   imageURL: '',
   description: '',
   value: '',
   stock: '',
-  currency: 'USD',
+  currency: '',
   condition: '',
   manufacturer: '',
   memory: '',
@@ -72,9 +72,9 @@ const CreateListingPage = () => {
 //  not updating initialValues and placeholder ???
   useEffect(() =>{
     setItemPlaceholder(
-      initialValues
+      values
     ) 
-  },[initialValues])
+  },[values])
 
   console.log({itemPlaceholder, initialValues})
 
