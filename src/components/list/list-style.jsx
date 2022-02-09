@@ -5,7 +5,7 @@ const ListItemStyled = styled(ListItem)(({ theme }) => ({
   display: 'grid',
   justifyContent: 'center',
   alignItems: 'center',
-  gridTemplateColumns: '3fr 1fr 2fr 1fr 2fr 1fr 2fr',
+  gridTemplateColumns: '3fr 1fr 2fr 1fr 2fr repeat(2, 1fr)',
   gridTemplateRows: '1fr',
   gridColumnGap: 0,
   gridRowGap: 0,
