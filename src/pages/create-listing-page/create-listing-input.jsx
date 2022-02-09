@@ -9,8 +9,7 @@ import {
     Checkbox,
 } from '@mui/material';
 import React from 'react';
-import { useFormik } from 'formik';
-import * as yup from 'yup';
+
 
 const currencies = [
     {
@@ -22,63 +21,9 @@ const currencies = [
         label: '€',
     },
 ];
-const initialValues = {
-    title: '',
-    imageURL: '',
-    description: '',
-    value: '',
-    currency: '',
-    condition: '',
-    manufacturer: '',
-    memory: '',
-    lust: '',
-};
 
-const validationSchema = yup.object({
-    title: yup
-        .string('Enter title')
-        .required('Must enter title'),
-    imageURL: yup
-        .string()
-        .matches(
-            /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
-            'Enter correct url!',
-        )
-        .required('Must enter correct URL adress'),
-    description: yup
-        .string()
-        .required('Must enter description'),
-    price: yup
-        .number()
-        .required('Must enter price'),
-    currency: yup
-        .string()
-        .required('Must choose currency'),
-    condition: yup
-        .string()
-        .required("Must choose condition"),
-    manufacturer: yup 
-        .string()
-        .required("Must enter manufacturer"),
-    memory: yup 
-        .number()
-        .required("Must enter memory"),
-    lust: yup
-        .string()
-        .required("Must enter lust")
-});
-
-const CreateListingInput = () => {
+const CreateListingInput = ({ values, errors, touched, handleBlur, handleChange }) => {
     const pageName = 'createListingInput';
-
-    const {
-        values, errors, touched, isValid, dirty,
-        handleChange, handleBlur,
-    } = useFormik({
-        initialValues,
-        validationSchema,
-    })
-
     return (
         <Box
             component="form"
@@ -87,7 +32,6 @@ const CreateListingInput = () => {
                 justifyContent: 'center',
                 flexDirection: 'column',
                 textAlign: 'center',
-                width: '45%',
                 pl: 2,
             }}
         >
@@ -125,14 +69,14 @@ const CreateListingInput = () => {
                 sx={{ my: 1 }}
                 id='description'
                 name='description'
-                 /* props by formik */
-                 value={values.description}
-                 onChange={handleChange}
-                 onBlur={handleBlur}
-                 error={touched.description && Boolean(errors.description)}
-                 helperText={touched.description && Boolean(errors.description)
-                     ? errors.description
-                     : ' '}
+                /* props by formik */
+                value={values.description}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={touched.description && Boolean(errors.description)}
+                helperText={touched.description && Boolean(errors.description)
+                    ? errors.description
+                    : ' '}
             />
             <Box sx={{
                 display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexBasis: 'auto',
@@ -145,15 +89,32 @@ const CreateListingInput = () => {
                         type="number"
                         id="price"
                         name='price'
-                         /* props by formik */
+                        /* props by formik */
                         value={values.price}
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={touched.price && Boolean(errors.price)}
                         helperText={touched.price && Boolean(errors.price)
-                        ? errors.price
-                        : ' '}
-                     />
+                            ? errors.price
+                            : ' '}
+                    />
+                </Box>
+                <Box>
+                    <InputLabel htmlFor="stock" sx={{ fontWeight: 600 }}>Quantity</InputLabel>
+                    <TextField
+                        sx={{ my: 1, width: 1 / 3 }}
+                        type="number"
+                        id="stock"
+                        name='stock'
+                        /* props by formik */
+                        value={values.stock}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        error={touched.stock && Boolean(errors.stock)}
+                        helperText={touched.stock && Boolean(errors.stock)
+                            ? errors.stock
+                            : ' '}
+                    />
                 </Box>
                 <Box>
                     <InputLabel htmlFor="currency" sx={{ fontWeight: 600 }}>Currency</InputLabel>
@@ -163,14 +124,14 @@ const CreateListingInput = () => {
                         select
                         id="currency"
                         name='currency'
-                         /* props by formik */
-                         value={values.currency}
-                         onChange={handleChange}
-                         onBlur={handleBlur}
-                         error={touched.currency && Boolean(errors.currency)}
-                         helperText={touched.currency && Boolean(errors.currency)
-                         ? errors.currency
-                         : ' '}
+                        /* props by formik */
+                        value={values.currency}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        error={touched.currency && Boolean(errors.currency)}
+                        helperText={touched.currency && Boolean(errors.currency)
+                            ? errors.currency
+                            : ' '}
                     >
 
                         {currencies.map((option) => (
@@ -195,8 +156,8 @@ const CreateListingInput = () => {
                             onBlur={handleBlur}
                             error={touched.condition && Boolean(errors.condition)}
                             helperText={touched.condition && Boolean(errors.condition)
-                            ? errors.condition
-                            : ' '}
+                                ? errors.condition
+                                : ' '}
                         />
                         <FormControlLabel
                             control={<Checkbox />}
@@ -209,8 +170,8 @@ const CreateListingInput = () => {
                             onBlur={handleBlur}
                             error={touched.condition && Boolean(errors.condition)}
                             helperText={touched.condition && Boolean(errors.condition)
-                            ? errors.condition
-                            : ' '}
+                                ? errors.condition
+                                : ' '}
                         />
                     </Box>
                 </Box>
@@ -227,14 +188,14 @@ const CreateListingInput = () => {
                             sx={{ my: 1 }}
                             id="manufacturer"
                             name='manufacturer'
-                             /* props by formik */
+                            /* props by formik */
                             value={values.manufacturer}
                             onChange={handleChange}
                             onBlur={handleBlur}
                             error={touched.manufacturer && Boolean(errors.manufacturer)}
                             helperText={touched.manufacturer && Boolean(errors.manufacturer)
-                            ? errors.manufacturer
-                            : ' '}
+                                ? errors.manufacturer
+                                : ' '}
                         />
                     </Box>
                     <Box>
@@ -244,14 +205,14 @@ const CreateListingInput = () => {
                             type="number"
                             id="memory"
                             name='memory'
-                             /* props by formik */
-                             value={values.memory}
-                             onChange={handleChange}
-                             onBlur={handleBlur}
-                             error={touched.memory && Boolean(errors.memory)}
-                             helperText={touched.memory && Boolean(errors.memory)
-                             ? errors.memory
-                             : ' '}
+                            /* props by formik */
+                            value={values.memory}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            error={touched.memory && Boolean(errors.memory)}
+                            helperText={touched.memory && Boolean(errors.memory)
+                                ? errors.memory
+                                : ' '}
                         />
                     </Box>
                     <Box>
@@ -260,14 +221,14 @@ const CreateListingInput = () => {
                             sx={{ my: 1 }}
                             id="lust"
                             name='lust'
-                             /* props by formik */
-                             value={values.lust}
-                             onChange={handleChange}
-                             onBlur={handleBlur}
-                             error={touched.lust && Boolean(errors.lust)}
-                             helperText={touched.lust && Boolean(errors.lust)
-                             ? errors.lust
-                             : ' '}
+                            /* props by formik */
+                            value={values.lust}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            error={touched.lust && Boolean(errors.lust)}
+                            helperText={touched.lust && Boolean(errors.lust)
+                                ? errors.lust
+                                : ' '}
                         />
                     </Box>
                 </Box>
