@@ -6,11 +6,10 @@ import ListItem from '../../components/list/list-item';
 
 const AdminPageUsers = ({ users }) => {
   const usersList = 'usersList';
-
   return (
     <Box>
-      <Typography>{usersList}</Typography>
       <Paper elevation={1}>
+        <Typography textAlign="center">{usersList}</Typography>
         <List>
           <ListItem
             row1="Username"
@@ -20,6 +19,8 @@ const AdminPageUsers = ({ users }) => {
           />
           {users.map((user) => (
             <ListItem
+              key={user.id}
+              id={user.id}
               row1={user.username}
               row2={user.email}
               row3={user.role}

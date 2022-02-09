@@ -14,6 +14,7 @@ const CartPageList = () => (
         toggleButtons
       />
       <ListItem
+        id="testId"
         row1="vaizdo korta"
         row2="pinigai"
         row3="1"
