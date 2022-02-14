@@ -13,3 +13,4 @@
 6. router iskelimas
 7. authorizacija
 8. autentifikacija
+9. backendo uzklausos (in progress)

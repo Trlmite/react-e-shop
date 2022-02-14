@@ -1,0 +1,174 @@
+{
+  "users":[
+      {
+          "id":"10",
+          "username":"pyglius",
+          "name":"Petrikus",
+          "surname":"Gilius",
+          "email":"petrus@gmail.cop",
+          "location":"Vilnius",
+          "role": "USER"
+      },
+      {
+          "id":"15",
+          "username":"hiiloo123",
+          "name":"Kalnenas",
+          "surname":"Kalnauskas",
+          "email":"hillonhill@yahoo.com",
+          "location":"Taurage",
+          "role": "USER"
+      },
+      {
+          "id":"20",
+          "username":"latgals",
+          "name":"Girtenas",
+          "surname": "Daugavas",
+          "email":"girts@lv",
+          "location":"Daugpils",
+          "role": "USER"
+      }
+  ],
+  "items":[
+      {
+          "id":"5",
+          "title":"ZOTAC GAMING GeForce RTX 2060 6GB GDDR6",
+          "imageURL":"https://kainos-img.dgn.lt/photos2_25_31105821/img.jpg",
+          "price":{
+              "value":"795.55",
+              "currency":"€"
+          },
+          "sellerId":"10",
+          "description":" The powerful GeForce RTX 2060 takes advantage of a superior architecture to immerse you in incredible realism and performance in demanding games. ",
+          "condition":"used",
+          "stock":"1",
+          "filters":{
+              "manufacturerId":"1",
+              "memoryId":"8",
+              "lustId": "0"
+          }
+      },
+      {
+          "id":"6",
+          "title":"Gigabyte GV-R67XTGAMING OC-12GD AMD, 12 GB, Radeon RX 6700 XT, GDDR6",
+          "imageURL":"https://www.skytech.lt/images/large/67/2828567.png",
+          "price":{
+              "value":"1199.99",
+              "currency":"€"
+          },
+          "sellerId":"15",
+          "description":" The AMD Radeon RX 6700 XT graphics card, powered by AMD RDNA 2 architecture, is a new generation of performance-class graphics card that plays the latest AAA titles with ultra smooth framerate at FHD and 1440 resolution. An array of advanced technologies is built in to optimize your gaming experience by sharpening images, reducing input lag, and minimizing frame tear. ",
+          "condition":"new",
+          "stock":"2",
+          "filters":{
+              "manufacturerId":"2",
+              "memoryId":  "11",
+              "lustId": "5"
+          }
+      },
+      {
+          "id":"8",
+          "title":"MSI Radeon RX 6600 MECH 2X 8GB",
+          "imageURL":"https://www.skytech.lt/images/large/30/3013830.png",
+          "price":{
+              "value":"569.00",
+              "currency":"€"
+          },
+          "sellerId":"15",
+          "description":" MSI Radeon RX 6600 MECH 2X 8G - graphics card - Radeon RX 6600 - 8 GB",
+          "condition":"new",
+          "stock":"1",
+          "filters":{
+              "manufacturerId":"3",
+              "memoryId":  "9",
+              "lustId": "12"
+          }
+      },
+      {
+          "id":"9",
+          "title":"GIGABYTE GeForce® GTX 1660 Ti OC 6GB, 2x Coolers, Backplate",
+          "imageURL":"https://www.skytech.lt/images/large/54/2152954.jpg",
+          "price":{
+              "value":"520.00",
+              "currency":"€"
+          },
+          "sellerId":"15",
+          "description":" Powered by GeForce® GTX 1660 Ti Integrated with 6GB GDDR6 192-bit memory interface WINDFORCE 2X Cooling System with alternate spinning fans 90mm unique blade fans Protection back plate",
+          "condition":"new",
+          "stock":"2",
+          "filters":{
+              "manufacturerId":"2",
+              "memoryId":  "8",
+              "lustId": "13"
+          }
+      },
+      {
+          "id":"10",
+          "title":"Gigabyte GV-N2060D6-6GD 2.0 NVIDIA, 6 GB, GeForce RTX 2060, GDDR6, PCI-E 3.0 x 16",
+          "imageURL":"https://www.skytech.lt/images/large/54/2152954.jpg",
+          "price":{
+              "value":"546.00",
+              "currency":"€"
+          },
+          "sellerId":"15",
+          "description":"GeForce RTX™ 2060 D6 6G (rev. 2.0) Powered by GeForce RTX™ 2060 Integrated with 6GB GDDR6 192-bit memory interface WINDFORCE 2X Cooling System with alternate spinning fans 90mm unique blade fans Protection back plate",
+          "condition":"used",
+          "stock":"2",
+          "filters":{
+              "manufacturerId":"2",
+              "memoryId":  "8",
+              "lustId": "4"
+          }
+      }
+  ],
+  "carts":[
+  {
+      "id":"1",
+      "userId":"20"
+  }
+  ],
+  "cartProducts":
+  [
+      {
+      "id": "2",
+      "cartId":"1",
+      "productId":"6",
+      "count":"1"
+  }
+  ],
+  "orders":[
+      {
+          "id":"12",
+          "cartId":"1",
+          "status":"pending"
+      }
+  ],
+  "filters":[
+          {
+              "id": "1",
+              "label": "Manufacturer"
+          },
+          {
+              "id": "2",
+              "label": "Memory"
+          },
+          {
+              "id": "3",
+              "label": "Lust"
+          }
+  ],
+  "filterOptions": [
+      { "id": "1", "filterId": "1", "title": "Zotac"},
+      { "id": "2", "filterId": "1", "title": "Gigabyte"},
+      { "id": "3", "filterId": "1", "title": "MSI"},
+      { "id": "4", "filterId": "3", "title": "Nvidia RTX 2060"},
+      { "id": "5", "filterId": "3", "title": "Radeon RX 6700 XT"},
+      {"id":"6", "filterId":"2", "title":"2gb"},
+      {"id":"7", "filterId":"2", "title":"4gb"},
+      {"id":"8", "filterId":"2", "title":"6gb"},
+      {"id":"9", "filterId":"2", "title":"8gb"},
+      {"id":"10", "filterId":"2", "title":"10gb"},       
+      {"id":"11", "filterId":"2", "title":"12gb"},
+      { "id": "12", "filterId": "3", "title": "AMD Radeon RX 6600"},
+      { "id": "13", "filterId": "3", "title": "GeForce® GTX 1660 Ti"}
+]
+}
