@@ -37,8 +37,11 @@ const findCartItems = (
   const findCart = carts.find((cart) => cart.userId === id);
   const findCartProducts = cartProducts.find((product) => product.cartId === findCart.id)
   const foundItem = items.filter((item) => item.id === findCartProducts.productId)
-  console.log(foundItem)
-  return foundItem
+  const cartListData = {
+    foundItem,
+    quantity: findCartProducts.count
+  }
+  return cartListData
 };
 
 const CartPage = () => {
@@ -52,7 +55,6 @@ const CartPage = () => {
   }, []);
 
   const cartItem = findCartItems(userId, carts, cartProducts, items);
-  console.log(cartItem)
 
   return (
     <Box sx={{ py: 2 }}>
@@ -60,7 +62,7 @@ const CartPage = () => {
         Your cart
       </Typography>
       <CartPageList 
-      items={cartItem}
+      items={cartItem.foundItem}
       />
     </Box>
   );

@@ -14,7 +14,7 @@ import MainButton from '../../components/button/main-button';
 import stringLenghtClip from '../../helpers/string-lenght-clip';
 
 const ItemPageGridCard = ({
-  title, imageURL, description, price, id, condition, stock,
+  title, imageURL, description, id, price, condition, stock,
 }) => {
   const clippedDescription = stringLenghtClip(description, 75);
   const clippedTitle = stringLenghtClip(title, 50);
@@ -27,14 +27,20 @@ const ItemPageGridCard = ({
     conditionCheck = <Battery50Icon />;
   }
 
-  const handleClick = () => {
-    console.log(id);
+  const handleClick = (e) => {
+    e.stopPropagation();
+    console.log(`pridedama id:${id}`);
+  };
+  const navigate = () => {
+    console.log(`naviguojama i id:${id}`);
   };
 
   return (
-    <Card sx={{
-      display: 'flex', justifyContent: 'center', flexDirection: 'column', alignContent: 'flex-end',
-    }}
+    <Card
+      sx={{
+        display: 'flex', justifyContent: 'center', flexDirection: 'column', alignContent: 'flex-end',
+      }}
+      onClick={navigate}
     >
       <Typography gutterBottom variant="h5" component="div" sx={{ textAlign: 'center' }}>
         {clippedTitle}
