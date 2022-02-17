@@ -76,7 +76,7 @@ const CreateListingPage = () => {
     ) 
   },[values])
 
-  console.log({itemPlaceholder, initialValues})
+  console.log(itemPlaceholder)
 
   return (
     <Box>
@@ -91,9 +91,9 @@ const CreateListingPage = () => {
           handleBlur={handleBlur}
 
         />
-        <ItemPageGridCard
+        {/* <ItemPageGridCard
           {...itemPlaceholder}
-        />
+        /> */}
       </Box>
     </Box>
   );

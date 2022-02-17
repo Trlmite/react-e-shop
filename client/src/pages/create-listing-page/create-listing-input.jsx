@@ -13,11 +13,11 @@ import React from 'react';
 
 const currencies = [
     {
-        value: 'USD',
+        value: '$',
         label: '$',
     },
     {
-        value: 'EUR',
+        value: '€',
         label: '€',
     },
 ];

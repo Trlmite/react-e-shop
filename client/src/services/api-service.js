@@ -36,7 +36,7 @@ const fetchOrders = async () => {
 };
 
 const fetchFilters = async () => {
-  const response = await annonymousInstance.get('/filters');
+  const response = await annonymousInstance.get('filters/filters');
   return response.data;
 };
 

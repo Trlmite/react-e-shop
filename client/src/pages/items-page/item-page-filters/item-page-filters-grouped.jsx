@@ -11,37 +11,21 @@ import MainButton from '../../../components/button/main-button';
 
 
 
-const filters = [
-  {
-    id: '1',
-    label: 'Manufacturer',
-  },
-  {
-    id: '2',
-    label: 'Memory',
-  },
-  {
-    id: '3',
-    label: 'Lust',
-  },
-];
-
 const FiltersGrouped = () => {
   
-  const [filtersA, setFiltersA] = useState([]);
+  const [filters, setFilters] = useState([]);
 
   useEffect(() =>{
     (async () =>{
-      const fetchedFiltr = await APIService.fetchFilterOptions();
-      setFiltersA(fetchedFiltr)
+      const fetchedFilters = await APIService.fetchFilters();
+      setFilters(fetchedFilters)
     })();
   }, [])
-  
+
   return (
     <FormGroup>
       <Divider sx={{ my: 1 }} />
       <FilterCheckBox
-        options={filtersA}
         filters={filters}
       />
       <MainButton
