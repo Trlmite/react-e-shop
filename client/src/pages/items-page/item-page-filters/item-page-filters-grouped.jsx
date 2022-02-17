@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { useState, useEffect } from 'react';
 import FormGroup from '@mui/material/FormGroup';
-import { Divider, Typography } from '@mui/material';
+import { Divider } from '@mui/material';
 
 import FilterCheckBox from './item-page-filter-checkbox';
 
