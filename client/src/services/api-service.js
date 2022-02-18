@@ -1,4 +1,6 @@
 import axios from 'axios';
+import store from '../store/index';
+import * as authSlice from '../store/auth';
 
 const annonymousInstance = axios.create({
   baseURL: 'http://localhost:5000',
@@ -36,8 +38,19 @@ const fetchOrders = async () => {
 };
 
 const fetchFilters = async () => {
-  const response = await annonymousInstance.get('filters/filters');
+  const response = await annonymousInstance.get('/filters/filters');
   return response.data;
+};
+
+const login = async ({ email, password }) => {
+  const { status } = await annonymousInstance.post('/auth/login', { email, password });
+
+  if (status === 200) {
+    const reduxAction = authSlice.login();
+    store.dispatch(reduxAction);
+    return true;
+  }
+  throw new Error(status);
 };
 
 const APIService = {
@@ -47,6 +60,7 @@ const APIService = {
   fetchCartProducts,
   fetchOrders,
   fetchFilters,
+  login,
 };
 
 export default APIService;

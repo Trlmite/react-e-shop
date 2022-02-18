@@ -6,6 +6,7 @@
           "name":"Petrikus",
           "surname":"Gilius",
           "email":"petrus@gmail.cop",
+          "password": "Alio123456",
           "location":"Vilnius",
           "role": "USER"
       },
@@ -15,6 +16,7 @@
           "name":"Kalnenas",
           "surname":"Kalnauskas",
           "email":"hillonhill@yahoo.com",
+          "password": "Alio123456",
           "location":"Taurage",
           "role": "USER"
       },
@@ -24,6 +26,7 @@
           "name":"Girtenas",
           "surname": "Daugavas",
           "email":"girts@lv",
+          "password": "Alio123456",
           "location":"Daugpils",
           "role": "USER"
       }

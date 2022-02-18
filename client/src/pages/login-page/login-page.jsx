@@ -6,6 +6,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Grid from '@mui/material/Grid';
 import MainButton from '../../components/button/main-button';
+import APIService from '../../services/api-service';
 
 const initialValues = {
   username: '',
@@ -30,8 +31,12 @@ const LoginPage = () => {
     validationSchema,
   });
 
-  const handleLogIn = (e) => {
-    e.preventDefault();
+  const handleLogIn = async ({ email, password }) => {
+    try {
+      await APIService.login({ email, password });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
