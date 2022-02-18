@@ -11,7 +11,7 @@ import StyledNavLink from './navbar-navlink-styled';
 import { logout, selectAuth } from '../store/auth';
 
 const NavBar = () => {
-  const loggedIn = useSelector(selectAuth);
+  const { loggedIn } = useSelector(selectAuth);
   const dispatch = useDispatch();
   const theme = useTheme();
 
@@ -39,7 +39,6 @@ const NavBar = () => {
               : null}
           </Box>
           <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-
             {loggedIn
               ? (
                 <StyledNavLink
