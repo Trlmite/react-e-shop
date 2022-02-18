@@ -5,6 +5,8 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectAuth } from './store/auth';
 import theme from './styles/theme';
 
 import PageLayout from './components/layouts/page-layout';
@@ -16,24 +18,28 @@ import RegisterPage from './pages/register-page/register-page';
 import CreateListingPage from './pages/create-listing-page/create-listing-page';
 import AdminPage from './pages/admin-page/admin-page';
 
-const App = () => (
-  <CssBaseline>
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<PageLayout />}>
-            <Route index element={<HomePage />} />
-            <Route path="items" element={<ItemPage />} />
-            <Route path="cart" element={<CartPage />} />
-            <Route path="create-listing" element={<CreateListingPage />} />
-            <Route path="admin-page" element={<AdminPage />} />
-            <Route path="login" element={<LoginPage />} />
-            <Route path="register" element={<RegisterPage />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </ThemeProvider>
-  </CssBaseline>
-);
+const App = () => {
+  const { loggedIn } = useSelector(selectAuth);
+
+  return (
+    <CssBaseline>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<PageLayout />}>
+              <Route index element={<HomePage />} />
+              <Route path="items" element={<ItemPage />} />
+              {loggedIn ? <Route path="cart" element={<CartPage />} /> : null}
+              <Route path="create-listing" element={<CreateListingPage />} />
+              <Route path="admin-page" element={<AdminPage />} />
+              <Route path="login" element={<LoginPage />} />
+              <Route path="register" element={<RegisterPage />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </ThemeProvider>
+    </CssBaseline>
+  );
+};
 
 export default App;

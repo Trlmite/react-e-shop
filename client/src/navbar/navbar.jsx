@@ -1,5 +1,6 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   Box,
   Toolbar,
@@ -7,9 +8,16 @@ import {
   useTheme,
 } from '@mui/material';
 import StyledNavLink from './navbar-navlink-styled';
+import { logout, selectAuth } from '../store/auth';
 
 const NavBar = () => {
+  const loggedIn = useSelector(selectAuth);
+  const dispatch = useDispatch();
   const theme = useTheme();
+
+  const handleLogOut = () => {
+    dispatch(logout());
+  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -22,21 +30,35 @@ const NavBar = () => {
             <StyledNavLink to="/items">
               <Typography variant="h6">Items</Typography>
             </StyledNavLink>
-            <StyledNavLink to="/cart">
-              <Typography variant="h6">Cart</Typography>
-            </StyledNavLink>
-
+            {loggedIn
+              ? (
+                <StyledNavLink to="/cart">
+                  <Typography variant="h6">Cart</Typography>
+                </StyledNavLink>
+              )
+              : null}
           </Box>
           <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
 
-            <StyledNavLink to="/login">
-              <Typography variant="h6">Login</Typography>
-            </StyledNavLink>
-
-            <StyledNavLink to="/register">
-              <Typography variant="h6">Register</Typography>
-            </StyledNavLink>
-
+            {loggedIn
+              ? (
+                <StyledNavLink
+                  to="/"
+                  onClick={handleLogOut}
+                >
+                  <Typography variant="h6">Logout</Typography>
+                </StyledNavLink>
+              )
+              : (
+                <>
+                  <StyledNavLink to="/login">
+                    <Typography variant="h6">Login</Typography>
+                  </StyledNavLink>
+                  <StyledNavLink to="/register">
+                    <Typography variant="h6">Register</Typography>
+                  </StyledNavLink>
+                </>
+              )}
           </Box>
         </Toolbar>
       </AppBar>

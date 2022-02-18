@@ -40,22 +40,6 @@ const fetchFilters = async () => {
   return response.data;
 };
 
-// const fetchedItems = async () => {
-//   const items = await fetchItems();
-//   const formatedItems = items.map(({
-//     id, price, ...rest
-//   }) => {
-//     const item = {
-//       ...rest,
-//       id,
-//       price: `${price.value} ${price.currency}`,
-//     };
-//     return item;
-//   });
-
-//   return formatedItems;
-// };
-
 const APIService = {
   fetchUsers,
   fetchItems,
