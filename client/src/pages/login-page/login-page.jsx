@@ -1,7 +1,7 @@
 import {
   Box, TextField, Typography, InputLabel,
 } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Grid from '@mui/material/Grid';
@@ -23,21 +23,26 @@ const validationSchema = yup.object({
 });
 
 const LoginPage = () => {
+  const [logError, setLogError] = useState('');
+
+  const handleLogIn = async ({ username, password }) => {
+    try {
+      console.log({ username, password });
+      setLogError('');
+      await APIService.login({ username, password });
+    } catch (error) {
+      setLogError(error.response.data.message);
+    }
+  };
+
   const {
     values, errors, touched, isValid, dirty,
-    handleChange, handleBlur,
+    handleChange, handleBlur, handleSubmit,
   } = useFormik({
     initialValues,
     validationSchema,
+    onSubmit: handleLogIn,
   });
-
-  const handleLogIn = async ({ email, password }) => {
-    try {
-      await APIService.login({ email, password });
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
 
   return (
     <Box
@@ -50,6 +55,7 @@ const LoginPage = () => {
         pt: '20vh',
         margin: (5, 'auto'),
       }}
+      onSubmit={handleSubmit}
     >
       <Grid
         container
@@ -75,6 +81,7 @@ const LoginPage = () => {
           }}
         >
           <Typography variant="h5">Please log in!</Typography>
+          {logError ? <Typography variant="h5" sx={{ color: 'red' }}>{logError}</Typography> : null}
           <InputLabel htmlFor="username" sx={{ fontWeight: 600, my: 1 }}>Username</InputLabel>
           <TextField
             sx={{ my: 1 }}
@@ -107,7 +114,6 @@ const LoginPage = () => {
             sx={{
               my: 1, p: ('15px'), width: '10vw', fontWeight: 600, textAlign: 'center',
             }}
-            onClick={handleLogIn}
             disabled={!isValid && !dirty}
           >
             {' '}

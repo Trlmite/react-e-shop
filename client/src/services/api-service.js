@@ -42,15 +42,15 @@ const fetchFilters = async () => {
   return response.data;
 };
 
-const login = async ({ email, password }) => {
-  const { status } = await annonymousInstance.post('/auth/login', { email, password });
+const login = async ({ username, password }) => {
+  const { data, status } = await annonymousInstance.post('/auth/login', { username, password });
 
   if (status === 200) {
     const reduxAction = authSlice.login();
     store.dispatch(reduxAction);
     return true;
   }
-  throw new Error(status);
+  throw new Error(data.message);
 };
 
 const APIService = {
