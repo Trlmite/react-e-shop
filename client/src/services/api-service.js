@@ -13,7 +13,7 @@ const annonymousInstance = axios.create({
 });
 
 const fetchUsers = async () => {
-  const response = await annonymousInstance.get('/users');
+  const response = await annonymousInstance.get('/auth/users');
   return response.data;
 };
 
@@ -46,7 +46,7 @@ const login = async ({ username, password }) => {
   const { data, status } = await annonymousInstance.post('/auth/login', { username, password });
 
   if (status === 200) {
-    const reduxAction = authSlice.login();
+    const reduxAction = authSlice.login(data);
     store.dispatch(reduxAction);
     return true;
   }

@@ -26,7 +26,7 @@ export const createItem = (req, res) => {
     });
 }
 
-export const checkItems = (req, res) => {
+export const checkItems = ( req,res) => {
     res.status(200).json({
         message: "veikia itemsCreate"
     });

@@ -11,7 +11,7 @@ const AdminPage = () => {
   useEffect(() => {
     (async () => {
       const fetchedUsers = await APIService.fetchUsers();
-      setData(fetchedUsers);
+      setData(fetchedUsers.formatedUsers);
     })();
   }, []);
 

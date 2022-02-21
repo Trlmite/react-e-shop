@@ -2,7 +2,7 @@
   "users":[
       {
           "id":"10",
-          "username":"pyglius",
+          "username":"user3",
           "name":"Petrikus",
           "surname":"Gilius",
           "email":"petrus@gmail.cop",
@@ -12,7 +12,7 @@
       },
       {
           "id":"15",
-          "username":"hiiloo123",
+          "username":"user1",
           "name":"Kalnenas",
           "surname":"Kalnauskas",
           "email":"hillonhill@yahoo.com",
@@ -22,7 +22,7 @@
       },
       {
           "id":"20",
-          "username":"latgals",
+          "username":"user2",
           "name":"Girtenas",
           "surname": "Daugavas",
           "email":"girts@lv",

@@ -15,10 +15,11 @@ export const login = (req, res) => {
   }
 
   if (foundUser.password === password) {
-    delete foundUser.password;
+    const user = {...foundUser};
+    delete user.password;
     // Viskas gerai
     res.status(200).json({
-      user: foundUser,
+      user: user,
       token: uuidv4()
     });
     return;
@@ -60,6 +61,7 @@ export const register = (req, res) => {
 
   const user = {
     id: uuidv4(),
+    username,
     name,
     surname,
     email,
@@ -75,8 +77,17 @@ export const register = (req, res) => {
     user,
     token: uuidv4()
   } );
-}
+};
 
-export const checkEmail = (req, res) => {
-  res.status(200).json({ message: 'Užaugęs būsiu pašto patikrinimas' });
+export const getUsers = (req,res) => {
+  const { users } = database.data
+
+  const formatedUsers = users.map(user => {
+    delete user.password
+    return user
+  })
+
+  res.status(200).json({
+    formatedUsers
+  }); 
 }
