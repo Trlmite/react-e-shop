@@ -32,7 +32,7 @@ export const login = (req, res) => {
 };
 
 export const register = (req, res) => {
-  const {email,username,surname,password, repeatPassword} = req.body
+  const {email, username, name, surname, password, repeatPassword, city} = req.body
   const {users} = database.data
 
   const usernameCheck = users.find(x => x.username === username)
@@ -46,7 +46,7 @@ export const register = (req, res) => {
 
   if(password !== repeatPassword){
     res.status(400).json({
-      message: "slaptazodziai nesutampa"
+      message: "Passwords don't match"
     });
     return;
   } 
@@ -54,7 +54,7 @@ export const register = (req, res) => {
 
   if (emailCheck){
     res.status(400).json({
-      message: "vartotojas su tokiu pastu jau egzistuoja"
+      message: "User with this email already exist"
     });
     return
   } 
@@ -66,12 +66,14 @@ export const register = (req, res) => {
     surname,
     email,
     password,
+    location: city,
     role: "USER"
   }
 
   database.data.users.push(user)
   database.write()
 
+  delete user.password
 
   res.status(200).json({
     user,

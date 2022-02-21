@@ -1,10 +1,11 @@
 import { Box, TextField, Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Grid from '@mui/material/Grid';
 import MainButton from '../../components/button/main-button';
+import APIService from '../../services/api-service';
 
 const initialValues = {
   username: '',
@@ -28,7 +29,7 @@ const validationSchema = yup.object({
     .max(32, '32 letters maximum')
     .matches(/^.*[A-ZĄČĘĖĮŠŲŪŽ]+.*$/, 'Should contain Capital letter')
     .matches(/^.*[0-9]+.*$/, 'Should contain number'),
-  passwordRepeat: yup
+  repeatPassword: yup
     .string()
     .required('Must be filled')
     .oneOf([yup.ref('password')], 'Passwords do not match'),
@@ -52,17 +53,41 @@ const validationSchema = yup.object({
 });
 
 const RegisterPage = () => {
+  const [logError, setLogError] = useState('');
+  const handleRegister = async ({
+    username,
+    password,
+    repeatPassword,
+    email,
+    name,
+    surname,
+    city,
+  }) => {
+    try {
+      setLogError('');
+      console.log({ password, repeatPassword });
+      await APIService.register({
+        username,
+        password,
+        repeatPassword,
+        email,
+        name,
+        surname,
+        city,
+      });
+    } catch (error) {
+      setLogError(error.response.data.message);
+    }
+  };
   const {
     values, errors, touched, isValid, dirty,
-    handleChange, handleBlur,
+    handleChange, handleBlur, handleSubmit,
   } = useFormik({
     initialValues,
     validationSchema,
+    onSubmit: handleRegister,
   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
   return (
     <Box
       component="form"
@@ -85,7 +110,7 @@ const RegisterPage = () => {
         }}
       >
         <Typography variant="h5" sx={{ mb: 1 }}>Register</Typography>
-
+        {logError ? <Typography variant="h5" sx={{ color: 'red' }}>{logError}</Typography> : null}
         <Grid
           sx={{
             display: 'flex',
@@ -135,20 +160,20 @@ const RegisterPage = () => {
             />
           </Box>
           <Box>
-            <InputLabel htmlFor="passwordRepeat" sx={{ fontWeight: 600, my: 0.5, textAlign: 'center' }}>Repeat password</InputLabel>
+            <InputLabel htmlFor="repeatPassword" sx={{ fontWeight: 600, my: 0.5, textAlign: 'center' }}>Repeat password</InputLabel>
             <TextField
               sx={{ my: 1 }}
               fullWidth
-              id="passwordRepeat"
+              id="repeatPassword"
               type="password"
-              name="passwordRepeat"
+              name="repeatPassword"
               /* props by formik */
-              value={values.passwordRepeat}
+              value={values.repeatPassword}
               onChange={handleChange}
               onBlur={handleBlur}
-              error={touched.passwordRepeat && Boolean(errors.passwordRepeat)}
-              helperText={touched.passwordRepeat && Boolean(errors.passwordRepeat)
-                ? errors.passwordRepeat
+              error={touched.repeatPassword && Boolean(errors.repeatPassword)}
+              helperText={touched.repeatPassword && Boolean(errors.repeatPassword)
+                ? errors.repeatPassword
                 : ' '}
             />
           </Box>
@@ -241,7 +266,7 @@ const RegisterPage = () => {
               id="city"
               type="text"
               name="city"
-            /* props by formik */
+              /* props by formik */
               value={values.city}
               onChange={handleChange}
               onBlur={handleBlur}

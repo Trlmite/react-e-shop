@@ -53,6 +53,33 @@ const login = async ({ username, password }) => {
   throw new Error(data.message);
 };
 
+const register = async ({
+  username,
+  password,
+  repeatPassword,
+  email,
+  name,
+  surname,
+  city,
+}) => {
+  const { data, status } = await annonymousInstance.post('/auth/register', {
+    username,
+    password,
+    repeatPassword,
+    email,
+    name,
+    surname,
+    city,
+  });
+
+  if (status === 200) {
+    const reduxAction = authSlice.login(data);
+    store.dispatch(reduxAction);
+    return true;
+  }
+  throw new Error(data.message);
+};
+
 const APIService = {
   fetchUsers,
   fetchItems,
@@ -61,6 +88,7 @@ const APIService = {
   fetchOrders,
   fetchFilters,
   login,
+  register,
 };
 
 export default APIService;
