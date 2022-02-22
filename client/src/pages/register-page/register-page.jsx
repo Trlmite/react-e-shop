@@ -65,7 +65,6 @@ const RegisterPage = () => {
   }) => {
     try {
       setLogError('');
-      console.log({ password, repeatPassword });
       await APIService.register({
         username,
         password,

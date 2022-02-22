@@ -27,7 +27,6 @@ const LoginPage = () => {
 
   const handleLogIn = async ({ username, password }) => {
     try {
-      console.log({ username, password });
       setLogError('');
       await APIService.login({ username, password });
     } catch (error) {

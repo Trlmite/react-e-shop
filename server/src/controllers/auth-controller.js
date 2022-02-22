@@ -15,7 +15,7 @@ export const login = (req, res) => {
   }
 
   if (foundUser.password === password) {
-    const user = {...foundUser};
+    const user = { ...foundUser };
     delete user.password;
     // Viskas gerai
     res.status(200).json({
@@ -32,32 +32,32 @@ export const login = (req, res) => {
 };
 
 export const register = (req, res) => {
-  const {email, username, name, surname, password, repeatPassword, city} = req.body
-  const {users} = database.data
+  const { email, username, name, surname, password, repeatPassword, city } = req.body
+  const { users } = database.data
 
   const usernameCheck = users.find(x => x.username === username)
 
-  if (usernameCheck){
+  if (usernameCheck) {
     res.status(400).json({
       message: "Username is already taken"
     });
     return
   }
 
-  if(password !== repeatPassword){
+  if (password !== repeatPassword) {
     res.status(400).json({
       message: "Passwords don't match"
     });
     return;
-  } 
+  }
   const emailCheck = users.find(x => x.email === email)
 
-  if (emailCheck){
+  if (emailCheck) {
     res.status(400).json({
       message: "User with this email already exist"
     });
     return
-  } 
+  }
 
   const user = {
     id: uuidv4(),
@@ -78,10 +78,10 @@ export const register = (req, res) => {
   res.status(200).json({
     user,
     token: uuidv4()
-  } );
+  });
 };
 
-export const getUsers = (req,res) => {
+export const getUsers = (req, res) => {
   const { users } = database.data
 
   const formatedUsers = users.map(user => {
@@ -89,7 +89,7 @@ export const getUsers = (req,res) => {
     return user
   })
 
-  res.status(200).json({
+  res.status(200).json(
     formatedUsers
-  }); 
+  );
 }
