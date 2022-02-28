@@ -4,26 +4,19 @@ import {
     TextField,
     Typography,
     InputLabel,
-    MenuItem,
     FormControlLabel,
     Checkbox,
 } from '@mui/material';
 import React from 'react';
 
+const CreateListingInput = ({ values, errors, touched, handleBlur, handleChange, setField }) => {
 
-const currencies = [
-    {
-        value: '$',
-        label: '$',
-    },
-    {
-        value: '€',
-        label: '€',
-    },
-];
+    const handleContidionChange = (e) => {
+        const newValue = e.target.value;
+        setField('condition', newValue, true);
+    }
 
-const CreateListingInput = ({ values, errors, touched, handleBlur, handleChange }) => {
-    const pageName = 'createListingInput';
+    console.log(values.condition);
     return (
         <Box
             component="form"
@@ -35,7 +28,6 @@ const CreateListingInput = ({ values, errors, touched, handleBlur, handleChange 
                 pl: 2,
             }}
         >
-            <Typography>{pageName}</Typography>
             <InputLabel htmlFor="title" sx={{ fontWeight: 600, my: 1 }}>Title</InputLabel>
             <TextField
                 sx={{ my: 1 }}
@@ -46,7 +38,7 @@ const CreateListingInput = ({ values, errors, touched, handleBlur, handleChange 
                 onChange={handleChange}
                 onBlur={handleBlur}
                 error={touched.title && Boolean(errors.title)}
-                helperText={touched.title && Boolean(errors.title)
+                helpertext={touched.title && Boolean(errors.title)
                     ? errors.title
                     : ' '}
             />
@@ -60,7 +52,7 @@ const CreateListingInput = ({ values, errors, touched, handleBlur, handleChange 
                 onChange={handleChange}
                 onBlur={handleBlur}
                 error={touched.imageURL && Boolean(errors.imageURL)}
-                helperText={touched.imageURL && Boolean(errors.imageURL)
+                helpertext={touched.imageURL && Boolean(errors.imageURL)
                     ? errors.imageURL
                     : ' '}
             />
@@ -74,7 +66,7 @@ const CreateListingInput = ({ values, errors, touched, handleBlur, handleChange 
                 onChange={handleChange}
                 onBlur={handleBlur}
                 error={touched.description && Boolean(errors.description)}
-                helperText={touched.description && Boolean(errors.description)
+                helpertext={touched.description && Boolean(errors.description)
                     ? errors.description
                     : ' '}
             />
@@ -94,7 +86,7 @@ const CreateListingInput = ({ values, errors, touched, handleBlur, handleChange 
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={touched.price && Boolean(errors.price)}
-                        helperText={touched.price && Boolean(errors.price)
+                        helpertext={touched.price && Boolean(errors.price)
                             ? errors.price
                             : ' '}
                     />
@@ -111,67 +103,35 @@ const CreateListingInput = ({ values, errors, touched, handleBlur, handleChange 
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={touched.stock && Boolean(errors.stock)}
-                        helperText={touched.stock && Boolean(errors.stock)
+                        helpertext={touched.stock && Boolean(errors.stock)
                             ? errors.stock
                             : ' '}
                     />
-                </Box>
-                <Box>
-                    <InputLabel htmlFor="currency" sx={{ fontWeight: 600 }}>Currency</InputLabel>
-                    <TextField
-                        sx={{ my: 1 }}
-                        fullWidth
-                        select
-                        id="currency"
-                        name='currency'
-                        /* props by formik */
-                        value={values.currency}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        error={touched.currency && Boolean(errors.currency)}
-                        helperText={touched.currency && Boolean(errors.currency)
-                            ? errors.currency
-                            : ' '}
-                    >
-
-                        {currencies.map((option) => (
-                            <MenuItem key={option.value} value={option.value}>
-                                {option.label}
-                            </MenuItem>
-                        ))}
-                    </TextField>
                 </Box>
                 <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
                     <InputLabel htmlFor="new" sx={{ fontWeight: 600, my: 1 }}>Condition</InputLabel>
                     <Box>
 
                         <FormControlLabel
-                            control={<Checkbox defaultChecked />}
+                            control={<Checkbox value="new"/>}
                             sx={{ mx: 2 }}
                             label="New"
                             id="new"
                             name='condition'
-                            value={values.condition}
-                            onChange={handleChange}
+                            checked={values.condition === "new"} 
+                            onChange={handleContidionChange}
                             onBlur={handleBlur}
-                            error={touched.condition && Boolean(errors.condition)}
-                            helperText={touched.condition && Boolean(errors.condition)
-                                ? errors.condition
-                                : ' '}
+                            
                         />
                         <FormControlLabel
-                            control={<Checkbox />}
+                            control={<Checkbox  value="used"/>}
                             label="Used"
                             id="used"
                             name='condition'
-                            value='used'
-                            value={values.condition}
-                            onChange={handleChange}
+                            checked={values.condition === "used"}
+                            onChange={handleContidionChange}
                             onBlur={handleBlur}
-                            error={touched.condition && Boolean(errors.condition)}
-                            helperText={touched.condition && Boolean(errors.condition)
-                                ? errors.condition
-                                : ' '}
+                            
                         />
                     </Box>
                 </Box>
@@ -193,7 +153,7 @@ const CreateListingInput = ({ values, errors, touched, handleBlur, handleChange 
                             onChange={handleChange}
                             onBlur={handleBlur}
                             error={touched.manufacturer && Boolean(errors.manufacturer)}
-                            helperText={touched.manufacturer && Boolean(errors.manufacturer)
+                            helpertext={touched.manufacturer && Boolean(errors.manufacturer)
                                 ? errors.manufacturer
                                 : ' '}
                         />
@@ -202,7 +162,6 @@ const CreateListingInput = ({ values, errors, touched, handleBlur, handleChange 
                         <InputLabel htmlFor="memory" sx={{ fontWeight: 600, my: 1 }}>Memory</InputLabel>
                         <TextField
                             sx={{ my: 1 }}
-                            type="number"
                             id="memory"
                             name='memory'
                             /* props by formik */
@@ -210,7 +169,7 @@ const CreateListingInput = ({ values, errors, touched, handleBlur, handleChange 
                             onChange={handleChange}
                             onBlur={handleBlur}
                             error={touched.memory && Boolean(errors.memory)}
-                            helperText={touched.memory && Boolean(errors.memory)
+                            helpertext={touched.memory && Boolean(errors.memory)
                                 ? errors.memory
                                 : ' '}
                         />
@@ -226,7 +185,7 @@ const CreateListingInput = ({ values, errors, touched, handleBlur, handleChange 
                             onChange={handleChange}
                             onBlur={handleBlur}
                             error={touched.lust && Boolean(errors.lust)}
-                            helperText={touched.lust && Boolean(errors.lust)
+                            helpertext={touched.lust && Boolean(errors.lust)
                                 ? errors.lust
                                 : ' '}
                         />

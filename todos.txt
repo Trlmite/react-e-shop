@@ -15,5 +15,3 @@
 8. autentifikacija
 9. backendo uzklausos (in progress)
 
-quick-fix : 
-pakeisti database ir grid carde, palikti tik eurus. !

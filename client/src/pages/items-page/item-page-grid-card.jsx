@@ -62,6 +62,7 @@ const ItemPageGridCard = ({
         </Typography>
         <Typography variant="h5" color="text.main" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           {price}
+          {' € '}
           {conditionCheck}
         </Typography>
         <Typography variant="subtitle2" color="text.main" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

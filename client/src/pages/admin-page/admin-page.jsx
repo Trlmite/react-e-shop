@@ -15,11 +15,17 @@ const AdminPage = () => {
     })();
   }, []);
 
+  const handleUpdateClick = (id) => {
+    const findUser = data.find((x) => x.id === id);
+    console.log(findUser);
+  };
+
   return (
     <Box>
       <Typography variant="h1">{pageName}</Typography>
       <AdminPageUsers
         users={data}
+        handleUpdateClick={handleUpdateClick}
       />
     </Box>
   );

@@ -5,10 +5,10 @@ import ClearIcon from '@mui/icons-material/Clear';
 import ListItemStyled from './list-style';
 
 const ListItem = ({
-  row1, row2, row3, toggleButtons, id,
+  row1, row2, row3, toggleButtons, id, handleUpdateClick,
 }) => {
-  const handleClick = (event) => {
-    console.log({ id, event });
+  const handleClick = () => {
+    console.log(id);
   };
   return (
     <ListItemStyled>
@@ -22,7 +22,7 @@ const ListItem = ({
           <>
             <Button
               color="warning"
-              onClick={handleClick}
+              onClick={() => handleUpdateClick(id)}
             >
               <RefreshIcon />
             </Button>

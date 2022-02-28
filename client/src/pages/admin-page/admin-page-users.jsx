@@ -4,7 +4,8 @@ import {
 import React from 'react';
 import ListItem from '../../components/list/list-item';
 
-const AdminPageUsers = ({ users }) => {
+const AdminPageUsers = ({ users, handleUpdateClick }) => {
+  console.log({ users, handleUpdateClick });
   const usersList = 'usersList';
   return (
     <Box>
@@ -21,6 +22,7 @@ const AdminPageUsers = ({ users }) => {
             <ListItem
               key={user.id}
               id={user.id}
+              handleUpdateClick={handleUpdateClick}
               row1={user.username}
               row2={user.email}
               row3={user.role}

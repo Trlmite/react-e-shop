@@ -1,19 +1,18 @@
 /* eslint-disable */
-import { Typography, Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import ItemPageGridCard from '../items-page/item-page-grid-card';
 import CreateListingInput from './create-listing-input';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import MainButton from '../../components/button/main-button';
 
 const initialValues = {
-  title: '',
-  imageURL: '',
-  description: '',
-  value: '',
+  title: 'Placeholder',
+  imageURL: 'URL link',
+  description: 'Placeholder ',
+  price: '',
   stock: '',
-  currency: '',
-  condition: '',
+  condition: 'new',
   manufacturer: '',
   memory: '',
   lust: '',
@@ -38,9 +37,6 @@ const validationSchema = yup.object({
   stock: yup
     .number()
     .required('Must enter quantity'),
-  currency: yup
-    .string()
-    .required('Must choose currency'),
   condition: yup
     .string()
     .required("Must choose condition"),
@@ -48,7 +44,7 @@ const validationSchema = yup.object({
     .string()
     .required("Must enter manufacturer"),
   memory: yup
-    .number()
+    .string()
     .required("Must enter memory"),
   lust: yup
     .string()
@@ -58,29 +54,30 @@ const validationSchema = yup.object({
 
 
 const CreateListingPage = () => {
-  const pageName = 'create-Listing-Page';
 
   const [itemPlaceholder, setItemPlaceholder] = useState(initialValues);
 
   const {
     values, errors, touched, isValid, dirty,
-    handleChange, handleBlur,
+    handleChange, handleBlur, setFieldValue
   } = useFormik({
     initialValues,
     validationSchema,
   })
-//  not updating initialValues and placeholder ???
-  useEffect(() =>{
+  useEffect(() => {
     setItemPlaceholder(
       values
-    ) 
-  },[values])
+    )
+  }, [values])
 
-  console.log(itemPlaceholder)
+  const handleClick = () =>{
+    console.log({...itemPlaceholder
+    })
+  }
 
   return (
-    <Box>
-      <Typography variant="h5" textAlign="center">{pageName}</Typography>
+    <Box sx={{ my: 3, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+      <Typography variant='h6'> Create item listing</Typography>
       <Box sx={{ display: 'flex', flexDirection: "row", justifyContent: 'space-between' }}>
         <CreateListingInput
           initialValues={initialValues}
@@ -89,12 +86,21 @@ const CreateListingPage = () => {
           touched={touched}
           handleChange={handleChange}
           handleBlur={handleBlur}
-
+          setField={setFieldValue}
         />
-        {/* <ItemPageGridCard
+        {/* <Box sx={{ width: 1/2}}>
+          <ItemPageGridCard
           {...itemPlaceholder}
-        /> */}
+          />
+        </Box> */}
       </Box>
+      <MainButton 
+      sx={{ width: 1/3, justifyContent: "center"}}
+      type="submit"
+      onClick={handleClick}
+      disabled={!isValid && !dirty}
+      >Create listing 
+      </MainButton>
     </Box>
   );
 };

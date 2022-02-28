@@ -46,10 +46,7 @@
       "id": "5",
       "title": "ZOTAC GAMING GeForce RTX 2060 6GB GDDR6",
       "imageURL": "https://kainos-img.dgn.lt/photos2_25_31105821/img.jpg",
-      "price": {
-        "value": "795.55",
-        "currency": "€"
-      },
+      "price": "783.2",
       "sellerId": "10",
       "description": " The powerful GeForce RTX 2060 takes advantage of a superior architecture to immerse you in incredible realism and performance in demanding games. ",
       "condition": "used",
@@ -64,10 +61,7 @@
       "id": "6",
       "title": "Gigabyte GV-R67XTGAMING OC-12GD AMD, 12 GB, Radeon RX 6700 XT, GDDR6",
       "imageURL": "https://www.skytech.lt/images/large/67/2828567.png",
-      "price": {
-        "value": "1199.99",
-        "currency": "€"
-      },
+      "price": "1199.99",
       "sellerId": "15",
       "description": " The AMD Radeon RX 6700 XT graphics card, powered by AMD RDNA 2 architecture, is a new generation of performance-class graphics card that plays the latest AAA titles with ultra smooth framerate at FHD and 1440 resolution. An array of advanced technologies is built in to optimize your gaming experience by sharpening images, reducing input lag, and minimizing frame tear. ",
       "condition": "new",
@@ -82,10 +76,7 @@
       "id": "8",
       "title": "MSI Radeon RX 6600 MECH 2X 8GB",
       "imageURL": "https://www.skytech.lt/images/large/30/3013830.png",
-      "price": {
-        "value": "569.00",
-        "currency": "€"
-      },
+      "price": "569.00",
       "sellerId": "15",
       "description": " MSI Radeon RX 6600 MECH 2X 8G - graphics card - Radeon RX 6600 - 8 GB",
       "condition": "new",
@@ -100,10 +91,7 @@
       "id": "9",
       "title": "GIGABYTE GeForce® GTX 1660 Ti OC 6GB, 2x Coolers, Backplate",
       "imageURL": "https://www.skytech.lt/images/large/54/2152954.jpg",
-      "price": {
-        "value": "520.00",
-        "currency": "€"
-      },
+      "price": "520.00",
       "sellerId": "15",
       "description": " Powered by GeForce® GTX 1660 Ti Integrated with 6GB GDDR6 192-bit memory interface WINDFORCE 2X Cooling System with alternate spinning fans 90mm unique blade fans Protection back plate",
       "condition": "new",
@@ -118,10 +106,7 @@
       "id": "10",
       "title": "Gigabyte GV-N2060D6-6GD 2.0 NVIDIA, 6 GB, GeForce RTX 2060, GDDR6, PCI-E 3.0 x 16",
       "imageURL": "https://www.skytech.lt/images/large/54/2152954.jpg",
-      "price": {
-        "value": "546.00",
-        "currency": "€"
-      },
+      "price": "546.00",
       "sellerId": "15",
       "description": "GeForce RTX™ 2060 D6 6G (rev. 2.0) Powered by GeForce RTX™ 2060 Integrated with 6GB GDDR6 192-bit memory interface WINDFORCE 2X Cooling System with alternate spinning fans 90mm unique blade fans Protection back plate",
       "condition": "used",
@@ -133,18 +118,17 @@
       }
     },
     {
-      "id": "068b9df3-cb7c-4c2c-9442-ddc87d1a1027",
-      "title": "test",
-      "imageURL": "test",
-      "price": "test",
-      "sellerId": "test",
-      "description": "test",
-      "condition": "test",
-      "stock": "test",
+      "id": "6ba4e629-a02f-44a7-8b73-b1ec3b3e409f",
+      "title": "1555",
+      "imageURL": "https://picsum.photos/id/237/200/300",
+      "price": "500",
+      "description": "Placeholder ",
+      "condition": "used",
+      "stock": "2",
       "filters": {
-        "manufacturerId": "test",
-        "memoryId": "test",
-        "lustId": "test"
+        "manufacturerId": "05bf7f31-9797-4e2d-8531-f943f0823eec",
+        "memoryId": "8",
+        "lustId": "0bceb0a8-a895-4aa1-93a2-55f7ce65a418"
       }
     }
   ],
@@ -172,7 +156,8 @@
   "filters": [
     {
       "id": "1",
-      "label": "Manufacturer"
+      "label": "Manufacturer",
+      "title": "manufacturer"
     },
     {
       "id": "2",
@@ -248,6 +233,21 @@
       "id": "13",
       "filterId": "3",
       "title": "GeForce® GTX 1660 Ti"
+    },
+    {
+      "id": "05bf7f31-9797-4e2d-8531-f943f0823eec",
+      "filterId": "1",
+      "title": "test"
+    },
+    {
+      "id": "9ad07b83-af30-4ebc-a7e2-d53cd2bf1952",
+      "filterId": "2",
+      "title": "6"
+    },
+    {
+      "id": "0bceb0a8-a895-4aa1-93a2-55f7ce65a418",
+      "filterId": "3",
+      "title": "RTX 3060"
     }
   ]
 }
