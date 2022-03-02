@@ -19,7 +19,6 @@ const CreateListingInput = ({ values, errors, touched, handleBlur, handleChange,
     console.log(values.condition);
     return (
         <Box
-            component="form"
             sx={{
                 display: 'flex',
                 justifyContent: 'center',

@@ -80,6 +80,20 @@ const register = async ({
   throw new Error(data.message);
 };
 
+const createItem = async ({
+  title, imageURL, description, stock, condition, manufacturer, memory, lust,
+}) => {
+  const { status, data } = annonymousInstance.post('/items/create', {
+    title, imageURL, description, stock, condition, manufacturer, memory, lust,
+  });
+
+  if (status === 201) {
+    return data.message;
+  }
+
+  return data.message;
+};
+
 const APIService = {
   fetchUsers,
   fetchItems,
@@ -89,6 +103,7 @@ const APIService = {
   fetchFilters,
   login,
   register,
+  createItem,
 };
 
 export default APIService;

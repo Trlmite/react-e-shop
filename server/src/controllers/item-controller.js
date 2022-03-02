@@ -9,7 +9,8 @@ export const createItem = (req, res) => {
     const findManufacturerFilters = filterOptions.find(x => x.title == manufacturer)
     const findMemoryFilters = filterOptions.find(x => x.title == memory)
     const findLustFilters = filterOptions.find(x => x.title == lust)
-    
+    let manufacturerId, memoryId, lustId;
+
     if (!findManufacturerFilters){
         const newFilterOption ={
             id: uuidv4(),
@@ -17,13 +18,14 @@ export const createItem = (req, res) => {
             title: manufacturer
         }
         
-        let manufacturerId = newFilterOption.id
+        manufacturerId = newFilterOption.id
         database.data.filterOptions.push(newFilterOption)
-        database.write()
+         database.write()
         return manufacturerId
+    } else {
+        manufacturerId = findManufacturerFilters.id
     }
     
-    let manufacturerId = findManufacturerFilters.id
     
     if (!findMemoryFilters){
         const newFilterOption ={
@@ -31,13 +33,13 @@ export const createItem = (req, res) => {
             filterId: "2",
             title: memory
         }
-        
-        let memoryId = newFilterOption.id
+        memoryId = newFilterOption.id
         database.data.filterOptions.push(newFilterOption)
-        database.write()
+         database.write()
         return memoryId
-    } 
-    let memoryId = findMemoryFilters.id
+    } else {
+        memoryId = findMemoryFilters.id
+    }
     
     if (!findLustFilters){
         const newFilterOption ={
@@ -46,12 +48,13 @@ export const createItem = (req, res) => {
             title: lust
         }
         
-        let lustId = newFilterOption.id
+        lustId = newFilterOption.id
         database.data.filterOptions.push(newFilterOption)
         database.write()
         return lustId
-    } 
-    let lustId = findLustFilters.id
+    } else {
+        lustId = findLustFilters.id
+    }
     
     
     const item ={ 
@@ -73,8 +76,8 @@ export const createItem = (req, res) => {
     database.data.items.push(item)
     database.write()
 
-    res.status(200).json({
-        item
+    res.status(201).json({
+        message: "Item created"
     });
 }
 

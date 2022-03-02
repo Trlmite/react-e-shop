@@ -11,6 +11,7 @@ const ItemPageGrid = () => {
   useEffect(() => {
     (async () => {
       const fetchedItems = await APIService.fetchItems();
+      console.log(fetchedItems);
       setItems(fetchedItems);
     })();
   }, []);

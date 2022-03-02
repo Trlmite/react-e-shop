@@ -60,7 +60,16 @@ const ItemPageGridCard = ({
         >
           { clippedDescription }
         </Typography>
-        <Typography variant="h5" color="text.main" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Typography color="text.main" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          Manufacturer :
+        </Typography>
+        <Typography color="text.main" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          Memory :
+        </Typography>
+        <Typography color="text.main" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          Lust :
+        </Typography>
+        <Typography color="text.main" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           {price}
           {' € '}
           {conditionCheck}

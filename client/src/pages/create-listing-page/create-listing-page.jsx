@@ -5,6 +5,7 @@ import CreateListingInput from './create-listing-input';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import MainButton from '../../components/button/main-button';
+import APIService from '../../services/api-service';
 
 const initialValues = {
   title: 'Placeholder',
@@ -45,6 +46,7 @@ const validationSchema = yup.object({
     .required("Must enter manufacturer"),
   memory: yup
     .string()
+    .matches(/^[0-9]{1,3}gb$/)
     .required("Must enter memory"),
   lust: yup
     .string()
@@ -55,14 +57,27 @@ const validationSchema = yup.object({
 
 const CreateListingPage = () => {
 
+  const [resMessage, setResMessage] = useState('')
   const [itemPlaceholder, setItemPlaceholder] = useState(initialValues);
+
+  const onSubmit = async ( itemPlaceholder, {resetForm} ) =>{
+    try {
+      setResMessage('')
+      await APIService.createItem({ ...itemPlaceholder })
+      console.log(response)
+    } catch (error) {
+      setResMessage(response)
+    }
+    resetForm();
+  }
 
   const {
     values, errors, touched, isValid, dirty,
-    handleChange, handleBlur, setFieldValue
+    handleChange, handleBlur, setFieldValue, handleSubmit
   } = useFormik({
     initialValues,
     validationSchema,
+    onSubmit,
   })
   useEffect(() => {
     setItemPlaceholder(
@@ -70,13 +85,12 @@ const CreateListingPage = () => {
     )
   }, [values])
 
-  const handleClick = () =>{
-    console.log({...itemPlaceholder
-    })
-  }
-
   return (
-    <Box sx={{ my: 3, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+    <Box 
+      component="form"
+      onSubmit={handleSubmit}
+      sx={{ my: 3, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}
+    >
       <Typography variant='h6'> Create item listing</Typography>
       <Box sx={{ display: 'flex', flexDirection: "row", justifyContent: 'space-between' }}>
         <CreateListingInput
@@ -95,10 +109,9 @@ const CreateListingPage = () => {
         </Box> */}
       </Box>
       <MainButton 
-      sx={{ width: 1/3, justifyContent: "center"}}
-      type="submit"
-      onClick={handleClick}
-      disabled={!isValid && !dirty}
+        sx={{ width: 1/3, justifyContent: "center"}}
+        type="submit"
+        disabled={!isValid && !dirty}
       >Create listing 
       </MainButton>
     </Box>

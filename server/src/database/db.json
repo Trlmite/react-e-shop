@@ -118,7 +118,33 @@
       }
     },
     {
-      "id": "6ba4e629-a02f-44a7-8b73-b1ec3b3e409f",
+      "id": "c34d2a38-4fe0-40d1-94be-7cfd511ae582",
+      "title": "test",
+      "imageURL": "https://picsum.photos/id/237/200/300",
+      "description": "test",
+      "condition": "used",
+      "stock": 55,
+      "filters": {
+        "manufacturerId": "53b3c37e-4479-4551-8806-393deff60ce6",
+        "memoryId": "7",
+        "lustId": "53b3c37e-4479-4551-8806-393deff60ce6"
+      }
+    },
+    {
+      "id": "ccac82ac-1325-42cd-adde-05bd8e58e1b6",
+      "title": "titlas",
+      "imageURL": "https://picsum.photos/id/237/200/300",
+      "description": "yes",
+      "condition": "used",
+      "stock": 1,
+      "filters": {
+        "manufacturerId": "1",
+        "memoryId": "10",
+        "lustId": "0bceb0a8-a895-4aa1-93a2-55f7ce65a418"
+      }
+    },
+    {
+      "id": "95d9b96e-2555-4e93-a712-1ec8f26faf05",
       "title": "1555",
       "imageURL": "https://picsum.photos/id/237/200/300",
       "price": "500",
@@ -126,7 +152,7 @@
       "condition": "used",
       "stock": "2",
       "filters": {
-        "manufacturerId": "05bf7f31-9797-4e2d-8531-f943f0823eec",
+        "manufacturerId": "53b3c37e-4479-4551-8806-393deff60ce6",
         "memoryId": "8",
         "lustId": "0bceb0a8-a895-4aa1-93a2-55f7ce65a418"
       }
@@ -156,8 +182,7 @@
   "filters": [
     {
       "id": "1",
-      "label": "Manufacturer",
-      "title": "manufacturer"
+      "label": "Manufacturer"
     },
     {
       "id": "2",
@@ -235,19 +260,14 @@
       "title": "GeForce® GTX 1660 Ti"
     },
     {
-      "id": "05bf7f31-9797-4e2d-8531-f943f0823eec",
-      "filterId": "1",
-      "title": "test"
-    },
-    {
-      "id": "9ad07b83-af30-4ebc-a7e2-d53cd2bf1952",
-      "filterId": "2",
-      "title": "6"
-    },
-    {
       "id": "0bceb0a8-a895-4aa1-93a2-55f7ce65a418",
       "filterId": "3",
       "title": "RTX 3060"
+    },
+    {
+      "id": "53b3c37e-4479-4551-8806-393deff60ce6",
+      "filterId": "1",
+      "title": "test"
     }
   ]
 }
