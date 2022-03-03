@@ -83,9 +83,22 @@ export const createItem = (req, res) => {
 
 
 export const getItems = (req,res) => {
-    const { items } = database.data
+    const { items, filterOptions } = database.data
+
+    const modifiedItems = items.map(x => {
+        const findManufacurer = filterOptions.find(manufacturerTitle => manufacturerTitle.id === x.filters.manufacturerId)
+        const findMemory = filterOptions.find(memoryTitle => memoryTitle.id === x.filters.memoryId)
+        const findLust = filterOptions.find(lustTitle => lustTitle.id === x.filters.lustId)
+        const newItem ={
+            ...x,
+            manufacturer: findManufacurer.title,
+            memory: findMemory.title,
+            lust: findLust.title,
+        }
+        return newItem
+    })
     
-    res.status(200).json(
-        items
+    res.status(200).json( 
+        modifiedItems
     )
 }

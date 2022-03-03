@@ -14,9 +14,8 @@ import MainButton from '../../components/button/main-button';
 import stringLenghtClip from '../../helpers/string-lenght-clip';
 
 const ItemPageGridCard = ({
-  title, imageURL, description, id, price, condition, stock,
+  title, imageURL, id, price, condition, stock, manufacturer, memory, lust,
 }) => {
-  const clippedDescription = stringLenghtClip(description, 75);
   const clippedTitle = stringLenghtClip(title, 50);
 
   let conditionCheck = '';
@@ -53,21 +52,20 @@ const ItemPageGridCard = ({
         alt="graphicsCard"
       />
       <CardContent>
-        <Typography
-          variant="body2"
-          color="text.secondary"
-          sx={{ mb: 1 }}
-        >
-          { clippedDescription }
-        </Typography>
         <Typography color="text.main" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           Manufacturer :
+          {' '}
+          {manufacturer}
         </Typography>
         <Typography color="text.main" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           Memory :
+          {' '}
+          {memory}
         </Typography>
         <Typography color="text.main" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           Lust :
+          {' '}
+          {lust}
         </Typography>
         <Typography color="text.main" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           {price}
