@@ -14,6 +14,8 @@ import MainButton from '../../../components/button/main-button';
 const FiltersGrouped = () => {
   
   const [filters, setFilters] = useState([]);
+  const [selections, setSelection] = useState([]);
+
 
   useEffect(() =>{
     (async () =>{
@@ -22,11 +24,36 @@ const FiltersGrouped = () => {
     })();
   }, [])
 
+
+  // useEffect(() => {
+  //   (async () =>{
+  //     await setSelection(filters.map(x => ({
+  //       ...x,
+  //       x.options :{
+  //         ...options,
+  //         checked: false
+  //       }
+  //     })))
+  //     console.log(selections)
+  //   })();
+  // }, []);
+
+  const handleCheckBoxClick = (e) => {
+    const { name, checked } = e.target;
+    const newSelections = selections.map(x => ({
+      ...x,
+      checked: x.id === name ? checked : x.checked
+    }));
+    setSelection(newSelections);
+    console.log({name});
+  }
+
   return (
     <FormGroup>
       <Divider sx={{ my: 1 }} />
       <FilterCheckBox
         filters={filters}
+        onClick={handleCheckBoxClick}
       />
       <MainButton
       onClick={() => console.log("veikia")}

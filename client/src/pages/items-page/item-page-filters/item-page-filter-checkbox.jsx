@@ -4,15 +4,16 @@ import { Typography, Box, Divider } from '@mui/material';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 
-const FilterCheckBox = ({ filters }) => {
+const FilterCheckBox = ({ filters, onClick }) => {
   // const [selections, setSelection] = useState([]);
 
   // useEffect(() => {
-  //   setSelection(options.map(x => ({
+  //   setSelection(filters.options.map(x => ({
   //     ...x,
   //     checked: false
   //   })))
-  // }, [options]);
+  //   console.log(selections)
+  // }, [filters]);
 
   // const handleCheckBoxClick = (e) => {
   //   const { name, checked } = e.target;
@@ -48,6 +49,7 @@ const FilterCheckBox = ({ filters }) => {
                   label={option.title}
                   id={option.id}
                   key={option.id}
+                  onClick={onClick}
                 />
               )
             }
@@ -63,25 +65,3 @@ const FilterCheckBox = ({ filters }) => {
 
 export default FilterCheckBox;
 
-/*  <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        {filters.map((filter) => {
-          let label = '';
-          if (options.filterId === filter.id) {
-            label = filter.label;
-          }
-          return (
-            <Typography variant="p" align="center">{label}</Typography>
-          );
-        })}
-
-        {options.map((option) => (
-          <FormControlLabel
-            control={<Checkbox />}
-            label={option.title}
-            id={option.filterId}
-            key={option.id}
-          />
-        ))}
-      </Box>
-      <Divider sx={{ my: 1 }} />
-      */

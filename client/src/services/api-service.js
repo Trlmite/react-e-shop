@@ -22,21 +22,6 @@ const fetchItems = async () => {
   return response.data;
 };
 
-const fetchCarts = async () => {
-  const response = await annonymousInstance.get('/carts');
-  return response.data;
-};
-
-const fetchCartProducts = async () => {
-  const response = await annonymousInstance.get('/cartProducts');
-  return response.data;
-};
-
-const fetchOrders = async () => {
-  const response = await annonymousInstance.get('/orders');
-  return response.data;
-};
-
 const fetchFilters = async () => {
   const response = await annonymousInstance.get('/filters/filters');
   return response.data;
@@ -80,6 +65,15 @@ const register = async ({
   throw new Error(data.message);
 };
 
+const deleteUser = async ({ id }) => {
+  const { data, status } = await annonymousInstance.post('auth/deleteUser', { id });
+
+  if (status !== 200) {
+    return data.message;
+  }
+  return data.message;
+};
+
 const createItem = async ({
   title, imageURL, description, stock, condition, manufacturer, memory, lust,
 }) => {
@@ -97,13 +91,11 @@ const createItem = async ({
 const APIService = {
   fetchUsers,
   fetchItems,
-  fetchCarts,
-  fetchCartProducts,
-  fetchOrders,
   fetchFilters,
   login,
   register,
   createItem,
+  deleteUser,
 };
 
 export default APIService;

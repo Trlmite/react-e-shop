@@ -6,7 +6,6 @@
       "name": "Petrikus",
       "surname": "Gilius",
       "email": "petrus@gmail.cop",
-      "password": "Alio123456",
       "location": "Vilnius",
       "role": "USER"
     },
@@ -16,29 +15,17 @@
       "name": "Kalnenas",
       "surname": "Kalnauskas",
       "email": "hillonhill@yahoo.com",
-      "password": "Alio123456",
       "location": "Taurage",
       "role": "USER"
     },
     {
-      "id": "20",
-      "username": "user2",
-      "name": "Girtenas",
-      "surname": "Daugavas",
-      "email": "girts@lv",
-      "password": "Alio123456",
-      "location": "Daugpils",
-      "role": "USER"
-    },
-    {
-      "id": "4e57d1c4-4464-45cb-8f1a-21c0c1126038",
-      "username": "user4",
+      "id": "4",
+      "username": "admin123",
       "name": "useris",
       "surname": "Catrokda",
       "email": "user4@gmail.com",
-      "password": "Alio123456",
       "location": "Utena",
-      "role": "USER"
+      "role": "ADMIN"
     }
   ],
   "items": [

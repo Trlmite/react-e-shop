@@ -93,3 +93,23 @@ export const getUsers = (req, res) => {
     formatedUsers
   );
 }
+
+export const deleteUser = (req, res) => {
+  const { users } = database.data
+
+  const checkRole = users.find(x => x.id === req.body.id)
+
+  if (checkRole.role === "ADMIN"){
+    res.status(400).json({
+      message: 'Can not delete administrator'
+    });
+    return
+  }
+
+  database.data.users = users.filter(x => x.id !== req.body.id)
+  database.write()
+
+  res.status(200).json({
+    message: "User was deleted"
+  })
+}

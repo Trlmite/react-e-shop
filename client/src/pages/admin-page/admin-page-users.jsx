@@ -4,9 +4,8 @@ import {
 import React from 'react';
 import ListItem from '../../components/list/list-item';
 
-const AdminPageUsers = ({ users, handleUpdateClick }) => {
-  console.log({ users, handleUpdateClick });
-  const usersList = 'usersList';
+const AdminPageUsers = ({ users, handleUpdateClick, handleUserDeleteClick }) => {
+  const usersList = 'Users List';
   return (
     <Box>
       <Paper elevation={1}>
@@ -23,6 +22,7 @@ const AdminPageUsers = ({ users, handleUpdateClick }) => {
               key={user.id}
               id={user.id}
               handleUpdateClick={handleUpdateClick}
+              handleUserDeleteClick={handleUserDeleteClick}
               row1={user.username}
               row2={user.email}
               row3={user.role}
