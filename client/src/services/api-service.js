@@ -17,12 +17,11 @@ const fetchUsers = async () => {
   return response.data;
 };
 
-// neveikia ????
+// neveikia
 const fetchCarts = async () => {
   const { user } = store.getState().auth;
-  console.log({ ...user });
-  const { data } = await annonymousInstance.get('/cart/cart', { user });
-  return data;
+  const { data } = await annonymousInstance.get(`/cart/cart/${user.id}`);
+  return data.response;
 };
 
 const fetchItems = async () => {

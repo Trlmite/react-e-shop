@@ -1,7 +1,7 @@
-/* eslint-disable */ 
+/* eslint-disable */
 import React, { useState, useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
-// import CartPageList from './cart-page-list';
+import CartPageList from './cart-page-list';
 import APIService from '../../services/api-service';
 
 
@@ -17,12 +17,20 @@ const CartPage = () => {
     })();
   }, []);
 
+  const handleUpdateClick = (id) => {
+    const findCart = carts.find((x) => x.id === id);
+    console.log(findCart);
+  };
+
   return (
     <Box sx={{ py: 2 }}>
       <Typography variant="h4" textAlign="center">
         Your cart
       </Typography>
-      {/* <CartPageList/> */}
+      <CartPageList
+        carts={carts}
+        handleUpdateClick={handleUpdateClick}
+      />
     </Box>
   );
 };

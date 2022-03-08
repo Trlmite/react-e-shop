@@ -8,7 +8,12 @@
       "password": "Alio123456",
       "email": "petrus@gmail.cop",
       "location": "Vilnius",
-      "role": "USER"
+      "role": "USER",
+      "cart":{
+        "products": [
+          {"productId": "8", "quantity": "1"}
+      ]
+      }
     },
     {
       "id": "457812",
@@ -18,7 +23,10 @@
       "password": "Alio123456",
       "email": "hillonhill@yahoo.com",
       "location": "Taurage",
-      "role": "USER"
+      "role": "USER",
+      "cart":{
+        "products": []
+      }
     },
     {
       "id": "4",
@@ -28,7 +36,10 @@
       "surname": "Catrokda",
       "email": "user4@gmail.com",
       "location": "Utena",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "cart":{
+        "products": []
+      }
     }
   ],
   "items": [
@@ -146,30 +157,6 @@
         "memoryId": "8",
         "lustId": "0bceb0a8-a895-4aa1-93a2-55f7ce65a418"
       }
-    }
-  ],
-  "carts": [
-    {
-      "id": "1",
-      "userId": "20"
-    },
-    {
-      "id": "2",
-      "userId": "457812"
-    }
-  ],
-  "cartProducts": [
-    {
-      "id": "2",
-      "cartId": "1",
-      "productId": "6",
-      "count": "1"
-    },
-    {
-      "id": "4",
-      "cartId": "2",
-      "productId": "10",
-      "count": "2"
     }
   ],
   "orders": [

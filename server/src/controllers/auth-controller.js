@@ -67,7 +67,10 @@ export const register = (req, res) => {
     email,
     password,
     location: city,
-    role: "USER"
+    role: "USER",
+    cart:{
+      products: []
+    }
   }
 
   database.data.users.push(user)

@@ -4,7 +4,7 @@ import {
 } from '@mui/material';
 import ListItem from '../../components/list/list-item';
 
-const CartPageList = ({ items }) => (
+const CartPageList = ({ carts, handleUpdateClick }) => (
   <Paper elevation={1}>
     <List>
       <ListItem
@@ -14,13 +14,14 @@ const CartPageList = ({ items }) => (
         toggleDeleteButton
         toggleUpdateButton
       />
-      {items.map((item) => (
+      {carts.map((cart, i) => (
         <ListItem
-          key={item.id}
-          id={item.id}
-          row1={item.title}
-          row2={item.price}
-          row3={item.stock}
+          key={cart.id}
+          id={cart.id}
+          row1={cart.cart.products[i].title}
+          row2={cart.cart.products[i].price}
+          row3={cart.cart.products[i].quantity}
+          handleUpdateClick={handleUpdateClick}
         />
       ))}
     </List>

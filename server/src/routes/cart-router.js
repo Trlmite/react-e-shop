@@ -3,7 +3,7 @@ import { cartItems } from "../controllers/cart-controller.js";
 
 const router = express.Router();
 
-router.get('/cart', cartItems);
+router.get('/cart/:id',  cartItems);
 
 
 export default router;
