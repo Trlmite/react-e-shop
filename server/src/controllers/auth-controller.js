@@ -82,7 +82,7 @@ export const register = (req, res) => {
 };
 
 export const getUsers = (req, res) => {
-  const { users } = database.data
+  const { users } = JSON.parse(JSON.stringify(database.data))
 
   const formatedUsers = users.map(user => {
     delete user.password
@@ -101,7 +101,7 @@ export const deleteUser = (req, res) => {
 
   if (checkRole.role === "ADMIN"){
     res.status(400).json({
-      message: 'Can not delete administrator'
+      message: 'Cannot delete administrator'
     });
     return
   }

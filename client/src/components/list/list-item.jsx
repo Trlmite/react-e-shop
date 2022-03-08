@@ -5,7 +5,14 @@ import ClearIcon from '@mui/icons-material/Clear';
 import ListItemStyled from './list-style';
 
 const ListItem = ({
-  row1, row2, row3, toggleButtons, id, handleUpdateClick, handleUserDeleteClick,
+  row1,
+  row2,
+  row3,
+  toggleUpdateButton,
+  toggleDeleteButton,
+  id,
+  handleUpdateClick,
+  handleUserDeleteClick,
 }) => (
   <ListItemStyled>
     <Box>{row1}</Box>
@@ -13,24 +20,8 @@ const ListItem = ({
     <Box>{row2}</Box>
     <Divider orientation="vertical" flexItem variant="fullWidth" />
     <Box>{row3}</Box>
-    {!toggleButtons
-      ? (
-        <>
-          <Button
-            color="warning"
-            onClick={() => handleUpdateClick(id)}
-          >
-            <RefreshIcon />
-          </Button>
-          <Button
-            onClick={() => handleUserDeleteClick(id)}
-            color="error"
-          >
-            <ClearIcon />
-          </Button>
-        </>
-      )
-      : null}
+    {!toggleUpdateButton ? <Button color="warning" onClick={() => handleUpdateClick(id)}><RefreshIcon /></Button> : null}
+    {!toggleDeleteButton ? <Button onClick={() => handleUserDeleteClick(id)} color="error"><ClearIcon /></Button> : null}
   </ListItemStyled>
 );
 

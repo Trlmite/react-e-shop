@@ -11,7 +11,8 @@ const CartPageList = ({ items }) => (
         row1="GPU"
         row2="Price"
         row3="Quantity"
-        toggleButtons
+        toggleDeleteButton
+        toggleUpdateButton
       />
       {items.map((item) => (
         <ListItem

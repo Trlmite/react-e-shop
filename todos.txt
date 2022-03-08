@@ -1,5 +1,5 @@
 1. admin page (FE)
-    1.1 useriu interface +/ CRUD 
+    1.1 useriu interface +/ + 
     1.2 itemu interface /  CRUD
     1.3 cartu interface / CRUD
 2. user page (FE)
@@ -7,9 +7,9 @@
 3. cart-page / cart item atvaizdavimas +
     3.1 quantity pakeitimas
     3.2 CRUD
-4.create-listing-page (sutvarkyti useEffect ir initialValues ir state atnaujinima)+
+4.create-listing-page +
     4.1 item CRUD
-5. duomenu formato sutvarkymas
+5. duomenu formato sutvarkymas +
 6. router iskelimas
 7. authorizacija
 8. autentifikacija

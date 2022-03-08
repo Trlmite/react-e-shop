@@ -14,7 +14,7 @@ router.post('/login', login);
 
 router.get('/users', getUsers)
 
-router.post('/deleteUser', deleteUser)
+router.delete('/deleteUser', deleteUser)
 
 export default router;
 

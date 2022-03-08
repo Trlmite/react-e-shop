@@ -15,7 +15,8 @@ const AdminPageUsers = ({ users, handleUpdateClick, handleUserDeleteClick }) => 
             row1="Username"
             row2="Email"
             row3="Role"
-            toggleButtons
+            toggleDeleteButton
+            toggleUpdateButton
           />
           {users.map((user) => (
             <ListItem
@@ -26,30 +27,11 @@ const AdminPageUsers = ({ users, handleUpdateClick, handleUserDeleteClick }) => 
               row1={user.username}
               row2={user.email}
               row3={user.role}
+              toggleUpdateButton
             />
           ))}
         </List>
       </Paper>
-      {/* <Paper elevation={1}>
-        <Typography textAlign="center">Items list</Typography>
-        <List>
-          <ListItem
-            row1="Title"
-            row2="Price"
-            row3="stock"
-            toggleButtons
-          />
-          {items.map((item) => (
-            <ListItem
-              key={item.id}
-              id={item.id}
-              row1={item.username}
-              row2={item.email}
-              row3={item.role}
-            />
-          ))}
-        </List>
-      </Paper> */}
     </Box>
   );
 };

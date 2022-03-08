@@ -66,7 +66,7 @@ const register = async ({
 };
 
 const deleteUser = async ({ id }) => {
-  const { data, status } = await annonymousInstance.post('auth/deleteUser', { id });
+  const { data, status } = await annonymousInstance.delete('auth/deleteUser', { id });
 
   if (status !== 200) {
     return data.message;
