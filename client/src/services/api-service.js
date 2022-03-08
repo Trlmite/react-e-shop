@@ -17,6 +17,14 @@ const fetchUsers = async () => {
   return response.data;
 };
 
+// neveikia ????
+const fetchCarts = async () => {
+  const { user } = store.getState().auth;
+  console.log({ ...user });
+  const { data } = await annonymousInstance.get('/cart/cart', { user });
+  return data;
+};
+
 const fetchItems = async () => {
   const response = await annonymousInstance.get('/items/getItems');
   return response.data;
@@ -92,6 +100,7 @@ const APIService = {
   fetchUsers,
   fetchItems,
   fetchFilters,
+  fetchCarts,
   login,
   register,
   createItem,

@@ -1,16 +1,19 @@
 /* eslint-disable */ 
 import React, { useState, useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
-import CartPageList from './cart-page-list';
+// import CartPageList from './cart-page-list';
 import APIService from '../../services/api-service';
 
+
+// neveikia ????
 const CartPage = () => {
-  const [items, setItems] = useState([]);
+  const [carts, setCarts] = useState([]);
 
   useEffect(() => {
     (async () => {
-      const fetchedItems = await APIService.fetchItems();
-      setItems(fetchedItems);
+      const fetchedCarts = await APIService.fetchCarts();
+      setCarts(fetchedCarts);
+      console.log(carts)
     })();
   }, []);
 
@@ -19,9 +22,7 @@ const CartPage = () => {
       <Typography variant="h4" textAlign="center">
         Your cart
       </Typography>
-      <CartPageList 
-      items={cartItem.foundItem}
-      />
+      {/* <CartPageList/> */}
     </Box>
   );
 };
