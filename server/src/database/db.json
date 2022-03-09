@@ -14,24 +14,6 @@
       }
     },
     {
-      "id": "457812",
-      "username": "Trinamas",
-      "name": "Kalnenas",
-      "surname": "Kalnauskas",
-      "password": "Alio123456",
-      "email": "hillonhill@yahoo.com",
-      "location": "Taurage",
-      "role": "USER",
-      "cart": {
-        "products": [
-          {
-            "productId": "10",
-            "quantity": "2"
-          }
-        ]
-      }
-    },
-    {
       "id": "10",
       "username": "user3",
       "name": "Petrikus",
@@ -43,15 +25,19 @@
       "cart": {
         "products": [
           {
-            "productId": "c34d2a38-4fe0-40d1-94be-7cfd511ae582",
-            "quantity": "4"
-          },
-          {
             "productId": "95d9b96e-2555-4e93-a712-1ec8f26faf05",
-            "quantity": "1"
+            "quantity": "2"
           },
           {
             "productId": "ccac82ac-1325-42cd-adde-05bd8e58e1b6",
+            "quantity": "2"
+          },
+          {
+            "productId": "5",
+            "quantity": "1"
+          },
+          {
+            "productId": "6",
             "quantity": "1"
           },
           {

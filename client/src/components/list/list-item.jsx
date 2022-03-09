@@ -8,9 +8,9 @@ const ListItem = ({
   row1,
   row2,
   row3,
+  id,
   toggleUpdateButton,
   toggleDeleteButton,
-  id,
   handleUpdateClick,
   handleUserDeleteClick,
 }) => (
@@ -21,7 +21,7 @@ const ListItem = ({
     <Divider orientation="vertical" flexItem variant="fullWidth" />
     <Box>{row3}</Box>
     {!toggleUpdateButton ? <Button color="warning" onClick={() => handleUpdateClick(id)}><RefreshIcon /></Button> : null}
-    {!toggleDeleteButton ? <Button onClick={() => handleUserDeleteClick} color="error"><ClearIcon /></Button> : null}
+    {!toggleDeleteButton ? <Button onClick={() => handleUserDeleteClick(id)} color="error"><ClearIcon /></Button> : null}
   </ListItemStyled>
 );
 

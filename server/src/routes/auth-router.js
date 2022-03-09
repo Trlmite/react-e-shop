@@ -14,7 +14,7 @@ router.post('/login', login);
 
 router.get('/users', getUsers)
 
-router.delete('/deleteUser', deleteUser)
+router.patch('/deleteUser', deleteUser)
 
 export default router;
 

@@ -27,7 +27,6 @@ const AdminPageUsers = ({ users, handleUpdateClick, handleUserDeleteClick }) => 
               row1={user.username}
               row2={user.email}
               row3={user.role}
-              toggleUpdateButton
             />
           ))}
         </List>

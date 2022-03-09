@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Box, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import APIService from '../../services/api-service';
@@ -5,14 +6,13 @@ import AdminPageUsers from './admin-page-users';
 
 const AdminPage = () => {
   const pageName = 'AdminPage';
-  const [errors, setErrors] = useState([]);
   const [data, setData] = useState([]);
+
   const handleUserDeleteClick = async (id) => {
-    try {
-      setErrors('');
-      await APIService.deleteUser({ id });
-    } catch (error) {
-      setErrors(error.response.data.message);
+    const { status } = await APIService.deleteUser(id);
+    if(status === 200) {
+      const newData = data.filter(x => x.id !== id);
+      return setData(newData);
     }
   };
 
@@ -26,12 +26,11 @@ const AdminPage = () => {
       const fetchedUsers = await APIService.fetchUsers();
       setData(fetchedUsers);
     })();
-  }, [handleUserDeleteClick]);
+  }, [data]);
 
   return (
     <Box>
       <Typography variant="h1">{pageName}</Typography>
-      <Typography variant="h4" color="error">{errors}</Typography>
       <AdminPageUsers
         users={data}
         handleUpdateClick={handleUpdateClick}

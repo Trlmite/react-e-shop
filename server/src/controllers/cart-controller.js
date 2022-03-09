@@ -126,6 +126,7 @@ export const addItemToCart = (req,res) => {
 export const deleteCartItem = (req,res) =>{
     const { id } = req.params
     const { productId } = req.body
+    console.log({productId, id})
     const { users } = JSON.parse(JSON.stringify(database.data))
     
     const findUserCart = users.find(x => x.id === id);

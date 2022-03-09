@@ -9,24 +9,26 @@ import APIService from '../../services/api-service';
 const CartPage = () => {
   const [cart, setCart] = useState([]);
   
+  
   const handleUpdateClick = (id) => {
     const findCart = cart.find((x) => x.productId === id);
     console.log(findCart.productId);
   };
 
   const handleDeleteClick = async (id) => {
-    try{
-      await APIService.deleteCartItem({productId: id})
-    } catch (error){
-      console.log(error)
-    }
+     const { status } = await APIService.deleteCartItem(id);
+     if(status === 200) {
+        const newCart = cart.filter(x => x.productId !== id)
+        return setCart(newCart)
+     }
   };
+  
   useEffect(() => {
     (async () => {
       const fetchedCarts = await APIService.fetchCarts();
       setCart(fetchedCarts.cart.products);
     })();
-  }, [handleDeleteClick]);
+  }, [cart]);
 
   return (
     <Box sx={{ py: 2 }}>
