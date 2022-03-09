@@ -7,31 +7,37 @@ import APIService from '../../services/api-service';
 
 // neveikia ????
 const CartPage = () => {
-  const [carts, setCarts] = useState([]);
+  const [cart, setCart] = useState([]);
+  
+  const handleUpdateClick = (id) => {
+    const findCart = cart.find((x) => x.productId === id);
+    console.log(findCart.productId);
+  };
 
+  const handleDeleteClick = async (id) => {
+    try{
+      await APIService.deleteCartItem({productId: id})
+    } catch (error){
+      console.log(error)
+    }
+  };
   useEffect(() => {
     (async () => {
       const fetchedCarts = await APIService.fetchCarts();
-      setCarts(fetchedCarts);
+      setCart(fetchedCarts.cart.products);
     })();
-  }, []);
-
-  const handleUpdateClick = (id) => {
-    const findCart = carts.find((x) => x.id === id);
-    console.log(findCart);
-  };
-
-  console.log(carts);
+  }, [handleDeleteClick]);
 
   return (
     <Box sx={{ py: 2 }}>
       <Typography variant="h4" textAlign="center">
         Your cart
       </Typography>
-      {/* <CartPageList
-        carts={carts}
+      <CartPageList
+        cart={cart}
         handleUpdateClick={handleUpdateClick}
-      /> */}
+        handleUserDeleteClick={handleDeleteClick}
+      />
     </Box>
   );
 };

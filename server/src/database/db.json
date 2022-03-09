@@ -43,10 +43,6 @@
       "cart": {
         "products": [
           {
-            "productId": "5",
-            "quantity": "5"
-          },
-          {
             "productId": "c34d2a38-4fe0-40d1-94be-7cfd511ae582",
             "quantity": "4"
           },
@@ -56,6 +52,10 @@
           },
           {
             "productId": "ccac82ac-1325-42cd-adde-05bd8e58e1b6",
+            "quantity": "1"
+          },
+          {
+            "productId": "8",
             "quantity": "1"
           }
         ]
@@ -144,6 +144,7 @@
       "imageURL": "https://picsum.photos/id/237/200/300",
       "description": "test",
       "condition": "used",
+      "price": "120.99",
       "stock": 55,
       "filters": {
         "manufacturerId": "53b3c37e-4479-4551-8806-393deff60ce6",
@@ -156,6 +157,7 @@
       "title": "titlas",
       "imageURL": "https://picsum.photos/id/237/200/300",
       "description": "yes",
+      "price": "498.99",
       "condition": "used",
       "stock": 1,
       "filters": {

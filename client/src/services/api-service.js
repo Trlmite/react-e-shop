@@ -31,6 +31,14 @@ const addCartItem = async (itemId, userId) => {
   }
 };
 
+const deleteCartItem = async (productId) => {
+  const { user } = store.getState().auth;
+  const { data, status } = await annonymousInstance.delete(`/cart/deleteCartItem/${user.id}`, productId);
+  if (status === 200) {
+    alert(data.message);
+  }
+};
+
 const fetchItems = async () => {
   const response = await annonymousInstance.get('/items/getItems');
   return response.data;
@@ -83,9 +91,9 @@ const deleteUser = async ({ id }) => {
   const { data, status } = await annonymousInstance.delete('auth/deleteUser', { id });
 
   if (status !== 200) {
-    return data.message;
+    return alert(data.message);
   }
-  return data.message;
+  return alert(data.message);
 };
 
 const createItem = async ({
@@ -108,6 +116,7 @@ const APIService = {
   fetchFilters,
   fetchCarts,
   addCartItem,
+  deleteCartItem,
   login,
   register,
   createItem,

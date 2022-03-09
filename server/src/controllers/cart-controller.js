@@ -122,3 +122,29 @@ export const addItemToCart = (req,res) => {
         message: "Added to cart"
     })
 }
+
+export const deleteCartItem = (req,res) =>{
+    const { id } = req.params
+    const { productId } = req.body
+    const { users } = JSON.parse(JSON.stringify(database.data))
+    
+    const findUserCart = users.find(x => x.id === id);
+
+    const modifiedUserCart = findUserCart.cart.products.filter(product => product.productId !== productId)
+
+    const modifiedUser = {
+        ...findUserCart,
+        cart:{
+            products: modifiedUserCart
+        }
+    }
+
+    database.data.users = users.filter(x => x.id !== id)
+    database.data.users.push(modifiedUser)
+    database.write()
+
+
+    res.status(200).json({
+        message: "Cart item deleted"
+    });
+}
