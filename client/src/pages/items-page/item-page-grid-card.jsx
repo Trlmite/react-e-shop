@@ -1,3 +1,4 @@
+/* eslint-disable */ 
 import React from 'react';
 import {
   Box,
@@ -12,12 +13,14 @@ import BatteryFullIcon from '@mui/icons-material/BatteryFull';
 import Battery50Icon from '@mui/icons-material/Battery50';
 import MainButton from '../../components/button/main-button';
 import stringLenghtClip from '../../helpers/string-lenght-clip';
+import store from '../../store/index';
+import APIService from '../../services/api-service';
 
 const ItemPageGridCard = ({
   title, imageURL, id, price, condition, stock, manufacturer, memory, lust,
 }) => {
   const clippedTitle = stringLenghtClip(title, 50);
-
+  const { user } = store.getState().auth;
   let conditionCheck = '';
 
   if (condition === 'new') {
@@ -25,21 +28,20 @@ const ItemPageGridCard = ({
   } else {
     conditionCheck = <Battery50Icon />;
   }
-
-  const handleClick = (e) => {
-    e.stopPropagation();
-    console.log(`pridedama id:${id}`);
+  const handleClick = async (itemId, userId) => {
+    await APIService.addCartItem(itemId, userId);
   };
-  const navigate = () => {
-    console.log(`naviguojama i id:${id}`);
-  };
+  // const navigate = (e) => {
+  //   e.stopPropagation();
+  //   console.log(`naviguojama i id:${id}`);
+  // };
 
   return (
     <Card
       sx={{
         display: 'flex', justifyContent: 'center', flexDirection: 'column', alignContent: 'flex-end',
       }}
-      onClick={navigate}
+      // onClick={navigate}
     >
       <Typography gutterBottom variant="h5" component="div" sx={{ textAlign: 'center' }}>
         {clippedTitle}
@@ -84,7 +86,8 @@ const ItemPageGridCard = ({
         }}
         >
           <MainButton
-            onClick={handleClick}
+            onClick={user ? () => handleClick(id, user.id) : null}
+            disabled={!user}
           >
             <Typography>
               Buy

@@ -1,18 +1,16 @@
 {
   "users": [
     {
-      "id": "10",
-      "username": "user3",
-      "name": "Petrikus",
-      "surname": "Gilius",
+      "id": "4",
+      "username": "admin123",
+      "name": "useris",
       "password": "Alio123456",
-      "email": "petrus@gmail.cop",
-      "location": "Vilnius",
-      "role": "USER",
-      "cart":{
-        "products": [
-          {"productId": "8", "quantity": "1"}
-      ]
+      "surname": "Catrokda",
+      "email": "user4@gmail.com",
+      "location": "Utena",
+      "role": "ADMIN",
+      "cart": {
+        "products": []
       }
     },
     {
@@ -24,21 +22,43 @@
       "email": "hillonhill@yahoo.com",
       "location": "Taurage",
       "role": "USER",
-      "cart":{
-        "products": []
+      "cart": {
+        "products": [
+          {
+            "productId": "10",
+            "quantity": "2"
+          }
+        ]
       }
     },
     {
-      "id": "4",
-      "username": "admin123",
-      "name": "useris",
+      "id": "10",
+      "username": "user3",
+      "name": "Petrikus",
+      "surname": "Gilius",
       "password": "Alio123456",
-      "surname": "Catrokda",
-      "email": "user4@gmail.com",
-      "location": "Utena",
-      "role": "ADMIN",
-      "cart":{
-        "products": []
+      "email": "petrus@gmail.cop",
+      "location": "Vilnius",
+      "role": "USER",
+      "cart": {
+        "products": [
+          {
+            "productId": "5",
+            "quantity": "5"
+          },
+          {
+            "productId": "c34d2a38-4fe0-40d1-94be-7cfd511ae582",
+            "quantity": "4"
+          },
+          {
+            "productId": "95d9b96e-2555-4e93-a712-1ec8f26faf05",
+            "quantity": "1"
+          },
+          {
+            "productId": "ccac82ac-1325-42cd-adde-05bd8e58e1b6",
+            "quantity": "1"
+          }
+        ]
       }
     }
   ],

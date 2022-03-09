@@ -14,13 +14,18 @@ const CartPageList = ({ carts, handleUpdateClick }) => (
         toggleDeleteButton
         toggleUpdateButton
       />
-      {carts.map((cart, i) => (
+      {carts.map((cart) => (
         <ListItem
           key={cart.id}
           id={cart.id}
-          row1={cart.cart.products[i].title}
-          row2={cart.cart.products[i].price}
-          row3={cart.cart.products[i].quantity}
+          // {cart.products.map(product =>(
+          //   row1={product.title}
+          //   row2={product.price}
+          //   row3={product.quantity}
+          // ))}
+          // row1={cart.cart.products[i].title}
+          // row2={cart.cart.products[i].price}
+          // row3={cart.cart.products[i].quantity}
           handleUpdateClick={handleUpdateClick}
         />
       ))}

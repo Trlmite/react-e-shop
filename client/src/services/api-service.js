@@ -21,7 +21,14 @@ const fetchUsers = async () => {
 const fetchCarts = async () => {
   const { user } = store.getState().auth;
   const { data } = await annonymousInstance.get(`/cart/cart/${user.id}`);
-  return data.response;
+  return data;
+};
+
+const addCartItem = async (itemId, userId) => {
+  const { data, status } = await annonymousInstance.post('/cart/addCartItem', { itemId, userId });
+  if (status === 200) {
+    alert(data.message);
+  }
 };
 
 const fetchItems = async () => {
@@ -100,6 +107,7 @@ const APIService = {
   fetchItems,
   fetchFilters,
   fetchCarts,
+  addCartItem,
   login,
   register,
   createItem,

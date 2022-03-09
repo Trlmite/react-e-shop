@@ -13,7 +13,6 @@ const CartPage = () => {
     (async () => {
       const fetchedCarts = await APIService.fetchCarts();
       setCarts(fetchedCarts);
-      console.log(carts)
     })();
   }, []);
 
@@ -22,15 +21,17 @@ const CartPage = () => {
     console.log(findCart);
   };
 
+  console.log(carts);
+
   return (
     <Box sx={{ py: 2 }}>
       <Typography variant="h4" textAlign="center">
         Your cart
       </Typography>
-      <CartPageList
+      {/* <CartPageList
         carts={carts}
         handleUpdateClick={handleUpdateClick}
-      />
+      /> */}
     </Box>
   );
 };

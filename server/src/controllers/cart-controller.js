@@ -18,6 +18,7 @@ export const cartItems = (req, res) => {
 
                         const newProduct = {
                             ...product,
+                            productId: findProduct.id,
                             title: findProduct.title,
                             price: totalPrice.toString()
 
@@ -61,38 +62,63 @@ export const cartItems = (req, res) => {
         }
     }
 
+    res.status(200).json(
+        modifiedUser
+    );
+}
 
+export const addItemToCart = (req,res) => {
+    const { itemId, userId } = req.body
+    const { users } = JSON.parse(JSON.stringify(database.data))
 
+    const foundUser = users.find(user => user.id === userId)
+    if(foundUser.role === "ADMIN"){
+        res.status(200).json({
+            message: 'Admin cannot buy.... Sorry'
+        })
+        return
+    }
+    const newItem = {
+        productId: itemId,
+        quantity: "1"
+    }
+    const duplicateCheck = foundUser.cart.products.find(product => product.productId === itemId)
+    
+    if(duplicateCheck){
+        const increasedQnt = foundUser.cart.products.map(product => {
+            if(product.productId === itemId){
+                const newProduct = {
+                    ...product,
+                    quantity: (Number(product.quantity) + 1).toString()
+                }
+                return newProduct
+            } else {
+                return product
+            }
+        })
+        const modifiedUser = {
+            ...foundUser,
+            cart:{
+                products: increasedQnt
+            }
+        }
+        database.data.users = users.filter(x => x.id !== userId)
+        database.data.users.push(modifiedUser)
+        database.write()
 
-    // //reikai pataisyti !!??!?
-    // if(user.role !== "ADMIN"){
-    //     userCart = userCarts.filter(cart => cart.userId === user.id)
-    //     if(!userCart){
-    //         res.status(400).json({
-    //             message: 'No carts found'
-    //         })
-    //         return
-    //     }
-    //     return userCarts = userCart
-    // } 
+        res.status(200).json({
+            message: "Added to cart"
+        })
+        return
+    }
 
-    // const modifiedCarts = userCarts.map(x => {
-    //     const findCartProduct = cartProducts.find(cartProduct => cartProduct.cartId === x.id)
-    //     const findItem = items.find(item => item.id === findCartProduct.productId)
-    //     const findPrice = Number(findCartProduct.count) * Number(findItem.price);
+    foundUser.cart.products.push(newItem)
 
-    //     const returnedCart ={
-    //         ...x,
-    //         cartId: findCartProduct.id,
-    //         count: findCartProduct.count,
-    //         price: findPrice,
-    //         item: findItem
-    //     }
-
-    //     return returnedCart
-    // })
+    database.data.users = users.filter(x => x.id !== userId)
+    database.data.users.push(foundUser)
+    database.write()
 
     res.status(200).json({
-        modifiedUser
+        message: "Added to cart"
     })
 }
