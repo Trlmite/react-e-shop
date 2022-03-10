@@ -57,16 +57,14 @@ const validationSchema = yup.object({
 
 const CreateListingPage = () => {
 
-  const [resMessage, setResMessage] = useState('')
   const [itemPlaceholder, setItemPlaceholder] = useState(initialValues);
 
   const onSubmit = async ( itemPlaceholder, {resetForm} ) =>{
     try {
       setResMessage('')
       await APIService.createItem({ ...itemPlaceholder })
-      console.log(response)
     } catch (error) {
-      setResMessage(response)
+      throw new Error (error)
     }
     resetForm();
   }
@@ -102,11 +100,6 @@ const CreateListingPage = () => {
           handleBlur={handleBlur}
           setField={setFieldValue}
         />
-        {/* <Box sx={{ width: 1/2}}>
-          <ItemPageGridCard
-          {...itemPlaceholder}
-          />
-        </Box> */}
       </Box>
       <MainButton 
         sx={{ width: 1/3, justifyContent: "center"}}

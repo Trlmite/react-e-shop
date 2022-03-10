@@ -14,13 +14,16 @@ const CartPage = () => {
     const findCart = cart.find((x) => x.productId === id);
     console.log(findCart.productId);
   };
-
+  // infinity loop ?
   const handleDeleteClick = async (id) => {
-     const { status } = await APIService.deleteCartItem(id);
-     if(status === 200) {
-        const newCart = cart.filter(x => x.productId !== id)
-        return setCart(newCart)
-     }
+    const newCart = cart.filter(x => x.productId !== id)
+    try { 
+      await APIService.deleteCartItem(id);
+    }
+    catch (error) {
+      throw new Error (error)
+    };
+    setCart(newCart)
   };
   
   useEffect(() => {
@@ -28,7 +31,7 @@ const CartPage = () => {
       const fetchedCarts = await APIService.fetchCarts();
       setCart(fetchedCarts.cart.products);
     })();
-  }, [cart]);
+  }, []);
 
   return (
     <Box sx={{ py: 2 }}>

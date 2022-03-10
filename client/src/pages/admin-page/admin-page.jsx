@@ -7,14 +7,22 @@ import AdminPageUsers from './admin-page-users';
 const AdminPage = () => {
   const pageName = 'AdminPage';
   const [data, setData] = useState([]);
+  
 
+  //infinity loop ???
   const handleUserDeleteClick = async (id) => {
-    const { status } = await APIService.deleteUser(id);
-    if(status === 200) {
-      const newData = data.filter(x => x.id !== id);
-      return setData(newData);
+    const newData = data.filter(x => x.id !== id);
+    try{
+      await APIService.deleteUser(id);
+      console.log("API call")
     }
-  };
+    catch(error){
+      throw new Error (error);
+    }
+    console.log("finaly statement status 200")
+    setData(newData)
+    console.log(data)
+  };   
 
   const handleUpdateClick = (id) => {
     const findUser = data.find((x) => x.id === id);
