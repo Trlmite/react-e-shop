@@ -101,15 +101,15 @@ const deleteUser = async (id) => {
 const createItem = async ({
   title, imageURL, description, stock, condition, manufacturer, memory, lust,
 }) => {
-  const { status, data } = annonymousInstance.post('/items/create', {
+  const { user } = store.getState().auth;
+  const { status, data } = annonymousInstance.post(`/items/create/${user.id}`, {
     title, imageURL, description, stock, condition, manufacturer, memory, lust,
   });
 
   if (status === 201) {
-    return data.message;
+    return data;
   }
-
-  return data.message;
+  throw new Error(data.message);
 };
 
 const APIService = {

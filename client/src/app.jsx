@@ -30,7 +30,7 @@ const App = () => {
               <Route index element={<HomePage />} />
               <Route path="items" element={<ItemPage />} />
               {loggedIn ? <Route path="cart" element={<CartPage />} /> : null}
-              <Route path="create-listing" element={<CreateListingPage />} />
+              {loggedIn ? <Route path="create-listing" element={<CreateListingPage />} /> : null}
               <Route path="admin-page" element={<AdminPage />} />
               <Route path="login" element={<LoginPage />} />
               <Route path="register" element={<RegisterPage />} />

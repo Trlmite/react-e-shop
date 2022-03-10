@@ -61,10 +61,9 @@ const CreateListingPage = () => {
 
   const onSubmit = async ( itemPlaceholder, {resetForm} ) =>{
     try {
-      setResMessage('')
       await APIService.createItem({ ...itemPlaceholder })
     } catch (error) {
-      throw new Error (error)
+      console.log(error)
     }
     resetForm();
   }

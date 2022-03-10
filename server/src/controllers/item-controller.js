@@ -3,9 +3,11 @@ import { v4 as uuidv4 } from 'uuid'
 import database from '../database/index.js'
 
 export const createItem = (req, res) => {
-    const {title, imageURL, price, sellerId, description, condition, stock, manufacturer, memory, lust } = req.body
+    const { id } = req.params
+    console.log( id );
+    const {title, imageURL, price, description, condition, stock, manufacturer, memory, lust } = req.body
     const { filterOptions } = database.data
-
+    
     const findManufacturerFilters = filterOptions.find(x => x.title == manufacturer)
     const findMemoryFilters = filterOptions.find(x => x.title == memory)
     const findLustFilters = filterOptions.find(x => x.title == lust)
@@ -62,7 +64,7 @@ export const createItem = (req, res) => {
         title,
         imageURL,
         price,
-        sellerId,
+        sellerId: id,
         description,
         condition,
         stock,

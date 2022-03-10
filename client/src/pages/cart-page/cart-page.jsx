@@ -5,16 +5,14 @@ import CartPageList from './cart-page-list';
 import APIService from '../../services/api-service';
 
 
-// neveikia ????
 const CartPage = () => {
   const [cart, setCart] = useState([]);
-  
   
   const handleUpdateClick = (id) => {
     const findCart = cart.find((x) => x.productId === id);
     console.log(findCart.productId);
   };
-  // infinity loop ?
+
   const handleDeleteClick = async (id) => {
     const newCart = cart.filter(x => x.productId !== id)
     try { 

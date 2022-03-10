@@ -25,19 +25,33 @@
       "cart": {
         "products": [
           {
-            "productId": "95d9b96e-2555-4e93-a712-1ec8f26faf05",
-            "quantity": "2"
-          },
-          {
             "productId": "5",
             "quantity": "1"
           },
+          {
+            "productId": "ccac82ac-1325-42cd-adde-05bd8e58e1b6",
+            "quantity": "1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "20600af5-49cf-422e-9cc8-1ac99d5acc98",
+      "username": "saulenas",
+      "name": "Saule",
+      "surname": "saule",
+      "email": "saulius@gmail.com",
+      "password": "Alio123456",
+      "location": "Vilnius",
+      "role": "USER",
+      "cart": {
+        "products": [
           {
             "productId": "6",
             "quantity": "1"
           },
           {
-            "productId": "10",
+            "productId": "5",
             "quantity": "1"
           }
         ]
@@ -125,6 +139,7 @@
       "title": "test",
       "imageURL": "https://picsum.photos/id/237/200/300",
       "description": "test",
+      "sellerId": "10",
       "condition": "used",
       "price": "120.99",
       "stock": 55,
@@ -139,6 +154,7 @@
       "title": "titlas",
       "imageURL": "https://picsum.photos/id/237/200/300",
       "description": "yes",
+      "sellerId": "10",
       "price": "498.99",
       "condition": "used",
       "stock": 1,
@@ -153,6 +169,7 @@
       "title": "1555",
       "imageURL": "https://picsum.photos/id/237/200/300",
       "price": "500",
+      "sellerId": "10",
       "description": "Placeholder ",
       "condition": "used",
       "stock": "2",
@@ -160,6 +177,76 @@
         "manufacturerId": "53b3c37e-4479-4551-8806-393deff60ce6",
         "memoryId": "8",
         "lustId": "0bceb0a8-a895-4aa1-93a2-55f7ce65a418"
+      }
+    },
+    {
+      "id": "1c510ed7-03b3-4f94-b46a-94da6d285ab3",
+      "title": "test del sellerId",
+      "imageURL": "https://picsum.photos/seed/picsum/200/300",
+      "sellerId": "10",
+      "description": "sellerId",
+      "condition": "used",
+      "stock": 2,
+      "filters": {
+        "manufacturerId": "1",
+        "memoryId": "10",
+        "lustId": "29a00127-d5e5-4964-985a-b26497668f5d"
+      }
+    },
+    {
+      "id": "4310c1c6-350f-4c0a-99e5-b67073537cbc",
+      "title": "Placeholder",
+      "imageURL": "https://picsum.photos/id/2784/200/400",
+      "sellerId": "10",
+      "description": "Placeholder asdasd",
+      "condition": "new",
+      "stock": 1,
+      "filters": {
+        "manufacturerId": "d686ece9-f37e-4a1e-93ef-34a7f6a5d201",
+        "memoryId": "10",
+        "lustId": "29a00127-d5e5-4964-985a-b26497668f5d"
+      }
+    },
+    {
+      "id": "914e1244-175d-4918-a278-474e69578d8d",
+      "title": "Placeholder",
+      "imageURL": "https://picsum.photos/id/2784/200/400",
+      "sellerId": "10",
+      "description": "Placeholder asdasd",
+      "condition": "new",
+      "stock": 1,
+      "filters": {
+        "manufacturerId": "d686ece9-f37e-4a1e-93ef-34a7f6a5d201",
+        "memoryId": "10",
+        "lustId": "29a00127-d5e5-4964-985a-b26497668f5d"
+      }
+    },
+    {
+      "id": "c5d07f55-eef4-47e1-beff-fbf939fd54a9",
+      "title": "Placeholder",
+      "imageURL": "https://picsum.photos/id/2784/200/400",
+      "sellerId": "10",
+      "description": "Placeholder asdasd",
+      "condition": "new",
+      "stock": 1,
+      "filters": {
+        "manufacturerId": "d686ece9-f37e-4a1e-93ef-34a7f6a5d201",
+        "memoryId": "10",
+        "lustId": "29a00127-d5e5-4964-985a-b26497668f5d"
+      }
+    },
+    {
+      "id": "87a6ecfa-798c-49bc-9e71-afa81fc19962",
+      "title": "testas",
+      "imageURL": "https://picsum.photos/id/237/200/300",
+      "sellerId": "10",
+      "description": "testas",
+      "condition": "used",
+      "stock": 4,
+      "filters": {
+        "manufacturerId": "b2a9df9b-58bb-4672-b0a8-f1d9dab3a510",
+        "memoryId": "7",
+        "lustId": "b2a9df9b-58bb-4672-b0a8-f1d9dab3a510"
       }
     }
   ],
@@ -259,6 +346,46 @@
       "id": "53b3c37e-4479-4551-8806-393deff60ce6",
       "filterId": "1",
       "title": "test"
+    },
+    {
+      "id": "d686ece9-f37e-4a1e-93ef-34a7f6a5d201",
+      "filterId": "1",
+      "title": "AMD"
+    },
+    {
+      "id": "9ef60b52-d5e6-4041-882a-db44337917e7",
+      "filterId": "3",
+      "title": "sellerId"
+    },
+    {
+      "id": "29a00127-d5e5-4964-985a-b26497668f5d",
+      "filterId": "3",
+      "title": "RTX 9000"
+    },
+    {
+      "id": "5282b844-63e0-4dd8-b060-628586af1813",
+      "filterId": "1",
+      "title": "Testuko"
+    },
+    {
+      "id": "6b85fc91-dcc7-4881-8d14-1645a83d1340",
+      "filterId": "3",
+      "title": "e95"
+    },
+    {
+      "id": "dc46f4a6-098b-4894-b640-72f7dbb9a134",
+      "filterId": "2",
+      "title": "17gb"
+    },
+    {
+      "id": "64659bb3-51e5-4f38-b365-99d67b7b91de",
+      "filterId": "3",
+      "title": "RTX 30"
+    },
+    {
+      "id": "b2a9df9b-58bb-4672-b0a8-f1d9dab3a510",
+      "filterId": "1",
+      "title": "testas"
     }
   ]
 }
