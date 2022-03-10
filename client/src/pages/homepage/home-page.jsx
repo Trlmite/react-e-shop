@@ -40,6 +40,7 @@ const HomePage = () => {
       {loggedIn
         ? (
           <>
+            <Typography variant="h6" textAlign="center" sx={{ my: 2 }}> Your listings </Typography>
             <HomePageUserListing
               userItems={userItems}
             />
@@ -48,6 +49,7 @@ const HomePage = () => {
                 <Typography variant="h6" textAlign="center">Create item listing</Typography>
               </StyledNavLink>
             </Box>
+            <Typography variant="h6" textAlign="center" sx={{ my: 2 }}> Your orders </Typography>
             <HomePageUserOrder />
           </>
         )

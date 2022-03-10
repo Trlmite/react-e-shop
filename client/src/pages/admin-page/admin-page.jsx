@@ -14,27 +14,25 @@ const AdminPage = () => {
     const newData = data.filter(x => x.id !== id);
     try{
       await APIService.deleteUser(id);
-      console.log("API call")
+      await fetchUsers()
     }
     catch(error){
       throw new Error (error);
     }
-    console.log("finaly statement status 200")
     setData(newData)
-    console.log(data)
   };   
+
+  const fetchUsers = async () => {
+    const fetchedUsers = await APIService.fetchUsers();
+    setData(fetchedUsers);
+  }
 
   const handleUpdateClick = (id) => {
     const findUser = data.find((x) => x.id === id);
     console.log(findUser);
   };
 
-  useEffect(() => {
-    (async () => {
-      const fetchedUsers = await APIService.fetchUsers();
-      setData(fetchedUsers);
-    })();
-  }, [data]);
+  useEffect(fetchUsers, []);
 
   return (
     <Box>

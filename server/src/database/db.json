@@ -31,6 +31,10 @@
           {
             "productId": "5",
             "quantity": "1"
+          },
+          {
+            "productId": "272ac982-5699-4920-a25a-3a3a90922c9c",
+            "quantity": "1"
           }
         ]
       }
@@ -48,6 +52,10 @@
         "products": [
           {
             "productId": "5",
+            "quantity": "2"
+          },
+          {
+            "productId": "6",
             "quantity": "1"
           }
         ]
@@ -189,6 +197,21 @@
         "memoryId": "10",
         "lustId": "29a00127-d5e5-4964-985a-b26497668f5d"
       }
+    },
+    {
+      "id": "272ac982-5699-4920-a25a-3a3a90922c9c",
+      "title": "saules itemas",
+      "imageURL": "https://picsum.photos/id/237/200/300",
+      "price": 123,
+      "sellerId": "20600af5-49cf-422e-9cc8-1ac99d5acc98",
+      "description": "testtas",
+      "condition": "used",
+      "stock": 2,
+      "filters": {
+        "manufacturerId": "fb9c837b-3fe4-435f-a757-e65d9a0bd039",
+        "memoryId": "7",
+        "lustId": "b2a9df9b-58bb-4672-b0a8-f1d9dab3a510"
+      }
     }
   ],
   "orders": [
@@ -327,6 +350,11 @@
       "id": "b2a9df9b-58bb-4672-b0a8-f1d9dab3a510",
       "filterId": "1",
       "title": "testas"
+    },
+    {
+      "id": "fb9c837b-3fe4-435f-a757-e65d9a0bd039",
+      "filterId": "1",
+      "title": "Testas"
     }
   ]
 }

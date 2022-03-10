@@ -17,19 +17,20 @@ const CartPage = () => {
     const newCart = cart.filter(x => x.productId !== id)
     try { 
       await APIService.deleteCartItem(id);
+      await fetchCarts();
     }
     catch (error) {
       throw new Error (error)
     };
     setCart(newCart)
   };
+
+  const fetchCarts = async () => {
+    const fetchedCarts = await APIService.fetchCarts();
+    setCart(fetchedCarts.cart.products);
+  }
   
-  useEffect(() => {
-    (async () => {
-      const fetchedCarts = await APIService.fetchCarts();
-      setCart(fetchedCarts.cart.products);
-    })();
-  }, []);
+  useEffect(fetchCarts, []);
 
   return (
     <Box sx={{ py: 2 }}>
