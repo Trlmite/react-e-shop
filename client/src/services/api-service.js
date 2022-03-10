@@ -17,7 +17,6 @@ const fetchUsers = async () => {
   return response.data;
 };
 
-// neveikia
 const fetchCarts = async () => {
   const { user } = store.getState().auth;
   const { data } = await annonymousInstance.get(`/cart/cart/${user.id}`);
@@ -44,6 +43,12 @@ const deleteCartItem = async (productId) => {
 const fetchItems = async () => {
   const response = await annonymousInstance.get('/items/getItems');
   return response.data;
+};
+
+const fetchUserItems = async () => {
+  const { user } = store.getState().auth;
+  const { data } = await annonymousInstance.get(`items/getUserItems/${user.id}`);
+  return data;
 };
 
 const fetchFilters = async () => {
@@ -99,11 +104,11 @@ const deleteUser = async (id) => {
 };
 
 const createItem = async ({
-  title, imageURL, description, stock, condition, manufacturer, memory, lust,
+  title, imageURL, description, price, stock, condition, manufacturer, memory, lust,
 }) => {
   const { user } = store.getState().auth;
   const { status, data } = annonymousInstance.post(`/items/create/${user.id}`, {
-    title, imageURL, description, stock, condition, manufacturer, memory, lust,
+    title, imageURL, description, price, stock, condition, manufacturer, memory, lust,
   });
 
   if (status === 201) {
@@ -115,6 +120,7 @@ const createItem = async ({
 const APIService = {
   fetchUsers,
   fetchItems,
+  fetchUserItems,
   fetchFilters,
   fetchCarts,
   addCartItem,

@@ -104,3 +104,18 @@ export const getItems = (req,res) => {
         modifiedItems
     )
 }
+
+export const getUserItems = (req,res) => {
+    const { id } = req.params;
+    const { items } = database.data
+
+    const userItems = items.filter(item => item.sellerId === id)
+
+    res.status(200).json(
+        userItems
+    )
+}
+
+export const deleteItem = (req,res) => {
+    // surasti itema, istrinti kartu su pereinant per visus userius.
+}

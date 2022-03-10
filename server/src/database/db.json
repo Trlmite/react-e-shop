@@ -14,28 +14,6 @@
       }
     },
     {
-      "id": "10",
-      "username": "user3",
-      "name": "Petrikus",
-      "surname": "Gilius",
-      "password": "Alio123456",
-      "email": "petrus@gmail.cop",
-      "location": "Vilnius",
-      "role": "USER",
-      "cart": {
-        "products": [
-          {
-            "productId": "5",
-            "quantity": "1"
-          },
-          {
-            "productId": "ccac82ac-1325-42cd-adde-05bd8e58e1b6",
-            "quantity": "1"
-          }
-        ]
-      }
-    },
-    {
       "id": "20600af5-49cf-422e-9cc8-1ac99d5acc98",
       "username": "saulenas",
       "name": "Saule",
@@ -50,6 +28,24 @@
             "productId": "6",
             "quantity": "1"
           },
+          {
+            "productId": "5",
+            "quantity": "1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "10",
+      "username": "user3",
+      "name": "Petrikus",
+      "surname": "Gilius",
+      "password": "Alio123456",
+      "email": "petrus@gmail.cop",
+      "location": "Vilnius",
+      "role": "USER",
+      "cart": {
+        "products": [
           {
             "productId": "5",
             "quantity": "1"
@@ -180,81 +176,26 @@
       }
     },
     {
-      "id": "1c510ed7-03b3-4f94-b46a-94da6d285ab3",
-      "title": "test del sellerId",
-      "imageURL": "https://picsum.photos/seed/picsum/200/300",
+      "id": "ac6aa2de-10cd-4c78-91da-98518b239611",
+      "title": "testas del kainos",
+      "imageURL": "https://picsum.photos/id/2784/200/400",
+      "price": 999,
       "sellerId": "10",
-      "description": "sellerId",
+      "description": "testas del kainos",
       "condition": "used",
-      "stock": 2,
-      "filters": {
-        "manufacturerId": "1",
-        "memoryId": "10",
-        "lustId": "29a00127-d5e5-4964-985a-b26497668f5d"
-      }
-    },
-    {
-      "id": "4310c1c6-350f-4c0a-99e5-b67073537cbc",
-      "title": "Placeholder",
-      "imageURL": "https://picsum.photos/id/2784/200/400",
-      "sellerId": "10",
-      "description": "Placeholder asdasd",
-      "condition": "new",
-      "stock": 1,
+      "stock": 99,
       "filters": {
         "manufacturerId": "d686ece9-f37e-4a1e-93ef-34a7f6a5d201",
         "memoryId": "10",
         "lustId": "29a00127-d5e5-4964-985a-b26497668f5d"
-      }
-    },
-    {
-      "id": "914e1244-175d-4918-a278-474e69578d8d",
-      "title": "Placeholder",
-      "imageURL": "https://picsum.photos/id/2784/200/400",
-      "sellerId": "10",
-      "description": "Placeholder asdasd",
-      "condition": "new",
-      "stock": 1,
-      "filters": {
-        "manufacturerId": "d686ece9-f37e-4a1e-93ef-34a7f6a5d201",
-        "memoryId": "10",
-        "lustId": "29a00127-d5e5-4964-985a-b26497668f5d"
-      }
-    },
-    {
-      "id": "c5d07f55-eef4-47e1-beff-fbf939fd54a9",
-      "title": "Placeholder",
-      "imageURL": "https://picsum.photos/id/2784/200/400",
-      "sellerId": "10",
-      "description": "Placeholder asdasd",
-      "condition": "new",
-      "stock": 1,
-      "filters": {
-        "manufacturerId": "d686ece9-f37e-4a1e-93ef-34a7f6a5d201",
-        "memoryId": "10",
-        "lustId": "29a00127-d5e5-4964-985a-b26497668f5d"
-      }
-    },
-    {
-      "id": "87a6ecfa-798c-49bc-9e71-afa81fc19962",
-      "title": "testas",
-      "imageURL": "https://picsum.photos/id/237/200/300",
-      "sellerId": "10",
-      "description": "testas",
-      "condition": "used",
-      "stock": 4,
-      "filters": {
-        "manufacturerId": "b2a9df9b-58bb-4672-b0a8-f1d9dab3a510",
-        "memoryId": "7",
-        "lustId": "b2a9df9b-58bb-4672-b0a8-f1d9dab3a510"
       }
     }
   ],
   "orders": [
     {
       "id": "12",
-      "cartId": "1",
-      "status": "pending"
+      "userId": "10",
+      "status": "confirmed"
     }
   ],
   "filters": [

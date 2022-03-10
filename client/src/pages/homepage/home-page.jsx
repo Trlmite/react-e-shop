@@ -1,18 +1,31 @@
 import { Typography, Box } from '@mui/material';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import StyledNavLink from '../../navbar/navbar-navlink-styled';
 import { selectAuth } from '../../store/auth';
 import HomePageUserListing from './home-page-listing';
 import HomePageUserOrder from './home-page-order';
+import APIService from '../../services/api-service';
 
 const HomePage = () => {
   const { loggedIn, user } = useSelector(selectAuth);
+  const [userItems, setUserItems] = useState([]);
 
   let helloMessage = '';
 
   if (loggedIn) {
     helloMessage = user.username;
+
+    useEffect(() => {
+      (async () => {
+        const fetchedUserItems = await APIService.fetchUserItems();
+        setUserItems(fetchedUserItems);
+        console.log({
+          fetchedUserItems,
+          userItems,
+        });
+      })();
+    }, []);
   } else {
     helloMessage = 'Stranger';
   }
@@ -27,7 +40,9 @@ const HomePage = () => {
       {loggedIn
         ? (
           <>
-            <HomePageUserListing />
+            <HomePageUserListing
+              userItems={userItems}
+            />
             <Box sx={{ display: 'flex', justifyContent: 'center', my: 5 }}>
               <StyledNavLink sx={{ mt: 5 }} to="/create-listing">
                 <Typography variant="h6" textAlign="center">Create item listing</Typography>
