@@ -3,7 +3,9 @@ import React from 'react';
 import { List, Paper } from '@mui/material';
 import ListItem from '../../components/list/list-item';
 
-const HomePageUserOrder = () => (
+const HomePageUserOrder = ({ orders }) => {
+  console.log(orders)
+  return(
   <Paper elevation={1}>
     <List>
       <ListItem
@@ -13,15 +15,18 @@ const HomePageUserOrder = () => (
         toggleDeleteButton
         toggleUpdateButton
       />
-      <ListItem
-		row1="45786-4548-adasd-casdada"
-		row2="1540"
-		row3="pending"
-		toggleUpdateButton
-        toggleDeleteButton
-		/>
+      {orders.map(order => (
+        <ListItem
+          row1={order.id}
+          row2={order.totalPrice}
+          row3={order.status}
+          toggleDeleteButton
+          toggleUpdateButton
+        />
+      ))}
     </List>
   </Paper>
-);
+  )
+};
 
 export default HomePageUserOrder;

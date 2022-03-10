@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
 import CartPageList from './cart-page-list';
 import APIService from '../../services/api-service';
+import MainButton from '../../components/button/main-button'
 
 
 const CartPage = () => {
@@ -12,7 +13,6 @@ const CartPage = () => {
     const findCart = cart.find((x) => x.productId === id);
     console.log(findCart.productId);
   };
-
   const handleDeleteClick = async (id) => {
     const newCart = cart.filter(x => x.productId !== id)
     try { 
@@ -24,7 +24,6 @@ const CartPage = () => {
     };
     setCart(newCart)
   };
-
   const fetchCarts = async () => {
     const fetchedCarts = await APIService.fetchCarts();
     setCart(fetchedCarts.cart.products);
@@ -42,6 +41,10 @@ const CartPage = () => {
         handleUpdateClick={handleUpdateClick}
         handleUserDeleteClick={handleDeleteClick}
       />
+      <Box sx={{ display: 'flex', justifyContent: 'space-around', mt: 2}}>
+        <MainButton>Order Cart</MainButton>
+        <MainButton>Delete Order</MainButton>
+      </Box>
     </Box>
   );
 };

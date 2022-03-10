@@ -10,6 +10,7 @@ import APIService from '../../services/api-service';
 const HomePage = () => {
   const { loggedIn, user } = useSelector(selectAuth);
   const [userItems, setUserItems] = useState([]);
+  const [orders, setOrders] = useState([]);
 
   let helloMessage = '';
 
@@ -19,11 +20,9 @@ const HomePage = () => {
     useEffect(() => {
       (async () => {
         const fetchedUserItems = await APIService.fetchUserItems();
+        const fetchedOrders = await APIService.fetchOrders();
+        setOrders(fetchedOrders);
         setUserItems(fetchedUserItems);
-        console.log({
-          fetchedUserItems,
-          userItems,
-        });
       })();
     }, []);
   } else {
@@ -50,7 +49,7 @@ const HomePage = () => {
               </StyledNavLink>
             </Box>
             <Typography variant="h6" textAlign="center" sx={{ my: 2 }}> Your orders </Typography>
-            <HomePageUserOrder />
+            <HomePageUserOrder orders={orders} />
           </>
         )
         : (

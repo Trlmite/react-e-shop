@@ -51,11 +51,23 @@
       "cart": {
         "products": [
           {
-            "productId": "5",
-            "quantity": "2"
+            "productId": "272ac982-5699-4920-a25a-3a3a90922c9c",
+            "quantity": "1"
           },
           {
-            "productId": "6",
+            "productId": "5",
+            "quantity": "1"
+          },
+          {
+            "productId": "8",
+            "quantity": "1"
+          },
+          {
+            "productId": "9",
+            "quantity": "1"
+          },
+          {
+            "productId": "c34d2a38-4fe0-40d1-94be-7cfd511ae582",
             "quantity": "1"
           }
         ]
@@ -216,9 +228,19 @@
   ],
   "orders": [
     {
-      "id": "12",
+      "id": "4",
       "userId": "10",
-      "status": "confirmed"
+      "status": "confirmed",
+      "products": [
+        {
+          "productId": "272ac982-5699-4920-a25a-3a3a90922c9c",
+          "quantity": "1"
+        },
+        {
+          "productId": "5",
+          "quantity": "1"
+        }
+      ]
     }
   ],
   "filters": [
