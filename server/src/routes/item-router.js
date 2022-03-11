@@ -6,11 +6,11 @@ import { createItem,
 
 const router = express.Router();
 
-router.post('/create/:id', createItem);
+router.post('/create/:userId', createItem);
 
 router.get('/getItems', getItems);
 
-router.get('/getUserItems/:id', getUserItems);
+router.get('/getUserItems/:userId', getUserItems);
 
 
 export default router;

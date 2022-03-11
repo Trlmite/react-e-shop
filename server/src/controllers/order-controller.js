@@ -42,3 +42,14 @@ export const getOrders = (req, res) => {
         withTotal
     )
 }
+
+export const createOrder = (req, res) => {
+    
+}
+
+export const deleteOrder = (req, res) => {
+    const { id } = req.params
+    const { users } = JSON.parse(JSON.stringify(database.data))
+
+    
+}

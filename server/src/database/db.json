@@ -14,32 +14,6 @@
       }
     },
     {
-      "id": "20600af5-49cf-422e-9cc8-1ac99d5acc98",
-      "username": "saulenas",
-      "name": "Saule",
-      "surname": "saule",
-      "email": "saulius@gmail.com",
-      "password": "Alio123456",
-      "location": "Vilnius",
-      "role": "USER",
-      "cart": {
-        "products": [
-          {
-            "productId": "6",
-            "quantity": "1"
-          },
-          {
-            "productId": "5",
-            "quantity": "1"
-          },
-          {
-            "productId": "272ac982-5699-4920-a25a-3a3a90922c9c",
-            "quantity": "1"
-          }
-        ]
-      }
-    },
-    {
       "id": "10",
       "username": "user3",
       "name": "Petrikus",
@@ -71,6 +45,32 @@
             "quantity": "1"
           }
         ]
+      }
+    },
+    {
+      "id": "20600af5-49cf-422e-9cc8-1ac99d5acc98",
+      "username": "saulenas",
+      "name": "Saule",
+      "surname": "saule",
+      "email": "saulius@gmail.com",
+      "password": "Alio123456",
+      "location": "Vilnius",
+      "role": "USER",
+      "cart": {
+        "products": []
+      }
+    },
+    {
+      "id": "689f928b-660e-440f-bfab-42e3c440b513",
+      "username": "user4",
+      "name": "test",
+      "surname": "testauskas",
+      "email": "test@gmai.com",
+      "password": "Alio123456",
+      "location": "Vilnius",
+      "role": "USER",
+      "cart": {
+        "products": []
       }
     }
   ],
@@ -223,6 +223,21 @@
         "manufacturerId": "fb9c837b-3fe4-435f-a757-e65d9a0bd039",
         "memoryId": "7",
         "lustId": "b2a9df9b-58bb-4672-b0a8-f1d9dab3a510"
+      }
+    },
+    {
+      "id": "37cd863d-85e3-4e66-af99-43b25bb728ca",
+      "title": "Testas po keitimu",
+      "imageURL": "https://picsum.photos/id/2784/200/400",
+      "price": 1337,
+      "sellerId": "689f928b-660e-440f-bfab-42e3c440b513",
+      "description": "testas po keitimu",
+      "condition": "used",
+      "stock": 1,
+      "filters": {
+        "manufacturerId": "37b7dd14-83b4-4756-85ee-d5d2d98544cb",
+        "memoryId": "7",
+        "lustId": "076eb251-3d32-4f4b-8603-7f4dbd95ac9b"
       }
     }
   ],
@@ -377,6 +392,36 @@
       "id": "fb9c837b-3fe4-435f-a757-e65d9a0bd039",
       "filterId": "1",
       "title": "Testas"
+    },
+    {
+      "id": "b93687ec-244a-4783-a883-0566a77c9c2a",
+      "filterId": "1",
+      "title": "Testiko "
+    },
+    {
+      "id": "cd9deb47-6562-4fc6-a167-dab24644d2b0",
+      "filterId": "3",
+      "title": "testiko lustas"
+    },
+    {
+      "id": "373b9058-ad81-4519-82b4-546e37f3cc36",
+      "filterId": "1",
+      "title": "arSukuria"
+    },
+    {
+      "id": "16917fa9-65bb-429f-86a3-bf8464621113",
+      "filterId": "3",
+      "title": "Ar sukure ?"
+    },
+    {
+      "id": "37b7dd14-83b4-4756-85ee-d5d2d98544cb",
+      "filterId": "1",
+      "title": "testas po keitimu"
+    },
+    {
+      "id": "076eb251-3d32-4f4b-8603-7f4dbd95ac9b",
+      "filterId": "3",
+      "title": "testas po keitimu"
     }
   ]
 }

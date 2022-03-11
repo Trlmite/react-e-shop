@@ -3,8 +3,8 @@ import { v4 as uuidv4 } from 'uuid'
 import database from '../database/index.js'
 
 export const createItem = (req, res) => {
-    const { id } = req.params
-    console.log( id );
+    const { userId } = req.params
+    console.log( userId );
     const {title, imageURL, price, description, condition, stock, manufacturer, memory, lust } = req.body
     const { filterOptions } = database.data
     
@@ -23,7 +23,6 @@ export const createItem = (req, res) => {
         manufacturerId = newFilterOption.id
         database.data.filterOptions.push(newFilterOption)
          database.write()
-        return manufacturerId
     } else {
         manufacturerId = findManufacturerFilters.id
     }
@@ -38,7 +37,6 @@ export const createItem = (req, res) => {
         memoryId = newFilterOption.id
         database.data.filterOptions.push(newFilterOption)
          database.write()
-        return memoryId
     } else {
         memoryId = findMemoryFilters.id
     }
@@ -53,7 +51,6 @@ export const createItem = (req, res) => {
         lustId = newFilterOption.id
         database.data.filterOptions.push(newFilterOption)
         database.write()
-        return lustId
     } else {
         lustId = findLustFilters.id
     }
@@ -64,7 +61,7 @@ export const createItem = (req, res) => {
         title,
         imageURL,
         price,
-        sellerId: id,
+        sellerId: userId,
         description,
         condition,
         stock,
@@ -106,10 +103,11 @@ export const getItems = (req,res) => {
 }
 
 export const getUserItems = (req,res) => {
-    const { id } = req.params;
+    const { userId } = req.params;
     const { items } = database.data
+ 
 
-    const userItems = items.filter(item => item.sellerId === id)
+    const userItems = items.filter(item => item.sellerId === userId)
 
     res.status(200).json(
         userItems

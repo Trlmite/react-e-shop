@@ -9,7 +9,6 @@ const AdminPage = () => {
   const [data, setData] = useState([]);
   
 
-  //infinity loop ???
   const handleUserDeleteClick = async (id) => {
     const newData = data.filter(x => x.id !== id);
     try{

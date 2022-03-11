@@ -8,13 +8,12 @@ import MainButton from '../../components/button/main-button'
 
 const CartPage = () => {
   const [cart, setCart] = useState([]);
-  
+
   const handleUpdateClick = (id) => {
     const findCart = cart.find((x) => x.productId === id);
     console.log(findCart.productId);
   };
   const handleDeleteClick = async (id) => {
-    const newCart = cart.filter(x => x.productId !== id)
     try { 
       await APIService.deleteCartItem(id);
       await fetchCarts();
@@ -22,11 +21,22 @@ const CartPage = () => {
     catch (error) {
       throw new Error (error)
     };
-    setCart(newCart)
   };
   const fetchCarts = async () => {
-    const fetchedCarts = await APIService.fetchCarts();
-    setCart(fetchedCarts.cart.products);
+      const fetchedCarts = await APIService.fetchCarts();
+      console.log(fetchedCarts)
+      if(fetchedCarts.hasOwnProperty('message')){
+        setCart([])
+      } else {
+        setCart(fetchedCarts.cart.products);
+      }
+  }
+
+  let isEmpty = false;
+  if (cart.length === 0) {
+    isEmpty = true;
+  } else {
+    isEmpty = false;
   }
   
   useEffect(fetchCarts, []);
@@ -41,10 +51,15 @@ const CartPage = () => {
         handleUpdateClick={handleUpdateClick}
         handleUserDeleteClick={handleDeleteClick}
       />
+      {!isEmpty
+      ? (
       <Box sx={{ display: 'flex', justifyContent: 'space-around', mt: 2}}>
         <MainButton>Order Cart</MainButton>
-        <MainButton>Delete Order</MainButton>
+        <MainButton>Delete Cart</MainButton>
       </Box>
+      )
+      : null
+      }
     </Box>
   );
 };
