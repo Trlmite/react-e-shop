@@ -7,6 +7,7 @@ import {
   Typography,
   useTheme,
 } from '@mui/material';
+import { Navigate } from 'react-router-dom';
 import StyledNavLink from './navbar-navlink-styled';
 import { logout, selectAuth } from '../store/auth';
 
@@ -17,6 +18,7 @@ const NavBar = () => {
 
   const handleLogOut = () => {
     dispatch(logout());
+    return <Navigate to="/" />;
   };
 
   return (

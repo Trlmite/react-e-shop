@@ -5,7 +5,6 @@ import APIService from '../../services/api-service';
 import AdminPageUsers from './admin-page-users';
 
 const AdminPage = () => {
-  const pageName = 'AdminPage';
   const [data, setData] = useState([]);
   
 
@@ -35,7 +34,6 @@ const AdminPage = () => {
 
   return (
     <Box>
-      <Typography variant="h1">{pageName}</Typography>
       <AdminPageUsers
         users={data}
         handleUpdateClick={handleUpdateClick}

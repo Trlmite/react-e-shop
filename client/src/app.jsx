@@ -16,7 +16,7 @@ import ItemPage from './pages/items-page/item-page';
 import LoginPage from './pages/login-page/login-page';
 import RegisterPage from './pages/register-page/register-page';
 import CreateListingPage from './pages/create-listing-page/create-listing-page';
-import AdminPage from './pages/admin-page/admin-page';
+// import AdminPage from './pages/admin-page/admin-page';
 
 const App = () => {
   const { loggedIn } = useSelector(selectAuth);
@@ -31,7 +31,7 @@ const App = () => {
               <Route path="items" element={<ItemPage />} />
               {loggedIn ? <Route path="cart" element={<CartPage />} /> : null}
               {loggedIn ? <Route path="create-listing" element={<CreateListingPage />} /> : null}
-              <Route path="admin-page" element={<AdminPage />} />
+              {/* <Route path="admin-page" element={<AdminPage />} /> */}
               <Route path="login" element={<LoginPage />} />
               <Route path="register" element={<RegisterPage />} />
             </Route>

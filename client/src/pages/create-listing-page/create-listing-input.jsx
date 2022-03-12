@@ -16,7 +16,6 @@ const CreateListingInput = ({ values, errors, touched, handleBlur, handleChange,
         setField('condition', newValue, true);
     }
 
-    console.log(values.condition);
     return (
         <Box
             sx={{
