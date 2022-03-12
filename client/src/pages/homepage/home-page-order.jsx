@@ -4,7 +4,6 @@ import { List, Paper } from '@mui/material';
 import ListItem from '../../components/list/list-item';
 
 const HomePageUserOrder = ({ orders }) => {
-  console.log(orders)
   return(
   <Paper elevation={1}>
     <List>

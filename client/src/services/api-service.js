@@ -63,6 +63,10 @@ const fetchItems = async () => {
   return response.data;
 };
 
+const deleteItem = async (itemId) => {
+  await annonymousInstance.patch('items/deleteItem', { itemId });
+};
+
 const fetchUserItems = async () => {
   const { user } = store.getState().auth;
   const { data } = await annonymousInstance.get(`items/getUserItems/${user.id}`);
@@ -140,6 +144,8 @@ const APIService = {
   fetchOrders,
   createOrder,
   fetchItems,
+  createItem,
+  deleteItem,
   fetchUserItems,
   fetchFilters,
   fetchCarts,
@@ -148,7 +154,6 @@ const APIService = {
   deleteCart,
   login,
   register,
-  createItem,
   deleteUser,
 };
 

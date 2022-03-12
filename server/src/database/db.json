@@ -14,39 +14,13 @@
       }
     },
     {
-      "id": "20600af5-49cf-422e-9cc8-1ac99d5acc98",
-      "username": "saulenas",
-      "name": "Saule",
-      "surname": "saule",
-      "email": "saulius@gmail.com",
-      "password": "Alio123456",
-      "location": "Vilnius",
-      "role": "USER",
-      "cart": {
-        "products": []
-      }
-    },
-    {
-      "id": "689f928b-660e-440f-bfab-42e3c440b513",
-      "username": "user4",
-      "name": "test",
-      "surname": "testauskas",
-      "email": "test@gmai.com",
-      "password": "Alio123456",
-      "location": "Vilnius",
-      "role": "USER",
-      "cart": {
-        "products": []
-      }
-    },
-    {
       "id": "10",
-      "username": "user3",
-      "name": "Petrikus",
-      "surname": "Gilius",
+      "username": "user1",
+      "name": "useris",
       "password": "Alio123456",
-      "email": "petrus@gmail.cop",
-      "location": "Vilnius",
+      "surname": "Catrokda",
+      "email": "user4@gmail.com",
+      "location": "Utena",
       "role": "USER",
       "cart": {
         "products": []
@@ -55,26 +29,11 @@
   ],
   "items": [
     {
-      "id": "5",
-      "title": "ZOTAC GAMING GeForce RTX 2060 6GB GDDR6",
-      "imageURL": "https://kainos-img.dgn.lt/photos2_25_31105821/img.jpg",
-      "price": "783.2",
-      "sellerId": "10",
-      "description": " The powerful GeForce RTX 2060 takes advantage of a superior architecture to immerse you in incredible realism and performance in demanding games. ",
-      "condition": "used",
-      "stock": "1",
-      "filters": {
-        "manufacturerId": "1",
-        "memoryId": "8",
-        "lustId": "4"
-      }
-    },
-    {
       "id": "6",
       "title": "Gigabyte GV-R67XTGAMING OC-12GD AMD, 12 GB, Radeon RX 6700 XT, GDDR6",
       "imageURL": "https://www.skytech.lt/images/large/67/2828567.png",
       "price": "1199.99",
-      "sellerId": "15",
+      "sellerId": "10",
       "description": " The AMD Radeon RX 6700 XT graphics card, powered by AMD RDNA 2 architecture, is a new generation of performance-class graphics card that plays the latest AAA titles with ultra smooth framerate at FHD and 1440 resolution. An array of advanced technologies is built in to optimize your gaming experience by sharpening images, reducing input lag, and minimizing frame tear. ",
       "condition": "new",
       "stock": "2",
@@ -85,26 +44,11 @@
       }
     },
     {
-      "id": "8",
-      "title": "MSI Radeon RX 6600 MECH 2X 8GB",
-      "imageURL": "https://www.skytech.lt/images/large/30/3013830.png",
-      "price": "569.00",
-      "sellerId": "15",
-      "description": " MSI Radeon RX 6600 MECH 2X 8G - graphics card - Radeon RX 6600 - 8 GB",
-      "condition": "new",
-      "stock": "1",
-      "filters": {
-        "manufacturerId": "3",
-        "memoryId": "9",
-        "lustId": "12"
-      }
-    },
-    {
       "id": "9",
       "title": "GIGABYTE GeForce® GTX 1660 Ti OC 6GB, 2x Coolers, Backplate",
       "imageURL": "https://www.skytech.lt/images/large/54/2152954.jpg",
       "price": "520.00",
-      "sellerId": "15",
+      "sellerId": "10",
       "description": " Powered by GeForce® GTX 1660 Ti Integrated with 6GB GDDR6 192-bit memory interface WINDFORCE 2X Cooling System with alternate spinning fans 90mm unique blade fans Protection back plate",
       "condition": "new",
       "stock": "2",
@@ -119,7 +63,7 @@
       "title": "Gigabyte GV-N2060D6-6GD 2.0 NVIDIA, 6 GB, GeForce RTX 2060, GDDR6, PCI-E 3.0 x 16",
       "imageURL": "https://www.skytech.lt/images/large/54/2152954.jpg",
       "price": "546.00",
-      "sellerId": "15",
+      "sellerId": "10",
       "description": "GeForce RTX™ 2060 D6 6G (rev. 2.0) Powered by GeForce RTX™ 2060 Integrated with 6GB GDDR6 192-bit memory interface WINDFORCE 2X Cooling System with alternate spinning fans 90mm unique blade fans Protection back plate",
       "condition": "used",
       "stock": "2",
@@ -128,145 +72,9 @@
         "memoryId": "8",
         "lustId": "4"
       }
-    },
-    {
-      "id": "c34d2a38-4fe0-40d1-94be-7cfd511ae582",
-      "title": "test",
-      "imageURL": "https://picsum.photos/id/237/200/300",
-      "description": "test",
-      "sellerId": "10",
-      "condition": "used",
-      "price": "120.99",
-      "stock": 55,
-      "filters": {
-        "manufacturerId": "53b3c37e-4479-4551-8806-393deff60ce6",
-        "memoryId": "7",
-        "lustId": "53b3c37e-4479-4551-8806-393deff60ce6"
-      }
-    },
-    {
-      "id": "ccac82ac-1325-42cd-adde-05bd8e58e1b6",
-      "title": "titlas",
-      "imageURL": "https://picsum.photos/id/237/200/300",
-      "description": "yes",
-      "sellerId": "10",
-      "price": "498.99",
-      "condition": "used",
-      "stock": 1,
-      "filters": {
-        "manufacturerId": "1",
-        "memoryId": "10",
-        "lustId": "0bceb0a8-a895-4aa1-93a2-55f7ce65a418"
-      }
-    },
-    {
-      "id": "95d9b96e-2555-4e93-a712-1ec8f26faf05",
-      "title": "1555",
-      "imageURL": "https://picsum.photos/id/237/200/300",
-      "price": "500",
-      "sellerId": "10",
-      "description": "Placeholder ",
-      "condition": "used",
-      "stock": "2",
-      "filters": {
-        "manufacturerId": "53b3c37e-4479-4551-8806-393deff60ce6",
-        "memoryId": "8",
-        "lustId": "0bceb0a8-a895-4aa1-93a2-55f7ce65a418"
-      }
-    },
-    {
-      "id": "ac6aa2de-10cd-4c78-91da-98518b239611",
-      "title": "testas del kainos",
-      "imageURL": "https://picsum.photos/id/2784/200/400",
-      "price": 999,
-      "sellerId": "10",
-      "description": "testas del kainos",
-      "condition": "used",
-      "stock": 99,
-      "filters": {
-        "manufacturerId": "d686ece9-f37e-4a1e-93ef-34a7f6a5d201",
-        "memoryId": "10",
-        "lustId": "29a00127-d5e5-4964-985a-b26497668f5d"
-      }
-    },
-    {
-      "id": "272ac982-5699-4920-a25a-3a3a90922c9c",
-      "title": "saules itemas",
-      "imageURL": "https://picsum.photos/id/237/200/300",
-      "price": 123,
-      "sellerId": "20600af5-49cf-422e-9cc8-1ac99d5acc98",
-      "description": "testtas",
-      "condition": "used",
-      "stock": 2,
-      "filters": {
-        "manufacturerId": "fb9c837b-3fe4-435f-a757-e65d9a0bd039",
-        "memoryId": "7",
-        "lustId": "b2a9df9b-58bb-4672-b0a8-f1d9dab3a510"
-      }
-    },
-    {
-      "id": "37cd863d-85e3-4e66-af99-43b25bb728ca",
-      "title": "Testas po keitimu",
-      "imageURL": "https://picsum.photos/id/2784/200/400",
-      "price": 1337,
-      "sellerId": "689f928b-660e-440f-bfab-42e3c440b513",
-      "description": "testas po keitimu",
-      "condition": "used",
-      "stock": 1,
-      "filters": {
-        "manufacturerId": "37b7dd14-83b4-4756-85ee-d5d2d98544cb",
-        "memoryId": "7",
-        "lustId": "076eb251-3d32-4f4b-8603-7f4dbd95ac9b"
-      }
     }
   ],
-  "orders": [
-    {
-      "id": "4",
-      "userId": "10",
-      "status": "confirmed",
-      "products": [
-        {
-          "productId": "272ac982-5699-4920-a25a-3a3a90922c9c",
-          "quantity": "1"
-        },
-        {
-          "productId": "5",
-          "quantity": "1"
-        }
-      ]
-    },
-    {
-      "id": "35c4e8df-42d0-4872-b21c-1b87d6b34da2",
-      "userId": "10",
-      "status": "confirmed",
-      "products": [
-        {
-          "productId": "5",
-          "quantity": "1"
-        },
-        {
-          "productId": "6",
-          "quantity": "1"
-        },
-        {
-          "productId": "8",
-          "quantity": "1"
-        }
-      ]
-    },
-    {
-      "id": "7e660d5a-9043-4aa6-90cc-744e8f3e992d",
-      "userId": "10",
-      "status": "confirmed",
-      "products": [
-        {
-          "productId": "272ac982-5699-4920-a25a-3a3a90922c9c",
-          "quantity": "2"
-        }
-      ]
-    }
-  ],
+  "orders": [],
   "filters": [
     {
       "id": "1",
@@ -283,19 +91,9 @@
   ],
   "filterOptions": [
     {
-      "id": "1",
-      "filterId": "1",
-      "title": "Zotac"
-    },
-    {
       "id": "2",
       "filterId": "1",
       "title": "Gigabyte"
-    },
-    {
-      "id": "3",
-      "filterId": "1",
-      "title": "MSI"
     },
     {
       "id": "4",
@@ -308,29 +106,9 @@
       "title": "Radeon RX 6700 XT"
     },
     {
-      "id": "6",
-      "filterId": "2",
-      "title": "2gb"
-    },
-    {
-      "id": "7",
-      "filterId": "2",
-      "title": "4gb"
-    },
-    {
       "id": "8",
       "filterId": "2",
       "title": "6gb"
-    },
-    {
-      "id": "9",
-      "filterId": "2",
-      "title": "8gb"
-    },
-    {
-      "id": "10",
-      "filterId": "2",
-      "title": "10gb"
     },
     {
       "id": "11",
@@ -338,99 +116,9 @@
       "title": "12gb"
     },
     {
-      "id": "12",
-      "filterId": "3",
-      "title": "AMD Radeon RX 6600"
-    },
-    {
       "id": "13",
       "filterId": "3",
       "title": "GeForce® GTX 1660 Ti"
-    },
-    {
-      "id": "0bceb0a8-a895-4aa1-93a2-55f7ce65a418",
-      "filterId": "3",
-      "title": "RTX 3060"
-    },
-    {
-      "id": "53b3c37e-4479-4551-8806-393deff60ce6",
-      "filterId": "1",
-      "title": "test"
-    },
-    {
-      "id": "d686ece9-f37e-4a1e-93ef-34a7f6a5d201",
-      "filterId": "1",
-      "title": "AMD"
-    },
-    {
-      "id": "9ef60b52-d5e6-4041-882a-db44337917e7",
-      "filterId": "3",
-      "title": "sellerId"
-    },
-    {
-      "id": "29a00127-d5e5-4964-985a-b26497668f5d",
-      "filterId": "3",
-      "title": "RTX 9000"
-    },
-    {
-      "id": "5282b844-63e0-4dd8-b060-628586af1813",
-      "filterId": "1",
-      "title": "Testuko"
-    },
-    {
-      "id": "6b85fc91-dcc7-4881-8d14-1645a83d1340",
-      "filterId": "3",
-      "title": "e95"
-    },
-    {
-      "id": "dc46f4a6-098b-4894-b640-72f7dbb9a134",
-      "filterId": "2",
-      "title": "17gb"
-    },
-    {
-      "id": "64659bb3-51e5-4f38-b365-99d67b7b91de",
-      "filterId": "3",
-      "title": "RTX 30"
-    },
-    {
-      "id": "b2a9df9b-58bb-4672-b0a8-f1d9dab3a510",
-      "filterId": "1",
-      "title": "testas"
-    },
-    {
-      "id": "fb9c837b-3fe4-435f-a757-e65d9a0bd039",
-      "filterId": "1",
-      "title": "Testas"
-    },
-    {
-      "id": "b93687ec-244a-4783-a883-0566a77c9c2a",
-      "filterId": "1",
-      "title": "Testiko "
-    },
-    {
-      "id": "cd9deb47-6562-4fc6-a167-dab24644d2b0",
-      "filterId": "3",
-      "title": "testiko lustas"
-    },
-    {
-      "id": "373b9058-ad81-4519-82b4-546e37f3cc36",
-      "filterId": "1",
-      "title": "arSukuria"
-    },
-    {
-      "id": "16917fa9-65bb-429f-86a3-bf8464621113",
-      "filterId": "3",
-      "title": "Ar sukure ?"
-    },
-    {
-      "id": "37b7dd14-83b4-4756-85ee-d5d2d98544cb",
-      "filterId": "1",
-      "title": "testas po keitimu"
-    },
-    {
-      "id": "076eb251-3d32-4f4b-8603-7f4dbd95ac9b",
-      "filterId": "3",
-      "title": "testas po keitimu"
     }
   ]
 }

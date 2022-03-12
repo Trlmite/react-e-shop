@@ -1,7 +1,8 @@
 import express from 'express';
 import { createItem, 
+    deleteItem, 
     getItems, 
-    getUserItems 
+    getUserItems,
 } from '../controllers/item-controller.js';
 
 const router = express.Router();
@@ -12,5 +13,6 @@ router.get('/getItems', getItems);
 
 router.get('/getUserItems/:userId', getUserItems);
 
+router.patch('/deleteItem', deleteItem);
 
 export default router;

@@ -6,7 +6,6 @@ export const getOrders = (req, res) => {
     const { orders, items } = database.data;
 
     const findOrder = orders.filter(order => order.userId === id);
-    console.log(findOrder)
 
     const modifiedOrders = findOrder.map(order => {
         const modifiedOrder ={

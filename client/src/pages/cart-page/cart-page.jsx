@@ -1,5 +1,7 @@
 /* eslint-disable */
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { selectAuth } from '../../store/auth';
 import { Box, Typography } from '@mui/material';
 import CartPageList from './cart-page-list';
 import APIService from '../../services/api-service';
@@ -7,6 +9,7 @@ import MainButton from '../../components/button/main-button'
 
 
 const CartPage = () => {
+  const { user } = useSelector(selectAuth);
   const [cart, setCart] = useState([]);
 
   const handleDeleteClick = async (id) => {
@@ -32,6 +35,8 @@ const CartPage = () => {
   const fetchCarts = async () => {
       const fetchedCarts = await APIService.fetchCarts();
       if(fetchedCarts.hasOwnProperty('message')){
+        setCart([])
+      } else if (user.role === "ADMIN"){
         setCart([])
       } else {
         setCart(fetchedCarts.cart.products);

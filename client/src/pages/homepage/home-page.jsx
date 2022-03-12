@@ -31,20 +31,26 @@ const HomePage = () => {
   if (loggedIn && user.role === 'USER') {
     helloMessage = user.username;
 
-    useEffect(() => {
-      (async () => {
-        const fetchedUserItems = await APIService.fetchUserItems();
-        const fetchedOrders = await APIService.fetchOrders();
-        setOrders(fetchedOrders);
-        setUserItems(fetchedUserItems);
-      })();
-    }, []);
+    const fetchData = async () => {
+      const fetchedUserItems = await APIService.fetchUserItems();
+      const fetchedOrders = await APIService.fetchOrders();
+      setOrders(fetchedOrders);
+      setUserItems(fetchedUserItems);
+    };
+
+    const handleItemDelete = async (itemId) => {
+      await APIService.deleteItem(itemId);
+      await fetchData();
+    };
+
+    useEffect(fetchData, []);
 
     userInterface = (
       <>
         <Typography variant="h6" textAlign="center" sx={{ my: 2 }}> Your listings </Typography>
         <HomePageUserListing
           userItems={userItems}
+          handleUserDeleteClick={handleItemDelete}
         />
         <Box sx={{ display: 'flex', justifyContent: 'center', my: 5 }}>
           <StyledNavLink sx={{ mt: 5 }} to="/create-listing">

@@ -99,7 +99,6 @@ export const getUsers = (req, res) => {
 
 export const deleteUser = (req, res) => {
   const { users } = database.data
-  console.log(req.body);
   const checkRole = users.find(x => x.id === req.body.id)
 
   if (checkRole.role === "ADMIN"){

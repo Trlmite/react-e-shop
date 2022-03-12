@@ -115,5 +115,49 @@ export const getUserItems = (req,res) => {
 }
 
 export const deleteItem = (req,res) => {
-    // surasti itema, istrinti kartu su pereinant per visus userius.
+    const { itemId } = req.body
+    const { items, users, filterOptions } = database.data
+
+    const findItem = items.find(item => item.id === itemId)
+
+    const modifiedUsers = users.map(user =>{
+        const modifiedUser ={
+            ...user,
+            cart: {
+                products: user.cart.products.filter(product => product.productId !== itemId)
+            }
+        }
+        return modifiedUser
+    })
+
+    let newFilterOptions = database.data.filterOptions;
+    
+    const itemManufacturer = findItem.filters.manufacturerId
+    const isSameManufacturer = items.filter(item => item.filters.manufacturerId === itemManufacturer && item.id !== findItem.id);
+    if (isSameManufacturer.length === 0) {
+        newFilterOptions = newFilterOptions.filter(option => option.id !== itemManufacturer);
+    }
+
+    const itemMemory = findItem.filters.memoryId
+    const isSameMemory = items.filter(item => item.filters.memoryId === itemMemory && item.id !== findItem.id);
+    if (isSameMemory.length === 0) {
+        newFilterOptions = newFilterOptions.filter(option => option.id !== itemMemory)
+    }
+    
+    const itemLust = findItem.filters.lustId
+    const isSameLust = items.filter(item => item.filters.lustId === itemLust && item.id !== findItem.id);
+    if (isSameLust.length === 0) {
+        newFilterOptions = newFilterOptions.filter(option => option.id !== itemLust)
+    }
+    
+    
+    
+    database.data.users = modifiedUsers
+    database.data.items = items.filter(item => item.id !== findItem.id)
+    database.data.filterOptions = newFilterOptions
+    database.write();
+
+    res.status(200).json({
+        message: "item deleted"
+    })
 }

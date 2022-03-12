@@ -3,7 +3,7 @@ import React from 'react';
 import { List, Paper } from '@mui/material';
 import ListItem from '../../components/list/list-item';
 
-const HomePageUserListing = ({ userItems }) => (
+const HomePageUserListing = ({ userItems, handleUserDeleteClick }) => (
   <Paper elevation={1}>
     <List>
       <ListItem
@@ -21,6 +21,7 @@ const HomePageUserListing = ({ userItems }) => (
           row2={item.price}
           row3={item.stock}
           toggleUpdateButton
+          handleUserDeleteClick={handleUserDeleteClick}
         />
       ))}
     </List>
