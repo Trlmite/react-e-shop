@@ -46,10 +46,3 @@ export const getOrders = (req, res) => {
 export const createOrder = (req, res) => {
     
 }
-
-export const deleteOrder = (req, res) => {
-    const { id } = req.params
-    const { users } = JSON.parse(JSON.stringify(database.data))
-
-    
-}

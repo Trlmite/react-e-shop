@@ -126,7 +126,6 @@ export const addItemToCart = (req,res) => {
 export const deleteCartItem = (req,res) =>{
     const { id } = req.params
     const { productId } = req.body
-    console.log({productId, id})
     const { users } = JSON.parse(JSON.stringify(database.data))
     
     const findUserCart = users.find(x => x.id === id);
@@ -147,5 +146,28 @@ export const deleteCartItem = (req,res) =>{
 
     res.status(200).json({
         message: "Cart item deleted"
+    });
+}
+
+export const deleteCart = (req,res) => {
+    const { id } = req.params
+    const { users } = JSON.parse(JSON.stringify(database.data))
+
+    const findUserCart = users.find(x => x.id === id);
+
+    const deletedUserCart = {
+        ...findUserCart,
+        cart: {
+            products: []
+        }
+    }
+
+    database.data.users = users.filter(x => x.id !== id)
+    database.data.users.push(deletedUserCart)
+    database.write()
+
+
+    res.status(200).json({
+        message: "Cart deleted"
     });
 }

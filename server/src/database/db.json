@@ -51,11 +51,15 @@
       "cart": {
         "products": [
           {
-            "productId": "272ac982-5699-4920-a25a-3a3a90922c9c",
+            "productId": "5",
             "quantity": "1"
           },
           {
-            "productId": "5",
+            "productId": "8",
+            "quantity": "1"
+          },
+          {
+            "productId": "9",
             "quantity": "1"
           }
         ]

@@ -1,6 +1,6 @@
 import express  from 'express';
 import {
-    getOrders
+    getOrders,
 } from '../controllers/order-controller.js';
 
 const router = express.Router();

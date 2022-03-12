@@ -9,10 +9,7 @@ import MainButton from '../../components/button/main-button'
 const CartPage = () => {
   const [cart, setCart] = useState([]);
 
-  const handleUpdateClick = (id) => {
-    const findCart = cart.find((x) => x.productId === id);
-    console.log(findCart.productId);
-  };
+
   const handleDeleteClick = async (id) => {
     try { 
       await APIService.deleteCartItem(id);
@@ -22,9 +19,14 @@ const CartPage = () => {
       throw new Error (error)
     };
   };
+
+  const handleCartDelete = async () => {
+    await APIService.deleteCart();
+    await fetchCarts();
+  }
+
   const fetchCarts = async () => {
       const fetchedCarts = await APIService.fetchCarts();
-      console.log(fetchedCarts)
       if(fetchedCarts.hasOwnProperty('message')){
         setCart([])
       } else {
@@ -48,14 +50,17 @@ const CartPage = () => {
       </Typography>
       <CartPageList
         cart={cart}
-        handleUpdateClick={handleUpdateClick}
         handleUserDeleteClick={handleDeleteClick}
       />
       {!isEmpty
       ? (
       <Box sx={{ display: 'flex', justifyContent: 'space-around', mt: 2}}>
         <MainButton>Order Cart</MainButton>
-        <MainButton>Delete Cart</MainButton>
+        <MainButton
+          onClick={handleCartDelete}
+        >
+          Delete Cart
+        </MainButton>
       </Box>
       )
       : null

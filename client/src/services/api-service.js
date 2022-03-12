@@ -40,6 +40,12 @@ const deleteCartItem = async (productId) => {
   return status;
 };
 
+const deleteCart = async () => {
+  const { user } = store.getState().auth;
+  const { data } = await annonymousInstance.delete(`/cart/deleteCart/${user.id}`);
+  return data;
+};
+
 const fetchOrders = async () => {
   const { user } = store.getState().auth;
   const { data } = await annonymousInstance.get(`/orders/getOrder/${user.id}`);
@@ -132,6 +138,7 @@ const APIService = {
   fetchCarts,
   addCartItem,
   deleteCartItem,
+  deleteCart,
   login,
   register,
   createItem,
