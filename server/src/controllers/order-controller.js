@@ -1,4 +1,5 @@
 import database from "../database/index.js";
+import { v4 as uuidv4 } from 'uuid'
 
 export const getOrders = (req, res) => {
     const { id } = req.params;
@@ -44,5 +45,33 @@ export const getOrders = (req, res) => {
 }
 
 export const createOrder = (req, res) => {
+    const { id } = req.params
+    const { users } = JSON.parse(JSON.stringify(database.data))
     
+    const findUser = users.find(user => user.id === id)
+    const products = findUser.cart.products;
+
+    const newOrder ={
+        id: uuidv4(),
+        userId: findUser.id,
+        status: "confirmed",
+        products: products,
+    }
+
+    const deletedUserCart = {
+        ...findUser,
+        cart: {
+            products: []
+        }
+    }
+
+    database.data.orders.push(newOrder);
+    database.data.users = users.filter(x => x.id !== id);
+    database.data.users.push(deletedUserCart);
+    database.write();
+    
+
+    res.status(200).json({
+        message: "Order created"
+    })
 }

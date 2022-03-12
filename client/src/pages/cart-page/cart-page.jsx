@@ -9,7 +9,6 @@ import MainButton from '../../components/button/main-button'
 const CartPage = () => {
   const [cart, setCart] = useState([]);
 
-
   const handleDeleteClick = async (id) => {
     try { 
       await APIService.deleteCartItem(id);
@@ -22,6 +21,11 @@ const CartPage = () => {
 
   const handleCartDelete = async () => {
     await APIService.deleteCart();
+    await fetchCarts();
+  }
+
+  const handleCreateOrder = async () => {
+    await APIService.createOrder();
     await fetchCarts();
   }
 
@@ -55,7 +59,11 @@ const CartPage = () => {
       {!isEmpty
       ? (
       <Box sx={{ display: 'flex', justifyContent: 'space-around', mt: 2}}>
-        <MainButton>Order Cart</MainButton>
+        <MainButton
+          onClick={handleCreateOrder}
+        >
+          Order Cart
+        </MainButton>
         <MainButton
           onClick={handleCartDelete}
         >

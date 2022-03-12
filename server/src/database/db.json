@@ -49,20 +49,7 @@
       "location": "Vilnius",
       "role": "USER",
       "cart": {
-        "products": [
-          {
-            "productId": "5",
-            "quantity": "1"
-          },
-          {
-            "productId": "8",
-            "quantity": "1"
-          },
-          {
-            "productId": "9",
-            "quantity": "1"
-          }
-        ]
+        "products": []
       }
     }
   ],
@@ -246,6 +233,36 @@
         {
           "productId": "5",
           "quantity": "1"
+        }
+      ]
+    },
+    {
+      "id": "35c4e8df-42d0-4872-b21c-1b87d6b34da2",
+      "userId": "10",
+      "status": "confirmed",
+      "products": [
+        {
+          "productId": "5",
+          "quantity": "1"
+        },
+        {
+          "productId": "6",
+          "quantity": "1"
+        },
+        {
+          "productId": "8",
+          "quantity": "1"
+        }
+      ]
+    },
+    {
+      "id": "7e660d5a-9043-4aa6-90cc-744e8f3e992d",
+      "userId": "10",
+      "status": "confirmed",
+      "products": [
+        {
+          "productId": "272ac982-5699-4920-a25a-3a3a90922c9c",
+          "quantity": "2"
         }
       ]
     }

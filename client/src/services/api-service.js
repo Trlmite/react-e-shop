@@ -52,6 +52,12 @@ const fetchOrders = async () => {
   return data;
 };
 
+const createOrder = async () => {
+  const { user } = store.getState().auth;
+  const { data } = await annonymousInstance.post(`/orders/createOrder/${user.id}`);
+  return data;
+};
+
 const fetchItems = async () => {
   const response = await annonymousInstance.get('/items/getItems');
   return response.data;
@@ -132,6 +138,7 @@ const createItem = async ({
 const APIService = {
   fetchUsers,
   fetchOrders,
+  createOrder,
   fetchItems,
   fetchUserItems,
   fetchFilters,
