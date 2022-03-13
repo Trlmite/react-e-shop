@@ -1,19 +1,13 @@
 import { Box } from '@mui/material';
-import React, { useState, useEffect } from 'react';
-import APIService from '../../services/api-service';
+import React, { useContext } from 'react';
+// import APIService from '../../services/api-service';
 
+import { itemFilterContext } from './context/item-filter-context';
 import ItemPageGridCard from './item-page-grid-card';
 import ItemsGridGridCopy from './items-page-grid-layout';
 
 const ItemPageGrid = () => {
-  const [items, setItems] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      const fetchedItems = await APIService.fetchItems();
-      setItems(fetchedItems);
-    })();
-  }, []);
+  const { items } = useContext(itemFilterContext);
 
   return (
     <Box sx={{ my: 2 }}>

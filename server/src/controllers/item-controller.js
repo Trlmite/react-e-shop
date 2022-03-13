@@ -130,7 +130,7 @@ export const deleteItem = (req,res) => {
         return modifiedUser
     })
 
-    let newFilterOptions = database.data.filterOptions;
+    let newFilterOptions = filterOptions;
     
     const itemManufacturer = findItem.filters.manufacturerId
     const isSameManufacturer = items.filter(item => item.filters.manufacturerId === itemManufacturer && item.id !== findItem.id);
