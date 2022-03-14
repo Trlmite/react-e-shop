@@ -7,18 +7,22 @@ import {
   Typography,
   useTheme,
 } from '@mui/material';
-import { Navigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import StyledNavLink from './navbar-navlink-styled';
 import { logout, selectAuth } from '../store/auth';
 
 const NavBar = () => {
   const { loggedIn } = useSelector(selectAuth);
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
   const dispatch = useDispatch();
   const theme = useTheme();
 
   const handleLogOut = () => {
     dispatch(logout());
-    return <Navigate to="/" />;
+    if (pathname !== '/') {
+      navigate('/');
+    }
   };
 
   return (

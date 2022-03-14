@@ -2,6 +2,7 @@ import {
   Box, TextField, Typography, InputLabel,
 } from '@mui/material';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Grid from '@mui/material/Grid';
@@ -24,11 +25,13 @@ const validationSchema = yup.object({
 
 const LoginPage = () => {
   const [logError, setLogError] = useState('');
+  const navigate = useNavigate();
 
   const handleLogIn = async ({ username, password }) => {
     try {
       setLogError('');
       await APIService.login({ username, password });
+      navigate('/');
     } catch (error) {
       setLogError(error.response.data.message);
     }

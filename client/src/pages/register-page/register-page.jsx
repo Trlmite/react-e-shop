@@ -1,5 +1,6 @@
 import { Box, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import InputLabel from '@mui/material/InputLabel';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
@@ -54,6 +55,8 @@ const validationSchema = yup.object({
 
 const RegisterPage = () => {
   const [logError, setLogError] = useState('');
+  const navigate = useNavigate();
+
   const handleRegister = async ({
     username,
     password,
@@ -74,6 +77,7 @@ const RegisterPage = () => {
         surname,
         city,
       });
+      navigate('/');
     } catch (error) {
       setLogError(error.response.data.message);
     }

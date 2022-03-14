@@ -35,38 +35,48 @@ const itemFilterContextProvider = ({ children }) => {
     setFilters(selectedFilters);
     setSelections(newSelections);
   };
+
+  const paramsSync = (filters, urlParams) => {
+    console.log({
+      filters,
+      urlParams,
+    })
+    let modifiedFilters
+    if (urlParams.length > 0) {
+      modifiedFilters = filters.map(filter => {
+        urlParams.forEach(urlParam => {
+          const selectedOption = filter.options.find(x => x.id === urlParam);
+          if (selectedOption) {
+            selectedOption.checked = true
+          }
+        })
+        return filter;
+      })
+      return modifiedFilters
+    } else {
+      modifiedFilters = filters
+      return modifiedFilters
+    }
+  }
+
+
   const filtersWithUrlSync = async () => {
     const fetchedFilters = await APIService.fetchFilters();
     const urlSelections = searchParams.getAll('selections');
-    let modifiedFilters = fetchedFilters.map(filter => ({
+ 
+    const filters = fetchedFilters.map(filter => ({
       ...filter,
       options: filter.options.map(option => ({
         ...option,
         checked: false
       }))
     }))
-    let modifiedFiltersUrl;
-
-    if (urlSelections.length > 0) {
-      modifiedFiltersUrl = modifiedFilters.forEach(filter => {
-        urlSelections.forEach(selection => {
-          const selectedOption = filter.options.find(x => x.id === selection);
-          if (selectedOption) {
-            selectedOption.checked = true
-          }
-        })
-      })
-      console.log({modifiedFilters})
-      console.log("if returnas")
-      return modifiedFiltersUrl
-    } else {
-      console.log("else returnas")
-      return modifiedFilters
-    }
+    const syncedFilters = paramsSync(filters, urlSelections)
+    return syncedFilters;
   }
 
   const changeFilters = () => {
-    setSearchParams({ selections: selections })
+    setSearchParams({ selections});
   }
 
 
@@ -74,7 +84,6 @@ const itemFilterContextProvider = ({ children }) => {
     (async () => {
       const fetchedItems = await APIService.fetchItems();
       const syncdFilters = await filtersWithUrlSync()
-      console.log({syncdFilters})
       setFilters(syncdFilters);
       setItems(fetchedItems);
     })();
@@ -87,9 +96,7 @@ const itemFilterContextProvider = ({ children }) => {
     selections,
     handleCheckBoxClick,
     changeFilters,
-  }), [items, filters, selections, searchParams]);
-
-  console.log({filters})
+  }), [items, filters, selections]);
 
   return (
     <itemFilterContext.Provider value={value}>
