@@ -1,6 +1,7 @@
 /* eslint-disable */
 import { Box, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CreateListingInput from './create-listing-input';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
@@ -56,12 +57,13 @@ const validationSchema = yup.object({
 
 
 const CreateListingPage = () => {
-
   const [itemPlaceholder, setItemPlaceholder] = useState(initialValues);
+  const navigate = useNavigate();
 
-  const onSubmit = async ( itemPlaceholder, {resetForm} ) =>{
+  const handleCreateItem = async ( itemPlaceholder, {resetForm} ) =>{
     try {
       await APIService.createItem({ ...itemPlaceholder })
+      navigate('/');
     } catch (error) {
       console.log(error)
     }
@@ -74,7 +76,7 @@ const CreateListingPage = () => {
   } = useFormik({
     initialValues,
     validationSchema,
-    onSubmit,
+    onSubmit: handleCreateItem,
   })
   useEffect(() => {
     setItemPlaceholder(

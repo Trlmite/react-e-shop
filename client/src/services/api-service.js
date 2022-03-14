@@ -136,7 +136,7 @@ const createItem = async ({
   if (status === 201) {
     return data;
   }
-  throw new Error(data.message);
+  throw new Error(data);
 };
 
 const APIService = {

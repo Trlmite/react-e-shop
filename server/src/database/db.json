@@ -72,6 +72,36 @@
         "memoryId": "8",
         "lustId": "4"
       }
+    },
+    {
+      "id": "63ffc73a-29c8-4486-b006-a71ea639a354",
+      "title": "Zotac, 10gb, Nvidia RTX 2060 ",
+      "imageURL": "https://picsum.photos/208",
+      "price": 150,
+      "sellerId": "10",
+      "description": "testine vaizdo plokste",
+      "condition": "used",
+      "stock": 1,
+      "filters": {
+        "manufacturerId": "f2a5e096-370d-4335-8e76-bc916e1c9437",
+        "memoryId": "6fba80cb-948a-4c39-9bfa-365d27322790",
+        "lustId": "4"
+      }
+    },
+    {
+      "id": "9233ed5c-d48d-414f-abde-c7cd1019c84b",
+      "title": "AMD Radeon™ RX 6600 XT Graphics Card",
+      "imageURL": "https://www.amd.com/system/files/2021-07/910022-amd-radeon-6600XT-angle1260x709_0.png",
+      "price": 1000,
+      "sellerId": "10",
+      "description": "Introducing the AMD Radeon RX 6600 XT graphics card, featuring the breakthrough AMD RDNA 2 architecture, engineered to deliver the ultimate 1080p gaming experience.",
+      "condition": "new",
+      "stock": 2,
+      "filters": {
+        "manufacturerId": "60276bc3-c721-4a37-90a0-90c980787ad6",
+        "memoryId": "9cd9ef32-c3d7-485c-b022-b51368db8649",
+        "lustId": "b6492b29-ea6b-434d-a0b1-65b76d308394"
+      }
     }
   ],
   "orders": [],
@@ -119,6 +149,31 @@
       "id": "13",
       "filterId": "3",
       "title": "GeForce® GTX 1660 Ti"
+    },
+    {
+      "id": "f2a5e096-370d-4335-8e76-bc916e1c9437",
+      "filterId": "1",
+      "title": "Zotac"
+    },
+    {
+      "id": "6fba80cb-948a-4c39-9bfa-365d27322790",
+      "filterId": "2",
+      "title": "10gb"
+    },
+    {
+      "id": "60276bc3-c721-4a37-90a0-90c980787ad6",
+      "filterId": "1",
+      "title": "AMD"
+    },
+    {
+      "id": "9cd9ef32-c3d7-485c-b022-b51368db8649",
+      "filterId": "2",
+      "title": "8gb"
+    },
+    {
+      "id": "b6492b29-ea6b-434d-a0b1-65b76d308394",
+      "filterId": "3",
+      "title": "RX 6600 XT"
     }
   ]
 }

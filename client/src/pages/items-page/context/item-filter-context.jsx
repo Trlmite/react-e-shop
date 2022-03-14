@@ -36,11 +36,20 @@ const itemFilterContextProvider = ({ children }) => {
     setSelections(newSelections);
   };
 
+  const searchParamsToObject = (searchParams) => {
+    const paramsObject = {};
+    searchParams.forEach((value, key) => {
+      if (paramsObject[key]) {
+        paramsObject[key].push(value);
+      } else {
+        paramsObject[key] = [value];
+      }
+    });
+    console.log(paramsObject)
+    return paramsObject;
+  };
+  
   const paramsSync = (filters, urlParams) => {
-    console.log({
-      filters,
-      urlParams,
-    })
     let modifiedFilters
     if (urlParams.length > 0) {
       modifiedFilters = filters.map(filter => {
@@ -59,11 +68,25 @@ const itemFilterContextProvider = ({ children }) => {
     }
   }
 
+  const filteredItems = async () => {
+    const fetchItems = await APIService.fetchItems();
+    const paramsObject = searchParamsToObject(searchParams);
+    console.log(paramsObject.hasOwnProperty("selections"))
+    if(paramsObject.hasOwnProperty("selections")){
+      const itemsFilter = paramsObject.selections.map(param => {
+        let findItem = fetchItems.find(item => item.filters.lustId === param || item.filters.manufacturerId === param || item.filters.memoryId === param)
+        return findItem
+      })
+      const removedDuplicates = [ ...new Set(itemsFilter)]
+      return removedDuplicates
+    } else {
+      return fetchItems
+    }
+  }
 
   const filtersWithUrlSync = async () => {
     const fetchedFilters = await APIService.fetchFilters();
     const urlSelections = searchParams.getAll('selections');
- 
     const filters = fetchedFilters.map(filter => ({
       ...filter,
       options: filter.options.map(option => ({
@@ -76,15 +99,18 @@ const itemFilterContextProvider = ({ children }) => {
   }
 
   const changeFilters = () => {
-    setSearchParams({ selections});
+    setSearchParams({ selections });
   }
 
 
+
+  
+  
   useEffect(() => {
     (async () => {
-      const fetchedItems = await APIService.fetchItems();
       const syncdFilters = await filtersWithUrlSync()
       setFilters(syncdFilters);
+      const fetchedItems = await filteredItems();
       setItems(fetchedItems);
     })();
   }, [searchParams]);

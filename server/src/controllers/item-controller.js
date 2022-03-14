@@ -4,7 +4,6 @@ import database from '../database/index.js'
 
 export const createItem = (req, res) => {
     const { userId } = req.params
-    console.log( userId );
     const {title, imageURL, price, description, condition, stock, manufacturer, memory, lust } = req.body
     const { filterOptions } = database.data
     
@@ -83,7 +82,7 @@ export const createItem = (req, res) => {
 
 export const getItems = (req,res) => {
     const { items, filterOptions } = database.data
-
+    
     const modifiedItems = items.map(x => {
         const findManufacurer = filterOptions.find(manufacturerTitle => manufacturerTitle.id === x.filters.manufacturerId)
         const findMemory = filterOptions.find(memoryTitle => memoryTitle.id === x.filters.memoryId)
@@ -99,7 +98,7 @@ export const getItems = (req,res) => {
     
     res.status(200).json( 
         modifiedItems
-    )
+    );
 }
 
 export const getUserItems = (req,res) => {
