@@ -63,7 +63,7 @@ const CreateListingPage = () => {
   const handleCreateItem = async ( itemPlaceholder, {resetForm} ) =>{
     try {
       await APIService.createItem({ ...itemPlaceholder })
-      navigate('/');
+      navigate('/items');
     } catch (error) {
       console.log(error)
     }

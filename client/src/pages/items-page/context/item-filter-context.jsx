@@ -45,7 +45,6 @@ const itemFilterContextProvider = ({ children }) => {
         paramsObject[key] = [value];
       }
     });
-    console.log(paramsObject)
     return paramsObject;
   };
   
@@ -71,7 +70,6 @@ const itemFilterContextProvider = ({ children }) => {
   const filteredItems = async () => {
     const fetchItems = await APIService.fetchItems();
     const paramsObject = searchParamsToObject(searchParams);
-    console.log(paramsObject.hasOwnProperty("selections"))
     if(paramsObject.hasOwnProperty("selections")){
       const itemsFilter = paramsObject.selections.map(param => {
         let findItem = fetchItems.find(item => item.filters.lustId === param || item.filters.manufacturerId === param || item.filters.memoryId === param)
@@ -103,9 +101,6 @@ const itemFilterContextProvider = ({ children }) => {
   }
 
 
-
-  
-  
   useEffect(() => {
     (async () => {
       const syncdFilters = await filtersWithUrlSync()
