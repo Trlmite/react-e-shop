@@ -27,23 +27,22 @@ const HomePage = () => {
       </Box>
     </>
   );
-
-  if (loggedIn && user.role === 'USER') {
-    helloMessage = user.username;
-
-    const fetchData = async () => {
+  const fetchData = async () => {
+    if (loggedIn) {
       const fetchedUserItems = await APIService.fetchUserItems();
       const fetchedOrders = await APIService.fetchOrders();
       setOrders(fetchedOrders);
       setUserItems(fetchedUserItems);
-    };
+    }
+  };
 
-    const handleItemDelete = async (itemId) => {
-      await APIService.deleteItem(itemId);
-      await fetchData();
-    };
+  const handleItemDelete = async (itemId) => {
+    await APIService.deleteItem(itemId);
+    await fetchData();
+  };
 
-    useEffect(fetchData, []);
+  if (loggedIn && user.role === 'USER') {
+    helloMessage = user.username;
 
     userInterface = (
       <>
@@ -68,6 +67,8 @@ const HomePage = () => {
   } else {
     helloMessage = 'Stranger';
   }
+
+  useEffect(fetchData, []);
 
   return (
     <>

@@ -25,19 +25,14 @@ const fetchCarts = async () => {
 
 const addCartItem = async (itemId, userId) => {
   const { data, status } = await annonymousInstance.post('/cart/addCartItem', { itemId, userId });
-  if (status === 200) {
+  if (status !== 200) {
     alert(data.message);
   }
 };
 
 const deleteCartItem = async (productId) => {
   const { user } = store.getState().auth;
-  const { data, status } = await annonymousInstance.patch(`/cart/deleteCartItem/${user.id}`, { productId });
-  if (status === 200) {
-    alert(data.message);
-    return status;
-  }
-  return status;
+  await annonymousInstance.patch(`/cart/deleteCartItem/${user.id}`, { productId });
 };
 
 const deleteCart = async () => {

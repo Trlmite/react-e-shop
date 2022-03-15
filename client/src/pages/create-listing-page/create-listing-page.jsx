@@ -59,14 +59,14 @@ const validationSchema = yup.object({
 const CreateListingPage = () => {
   const [itemPlaceholder, setItemPlaceholder] = useState(initialValues);
   const navigate = useNavigate();
-
+  
   const handleCreateItem = async ( itemPlaceholder, {resetForm} ) =>{
     try {
       await APIService.createItem({ ...itemPlaceholder })
-      navigate('/items');
     } catch (error) {
       console.log(error)
     }
+    navigate('/items');
     resetForm();
   }
 

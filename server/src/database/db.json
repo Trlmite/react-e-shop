@@ -25,6 +25,37 @@
       "cart": {
         "products": []
       }
+    },
+    {
+      "id": "fbbe1065-5f4b-4510-b002-8a32976742c3",
+      "username": "test",
+      "name": "testukas",
+      "surname": "testauskas",
+      "email": "test@gmai.com",
+      "password": "Alio123456",
+      "location": "test",
+      "role": "USER",
+      "cart": {
+        "products": []
+      }
+    },
+    {
+      "id": "28a16426-207f-4153-8353-46fedaf1499d",
+      "username": "user3",
+      "name": "Jonidijus",
+      "surname": "Perkunas",
+      "email": "asda@fasd.com",
+      "password": "Alio123456",
+      "location": "Kalvarijai",
+      "role": "USER",
+      "cart": {
+        "products": [
+          {
+            "productId": "9",
+            "quantity": "1"
+          }
+        ]
+      }
     }
   ],
   "items": [
@@ -74,21 +105,6 @@
       }
     },
     {
-      "id": "63ffc73a-29c8-4486-b006-a71ea639a354",
-      "title": "Zotac, 10gb, Nvidia RTX 2060 ",
-      "imageURL": "https://picsum.photos/208",
-      "price": 150,
-      "sellerId": "10",
-      "description": "testine vaizdo plokste",
-      "condition": "used",
-      "stock": 1,
-      "filters": {
-        "manufacturerId": "f2a5e096-370d-4335-8e76-bc916e1c9437",
-        "memoryId": "6fba80cb-948a-4c39-9bfa-365d27322790",
-        "lustId": "4"
-      }
-    },
-    {
       "id": "9233ed5c-d48d-414f-abde-c7cd1019c84b",
       "title": "AMD Radeon™ RX 6600 XT Graphics Card",
       "imageURL": "https://www.amd.com/system/files/2021-07/910022-amd-radeon-6600XT-angle1260x709_0.png",
@@ -101,6 +117,21 @@
         "manufacturerId": "60276bc3-c721-4a37-90a0-90c980787ad6",
         "memoryId": "9cd9ef32-c3d7-485c-b022-b51368db8649",
         "lustId": "b6492b29-ea6b-434d-a0b1-65b76d308394"
+      }
+    },
+    {
+      "id": "fe0d361b-4c5e-4bee-bf63-67ab508aac5f",
+      "title": "MSI GeForce GTX 1060 3GB 3 GB 1506-1708 Mhz PCIe x16 GPU",
+      "imageURL": "https://kainos-img.dgn.lt/photos2_25_12374499/img.jpg",
+      "price": 500,
+      "sellerId": "28a16426-207f-4153-8353-46fedaf1499d",
+      "description": "Slightly used",
+      "condition": "used",
+      "stock": 1,
+      "filters": {
+        "manufacturerId": "bc3aaabb-ad8f-4b9e-bf32-7b2594a14043",
+        "memoryId": "8",
+        "lustId": "6722b286-675f-439e-aaa8-c12073de8ad9"
       }
     }
   ],
@@ -151,16 +182,6 @@
       "title": "GeForce® GTX 1660 Ti"
     },
     {
-      "id": "f2a5e096-370d-4335-8e76-bc916e1c9437",
-      "filterId": "1",
-      "title": "Zotac"
-    },
-    {
-      "id": "6fba80cb-948a-4c39-9bfa-365d27322790",
-      "filterId": "2",
-      "title": "10gb"
-    },
-    {
       "id": "60276bc3-c721-4a37-90a0-90c980787ad6",
       "filterId": "1",
       "title": "AMD"
@@ -174,6 +195,16 @@
       "id": "b6492b29-ea6b-434d-a0b1-65b76d308394",
       "filterId": "3",
       "title": "RX 6600 XT"
+    },
+    {
+      "id": "bc3aaabb-ad8f-4b9e-bf32-7b2594a14043",
+      "filterId": "1",
+      "title": "MSI"
+    },
+    {
+      "id": "6722b286-675f-439e-aaa8-c12073de8ad9",
+      "filterId": "3",
+      "title": "GeForce GTX 1060"
     }
   ]
 }

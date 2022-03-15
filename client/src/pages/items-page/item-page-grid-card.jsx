@@ -4,6 +4,7 @@ import {
   Box,
   Typography,
   CardActions,
+  Alert,
 } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -31,17 +32,12 @@ const ItemPageGridCard = ({
   const handleClick = async (itemId, userId) => {
     await APIService.addCartItem(itemId, userId);
   };
-  // const navigate = (e) => {
-  //   e.stopPropagation();
-  //   console.log(`naviguojama i id:${id}`);
-  // };
 
   return (
     <Card
       sx={{
         display: 'flex', justifyContent: 'center', flexDirection: 'column', alignContent: 'flex-end',
       }}
-      // onClick={navigate}
     >
       <Typography gutterBottom variant="h5" component="div" sx={{ textAlign: 'center' }}>
         {clippedTitle}

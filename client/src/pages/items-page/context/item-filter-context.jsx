@@ -67,15 +67,17 @@ const itemFilterContextProvider = ({ children }) => {
     }
   }
 
+  // need more logic, possibly change items.filters structure ???
   const filteredItems = async () => {
     const fetchItems = await APIService.fetchItems();
     const paramsObject = searchParamsToObject(searchParams);
     if(paramsObject.hasOwnProperty("selections")){
       const itemsFilter = paramsObject.selections.map(param => {
-        let findItem = fetchItems.find(item => item.filters.lustId === param || item.filters.manufacturerId === param || item.filters.memoryId === param)
+        let findItem = fetchItems.filter(item => item.filters.lustId === param || item.filters.manufacturerId === param || item.filters.memoryId === param)
         return findItem
       })
-      const removedDuplicates = [ ...new Set(itemsFilter)]
+      let mergedArr = [].concat.apply([], itemsFilter)
+      const removedDuplicates = [ ...new Set(mergedArr)]
       return removedDuplicates
     } else {
       return fetchItems
